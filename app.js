@@ -51,15 +51,8 @@ function normalizeText(value) {
   return String(value || '').trim().toLocaleLowerCase('zh-Hant-TW');
 }
 
-function canonicalName(value) {
-  return String(value || '')
-    .normalize('NFKC')
-    .toLocaleLowerCase('zh-Hant-TW')
-    .replace(/\s+/g, '');
-}
-
-function beyKey(bey) {
-  return `${bey.series || ''}|${canonicalName(bey.name)}`;
+function stripMirrorSuffix(id) {
+  return String(id || '').replace(/R+$/i, '');
 }
 
 function beyPreferenceScore(bey) {
@@ -72,9 +65,13 @@ function beyPreferenceScore(bey) {
 }
 
 function dedupeBeys(items) {
+  const ids = new Set(items.map((bey) => bey.sourceId || bey.id));
   const groups = new Map();
+
   for (const bey of items) {
-    const key = beyKey(bey);
+    const sourceId = bey.sourceId || bey.id;
+    const stripped = stripMirrorSuffix(sourceId);
+    const key = stripped !== sourceId && ids.has(stripped) ? stripped : sourceId;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(bey);
   }
@@ -189,7 +186,7 @@ function renderGrid() {
   els.selectedCount.textContent = String(state.selected.size);
   els.visibleCount.textContent = `／目前顯示 ${visible.length} 顆`;
   els.downloadBtn.disabled = state.selected.size === 0;
-  if (state.beys.length) setStatus(`圖鑑共 ${state.beys.length} 顆，已自動合併同名同組合的重複資料。`);
+  if (state.beys.length) setStatus(`圖鑑共 ${state.beys.length} 個版本；不同配色會分開保留，只合併重複來源資料。`);
 }
 
 const imageCache = new Map();
@@ -397,7 +394,6 @@ async function init() {
     const rawBeys = Array.isArray(payload) ? payload : payload.items || [];
     const { beys, aliases } = dedupeBeys(rawBeys);
     state.beys = beys;
-
     const knownIds = new Set(state.beys.map((bey) => bey.id));
     state.selected = new Set(
       [...state.selected]
