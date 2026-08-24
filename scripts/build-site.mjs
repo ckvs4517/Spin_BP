@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from 'node:fs/promises';
 import { dirname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
 
 const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = resolve(projectRoot, 'dist');
@@ -23,7 +24,7 @@ const serverEntry = `import api from './api.js';\n\nexport default {\n  async fe
 await Promise.all([
   writeFile(join(serverDir, 'api.js'), apiSource, 'utf8'),
   writeFile(join(serverDir, 'index.js'), serverEntry, 'utf8'),
-  cp(join(projectRoot, 'index.html'), join(clientDir, 'index.html')),
+  (async () => { const html = await readFile(join(projectRoot, 'index.html'), 'utf8'); const sha = execFileSync('git', ['rev-parse', '--short', 'HEAD'], { cwd: projectRoot, encoding: 'utf8' }).trim(); await writeFile(join(clientDir, 'index.html'), html.replaceAll('__COMMIT_SHA__', sha), 'utf8'); })(),
   cp(join(projectRoot, 'app.js'), join(clientDir, 'app.js')),
   cp(join(projectRoot, 'styles.css'), join(clientDir, 'styles.css')),
   cp(join(projectRoot, 'config.js'), join(clientDir, 'config.js')),
