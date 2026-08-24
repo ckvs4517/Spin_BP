@@ -64,6 +64,7 @@ function cleanName(title, model) {
 }
 
 function imageCandidates(item, sourceId) {
+  const suffix = sourceId.replace(/^SR-/, '');
   const fromRecord = deepStrings(item)
     .filter((s) => /\.(png|jpe?g|webp)(\?.*)?$/i.test(s))
     .map((s) => s.startsWith('//') ? `https:${s}` : s.startsWith('/') ? `${SITE}${s}` : s)
@@ -73,6 +74,9 @@ function imageCandidates(item, sourceId) {
     `${SITE}/images/app/Series/${sourceId}.png`,
     `${SITE}/images/app/BeybladeSeries/${sourceId}.png`,
     `${SITE}/images/app/Beyblade/${sourceId}.png`,
+    `${SITE}/images/app/Blade/BL-${suffix}.png`,
+    `${SITE}/images/app/MainBlade/MB-${suffix}.png`,
+    `${SITE}/images/app/LockChip/LC-${suffix}.png`,
   ])];
 }
 
