@@ -32,22 +32,6 @@
     "image": "./images/SR-PRD-910404-00.png"
   },
   {
-    "id": "SR-PRD-910497-00",
-    "sourceId": "SR-PRD-910497-00",
-    "model": "BX-05",
-    "series": "BX",
-    "name": "魔導幻箭4-80B",
-    "image": "./images/SR-PRD-910497-00.png"
-  },
-  {
-    "id": "SR-PRD-910480-00",
-    "sourceId": "SR-PRD-910480-00",
-    "model": "BX-06",
-    "series": "BX",
-    "name": "騎士重盾3-80N",
-    "image": "./images/SR-PRD-910480-00.png"
-  },
-  {
     "id": "SR-PRD-910589-00",
     "sourceId": "SR-PRD-910589-00",
     "model": "BX-07",
@@ -238,14 +222,6 @@
     "series": "BX",
     "name": "魔導幻箭4-80N",
     "image": "./images/SR-PRD-913085-03.png"
-  },
-  {
-    "id": "SR-PRD-913139-00",
-    "sourceId": "SR-PRD-913139-00",
-    "model": "BX-22",
-    "series": "BX",
-    "name": "蒼龍神劍3-60F",
-    "image": "./images/SR-PRD-913139-00.png"
   },
   {
     "id": "SR-PRD-913092-00",
@@ -480,20 +456,12 @@
     "image": "./images/SR-PRD-939481-00.png"
   },
   {
-    "id": "SR-PRD-939504-00",
-    "sourceId": "SR-PRD-939504-00",
-    "model": "BX-38",
-    "series": "BX",
-    "name": "赫燃天鳳4-70TP",
-    "image": "./images/SR-PRD-939504-00.png"
-  },
-  {
     "id": "SR-PRD-939504-01",
     "sourceId": "SR-PRD-939504-01",
     "model": "BX-38-01",
     "series": "BX",
     "name": "赫燃天鳳4-70TP",
-    "image": "./images/SR-PRD-939504-01.png"
+    "image": "./images/SR-PRD-939504-00.png"
   },
   {
     "id": "SR-PRD-939511-01",
@@ -600,22 +568,6 @@
     "image": "./images/SR-PRD-096122-00.png"
   },
   {
-    "id": "SR-PRD-084174-02R",
-    "sourceId": "SR-PRD-084174-02R",
-    "model": "BX-50",
-    "series": "BX",
-    "name": "天國日輪6-60TP",
-    "image": "./images/SR-PRD-084174-02R.png"
-  },
-  {
-    "id": "SR-PRD-084174-05R",
-    "sourceId": "SR-PRD-084174-05R",
-    "model": "BX-50",
-    "series": "BX",
-    "name": "銀狼烈焰D9-65L",
-    "image": "./images/SR-PRD-084174-05R.png"
-  },
-  {
     "id": "SR-PRD-084174-01",
     "sourceId": "SR-PRD-084174-01",
     "model": "BX-50-01",
@@ -629,7 +581,7 @@
     "model": "BX-50-02",
     "series": "BX",
     "name": "天國日輪6-60TP",
-    "image": "./images/SR-PRD-084174-02.png"
+    "image": "./images/SR-PRD-084174-02R.png"
   },
   {
     "id": "SR-PRD-084174-03",
@@ -653,7 +605,7 @@
     "model": "BX-50-05",
     "series": "BX",
     "name": "銀狼烈焰D 9-65L",
-    "image": "./images/SR-PRD-084174-05.png"
+    "image": "./images/SR-PRD-084174-05R.png"
   },
   {
     "id": "SR-PRD-084174-06",
@@ -720,28 +672,12 @@
     "image": "./images/SR-PRD-939634-02.png"
   },
   {
-    "id": "SR-PRD-939627-03R",
-    "sourceId": "SR-PRD-939627-03R",
-    "model": "CX-05",
-    "series": "CX",
-    "name": "惡魔至尊T3-85O",
-    "image": "./images/SR-PRD-939627-03R.png"
-  },
-  {
-    "id": "SR-PRD-939627-01R",
-    "sourceId": "SR-PRD-939627-01R",
-    "model": "CX-05",
-    "series": "CX",
-    "name": "惡魔獵魂T4-70K",
-    "image": "./images/SR-PRD-939627-01R.png"
-  },
-  {
     "id": "SR-PRD-939627-01",
     "sourceId": "SR-PRD-939627-01",
     "model": "CX-05-01",
     "series": "CX",
     "name": "惡魔獵魂T 4-70K",
-    "image": "./images/SR-PRD-939627-01.png"
+    "image": "./images/SR-PRD-939627-01R.png"
   },
   {
     "id": "SR-PRD-939627-02",
@@ -757,7 +693,7 @@
     "model": "CX-05-03",
     "series": "CX",
     "name": "惡魔至尊T 3-85O",
-    "image": "./images/SR-PRD-939627-03.png"
+    "image": "./images/SR-PRD-939627-03R.png"
   },
   {
     "id": "SR-PRD-939627-04",
@@ -816,14 +752,6 @@
     "image": "./images/SR-PRD-956976-00.png"
   },
   {
-    "id": "SR-PRD-956976-00R",
-    "sourceId": "SR-PRD-956976-00R",
-    "model": "CX-07",
-    "series": "CX",
-    "name": "天馬爆擊ATr 金屬塗層:碧綠",
-    "image": "./images/SR-PRD-956976-00R.png"
-  },
-  {
     "id": "SR-PRD-956983-01",
     "sourceId": "SR-PRD-956983-01",
     "model": "CX-08-01",
@@ -880,14 +808,6 @@
     "image": "./images/SR-PRD-995678-00.png"
   },
   {
-    "id": "SR-PRD-995678-00R",
-    "sourceId": "SR-PRD-995678-00R",
-    "model": "CX-09",
-    "series": "CX",
-    "name": "焰神滅世D5-70TK",
-    "image": "./images/SR-PRD-995678-00R.png"
-  },
-  {
     "id": "SR-PRD-097242-00",
     "sourceId": "SR-PRD-097242-00",
     "model": "CX-10",
@@ -896,20 +816,12 @@
     "image": "./images/SR-PRD-097242-00.png"
   },
   {
-    "id": "SR-PRD-098775-01R",
-    "sourceId": "SR-PRD-098775-01R",
-    "model": "CX-11",
-    "series": "CX",
-    "name": "帝王威能HOp 金屬塗層:闇黑",
-    "image": "./images/SR-PRD-098775-01R.png"
-  },
-  {
     "id": "SR-PRD-098775-01",
     "sourceId": "SR-PRD-098775-01",
     "model": "CX-11-01",
     "series": "CX",
     "name": "帝王威能HOp 金屬塗層:闇黑",
-    "image": "./images/SR-PRD-098775-01.png"
+    "image": "./images/SR-PRD-098775-01R.png"
   },
   {
     "id": "SR-PRD-098775-02",
@@ -968,44 +880,12 @@
     "image": "./images/SR-PRD-097280-00.png"
   },
   {
-    "id": "SR-PRD-096146-02R",
-    "sourceId": "SR-PRD-096146-02R",
-    "model": "CX-17",
-    "series": "CX",
-    "name": "獨角極變PO1-80GR",
-    "image": "./images/SR-PRD-096146-02R.png"
-  },
-  {
-    "id": "SR-PRD-096146-02RR",
-    "sourceId": "SR-PRD-096146-02RR",
-    "model": "CX-17",
-    "series": "CX",
-    "name": "獨角極變PO1-80GR",
-    "image": "./images/SR-PRD-096146-02RR.png"
-  },
-  {
-    "id": "SR-PRD-096146-01R",
-    "sourceId": "SR-PRD-096146-01R",
-    "model": "CX-17",
-    "series": "CX",
-    "name": "獨角極變PO3-60GU",
-    "image": "./images/SR-PRD-096146-01R.png"
-  },
-  {
-    "id": "SR-PRD-096146-01RR",
-    "sourceId": "SR-PRD-096146-01RR",
-    "model": "CX-17",
-    "series": "CX",
-    "name": "獨角極變PO3-60GU",
-    "image": "./images/SR-PRD-096146-01RR.png"
-  },
-  {
     "id": "SR-PRD-096146-01",
     "sourceId": "SR-PRD-096146-01",
     "model": "CX-17-01",
     "series": "CX",
     "name": "獨角極變PO 3-60GU",
-    "image": "./images/SR-PRD-096146-01.png"
+    "image": "./images/SR-PRD-096146-01R.png"
   },
   {
     "id": "SR-PRD-096146-02",
@@ -1013,7 +893,7 @@
     "model": "CX-17-02",
     "series": "CX",
     "name": "獨角極變PO 1-80GR",
-    "image": "./images/SR-PRD-096146-02.png"
+    "image": "./images/SR-PRD-096146-02R.png"
   },
   {
     "id": "SR-PRD-096146-03",
@@ -1056,44 +936,12 @@
     "image": "./images/SR-PRD-096177-01.png"
   },
   {
-    "id": "SR-PRD-096177-02",
-    "sourceId": "SR-PRD-096177-02",
-    "model": "CX-18-02",
-    "series": "CX",
-    "name": "腕龍鞭打OW 5-70Nr",
-    "image": "./images/SR-PRD-096177-02.png"
-  },
-  {
-    "id": "SR-PRD-096177-03",
-    "sourceId": "SR-PRD-096177-03",
-    "model": "CX-18-03",
-    "series": "CX",
-    "name": "腕龍鞭打OW 5-70Nr",
-    "image": "./images/SR-PRD-096177-03.png"
-  },
-  {
     "id": "SR-PRD-080626-01",
     "sourceId": "SR-PRD-080626-01",
     "model": "CX-19-01",
     "series": "CX",
     "name": "鱷魚碾壓 TQ5-50GN",
-    "image": ""
-  },
-  {
-    "id": "SR-PRD-080626-02",
-    "sourceId": "SR-PRD-080626-02",
-    "model": "CX-19-02",
-    "series": "CX",
-    "name": "鱷魚碾壓 TQ5-50GN",
-    "image": ""
-  },
-  {
-    "id": "SR-PRD-080626-03",
-    "sourceId": "SR-PRD-080626-03",
-    "model": "CX-19-03",
-    "series": "CX",
-    "name": "鱷魚碾壓 TQ5-50GN",
-    "image": ""
+    "image": "./images/SR-PRD-080626-01.jpg"
   },
   {
     "id": "SR-PRD-080558-00R",
@@ -1304,20 +1152,12 @@
     "image": "./images/SR-PRD-939573-00.png"
   },
   {
-    "id": "SR-PRD-958499-00",
-    "sourceId": "SR-PRD-958499-00",
-    "model": "UX-14",
-    "series": "UX",
-    "name": "天蠍長矛0-70Z",
-    "image": "./images/SR-PRD-958499-00.png"
-  },
-  {
     "id": "SR-PRD-958499-01",
     "sourceId": "SR-PRD-958499-01",
     "model": "UX-14-01",
     "series": "UX",
     "name": "天蠍長矛0-70Z",
-    "image": "./images/SR-PRD-958499-01.png"
+    "image": "./images/SR-PRD-958499-00.png"
   },
   {
     "id": "SR-PRD-982432-01",
@@ -1352,36 +1192,12 @@
     "image": "./images/SR-PRD-990154-01.png"
   },
   {
-    "id": "SR-PRD-990154-02",
-    "sourceId": "SR-PRD-990154-02",
-    "model": "UX-16-02",
-    "series": "UX",
-    "name": "時鐘幻象9-65B",
-    "image": "./images/SR-PRD-990154-02.png"
-  },
-  {
-    "id": "SR-PRD-990154-03",
-    "sourceId": "SR-PRD-990154-03",
-    "model": "UX-16-03",
-    "series": "UX",
-    "name": "時鐘幻象9-65B",
-    "image": "./images/SR-PRD-990154-03.png"
-  },
-  {
     "id": "SR-PRD-997627-00",
     "sourceId": "SR-PRD-997627-00",
     "model": "UX-17",
     "series": "UX",
     "name": "隕星龍騎士3-70J 金屬塗層:白色",
     "image": "./images/SR-PRD-997627-00.png"
-  },
-  {
-    "id": "SR-PRD-097167-04R",
-    "sourceId": "SR-PRD-097167-04R",
-    "model": "UX-18",
-    "series": "UX",
-    "name": "焰神勇氣C9-70TP",
-    "image": "./images/SR-PRD-097167-04R.png"
   },
   {
     "id": "SR-PRD-097167-01",
@@ -1413,7 +1229,7 @@
     "model": "UX-18-04",
     "series": "UX",
     "name": "焰神勇氣C 9-70TP",
-    "image": "./images/SR-PRD-097167-04.png"
+    "image": "./images/SR-PRD-097167-04R.png"
   },
   {
     "id": "SR-PRD-097167-05",
@@ -1448,20 +1264,12 @@
     "image": "./images/SR-PRD-096139-00.png"
   },
   {
-    "id": "SR-PRD-085546-01R",
-    "sourceId": "SR-PRD-085546-01R",
-    "model": "UX-21",
-    "series": "UX",
-    "name": "惡魔冥界Z",
-    "image": "./images/SR-PRD-085546-01R.png"
-  },
-  {
     "id": "SR-PRD-085546-01",
     "sourceId": "SR-PRD-085546-01",
     "model": "UX-21-01",
     "series": "UX",
     "name": "惡魔冥界Z",
-    "image": "./images/SR-PRD-085546-01.png"
+    "image": "./images/SR-PRD-085546-01R.png"
   },
   {
     "id": "SR-PRD-085546-02",
