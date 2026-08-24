@@ -27,7 +27,7 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p dist
-          cp index.html app.js styles.css dist/
+          cp index.html app.js styles.css config.js dist/
           cp -R data dist/data
           cp -R images dist/images
           touch dist/.nojekyll
@@ -43,5 +43,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-# Pages enabled; this commit triggers the first live deployment.
