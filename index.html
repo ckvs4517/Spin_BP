@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111827" />
+  <title>Spin BP｜比賽規則圖片產生器</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">SPIN BP</p>
+      <h1>比賽規則圖片產生器</h1>
+      <p class="sub">勾選陀螺，直接產生參賽者一眼就看懂的規則圖。</p>
+    </div>
+    <a class="source-link" href="https://beyblade.phstudy.org/index.html" target="_blank" rel="noreferrer">資料來源 ↗</a>
+  </header>
+
+  <main class="layout">
+    <section class="panel controls-panel" aria-label="規則設定">
+      <div class="field-group">
+        <label class="field-label">規則模式</label>
+        <div class="segmented" id="modeTabs">
+          <button type="button" class="segment active" data-mode="ban">以下陀螺禁止使用</button>
+          <button type="button" class="segment" data-mode="allow">只有以下陀螺可使用</button>
+        </div>
+      </div>
+
+      <div class="field-grid">
+        <label class="field">
+          <span>比賽名稱</span>
+          <input id="eventName" type="text" maxlength="48" placeholder="例：Spin League 8 月特別賽" />
+        </label>
+        <label class="field">
+          <span>補充規則</span>
+          <input id="note" type="text" maxlength="80" placeholder="例：同名戰刃不得重複使用" />
+        </label>
+      </div>
+
+      <div class="toolbar">
+        <div class="series-tabs" id="seriesTabs" aria-label="系列篩選">
+          <button type="button" class="series active" data-series="ALL">全部</button>
+          <button type="button" class="series" data-series="BX">BX</button>
+          <button type="button" class="series" data-series="UX">UX</button>
+          <button type="button" class="series" data-series="CX">CX</button>
+        </div>
+        <label class="search-wrap">
+          <span class="sr-only">搜尋陀螺</span>
+          <input id="search" type="search" placeholder="搜尋名稱或型號…" autocomplete="off" />
+        </label>
+      </div>
+
+      <div class="selection-bar">
+        <div><strong id="selectedCount">0</strong> 顆已選擇 <span id="visibleCount" class="muted"></span></div>
+        <div class="selection-actions">
+          <button type="button" class="text-btn" id="selectVisible">選取目前結果</button>
+          <button type="button" class="text-btn" id="clearSelection">清除選擇</button>
+        </div>
+      </div>
+
+      <div id="status" class="status" role="status" aria-live="polite">正在讀取圖鑑資料…</div>
+      <div id="beyGrid" class="bey-grid" aria-live="polite"></div>
+    </section>
+
+    <aside class="panel preview-panel">
+      <div class="preview-head">
+        <div>
+          <p class="eyebrow">OUTPUT PREVIEW</p>
+          <h2>規則圖預覽</h2>
+        </div>
+        <button type="button" class="primary-btn" id="downloadBtn" disabled>下載 PNG</button>
+      </div>
+      <div class="canvas-shell">
+        <canvas id="ruleCanvas" width="1080" height="1350" aria-label="規則圖預覽"></canvas>
+      </div>
+      <p class="hint">輸出為 1080px 寬 PNG，適合 LINE、Discord、Facebook 與報名頁直接分享。</p>
+    </aside>
+  </main>
+
+  <footer>
+    資料由公開圖鑑同步；商品圖片與名稱權利屬原權利人。本工具僅協助整理比賽規則。
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
