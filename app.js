@@ -246,11 +246,6 @@ function setStatus(message, isError = false) {
 function renderTabs() {
   const categories = [...new Set(state.beys.map((bey) => bey.category).filter(Boolean))];
   for (const category of categories) {
-    if (!els.seriesTabs.querySelector(`[data-series="${CSS.escape(category)}"]`)) {
-      const button = document.createElement('button'); button.type = 'button'; button.className = 'series'; button.dataset.series = category; button.textContent = category; els.seriesTabs.append(button);
-    }
-  }
-  for (const category of categories) {
     if (!els.partTabs.querySelector(`[data-part="${CSS.escape(category)}"]`)) { const button=document.createElement('button'); button.type='button'; button.className='series'; button.dataset.part=category; button.textContent=category; els.partTabs.append(button); }
   }
   els.modeTabs.querySelectorAll('[data-mode]').forEach((button) => {
@@ -685,6 +680,7 @@ function bindEvents() {
     const button = event.target.closest('[data-series]');
     if (!button) return;
     state.series = button.dataset.series;
+    state.part = 'ALL';
     renderTabs();
     renderGrid();
   });
