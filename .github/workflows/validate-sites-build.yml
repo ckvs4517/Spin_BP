@@ -1,0 +1,36 @@
+name: Validate ChatGPT Sites build
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'app.js'
+      - 'styles.css'
+      - 'config.js'
+      - 'worker/**'
+      - 'scripts/build-site.mjs'
+      - '.openai/**'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Build Sites artifact
+        run: npm run build
+      - name: Verify artifact layout
+        run: |
+          test -f dist/server/index.js
+          test -f dist/server/api.js
+          test -f dist/client/index.html
+          test -f dist/.openai/hosting.json
+          test -f dist/.openai/drizzle/0001_overrides.sql
