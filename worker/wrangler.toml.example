@@ -1,0 +1,15 @@
+name = "spin-bp-api"
+main = "src/index.js"
+compatibility_date = "2026-08-24"
+
+[vars]
+ALLOWED_ORIGINS = "https://ckvs4517.github.io"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "spin-bp"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "spin-bp-images"
