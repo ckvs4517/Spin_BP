@@ -1,1 +1,1482 @@
-[]
+[
+  {
+    "id": "SR-PRD-910381-00:BX-01:蒼龍神劍3-60F",
+    "sourceId": "SR-PRD-910381-00",
+    "model": "BX-01",
+    "series": "BX",
+    "name": "蒼龍神劍3-60F",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910398-00:BX-02:惡魔紅鐮4-60T",
+    "sourceId": "SR-PRD-910398-00",
+    "model": "BX-02",
+    "series": "BX",
+    "name": "惡魔紅鐮4-60T",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910473-00:BX-03:魔導幻箭4-80B",
+    "sourceId": "SR-PRD-910473-00",
+    "model": "BX-03",
+    "series": "BX",
+    "name": "魔導幻箭4-80B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910404-00:BX-04:騎士重盾3-80N",
+    "sourceId": "SR-PRD-910404-00",
+    "model": "BX-04",
+    "series": "BX",
+    "name": "騎士重盾3-80N",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910497-00:BX-05:魔導幻箭4-80B",
+    "sourceId": "SR-PRD-910497-00",
+    "model": "BX-05",
+    "series": "BX",
+    "name": "魔導幻箭4-80B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910480-00:BX-06:騎士重盾3-80N",
+    "sourceId": "SR-PRD-910480-00",
+    "model": "BX-06",
+    "series": "BX",
+    "name": "騎士重盾3-80N",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910589-00:BX-07:蒼龍神劍3-60F\\n<size=36>                                                        特別版</size>",
+    "sourceId": "SR-PRD-910589-00",
+    "model": "BX-07",
+    "series": "BX",
+    "name": "蒼龍神劍3-60F\\n<size=36>                                                        特別版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910572-01:BX-08-01:惡魔紅鐮3-80B",
+    "sourceId": "SR-PRD-910572-01",
+    "model": "BX-08-01",
+    "series": "BX",
+    "name": "惡魔紅鐮3-80B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910572-02:BX-08-02:騎士重盾4-80T",
+    "sourceId": "SR-PRD-910572-02",
+    "model": "BX-08-02",
+    "series": "BX",
+    "name": "騎士重盾4-80T",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910572-03:BX-08-03:魔導幻箭4-60N",
+    "sourceId": "SR-PRD-910572-03",
+    "model": "BX-08-03",
+    "series": "BX",
+    "name": "魔導幻箭4-60N",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-910565-00:BX-13:騎士長槍4-80HN",
+    "sourceId": "SR-PRD-910565-00",
+    "model": "BX-13",
+    "series": "BX",
+    "name": "騎士長槍4-80HN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912965-01:BX-14-01:鮫鯊鋒鰭3-60LF",
+    "sourceId": "SR-PRD-912965-01",
+    "model": "BX-14-01",
+    "series": "BX",
+    "name": "鮫鯊鋒鰭3-60LF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912965-02:BX-14-02:鮫鯊鋒鰭4-80N",
+    "sourceId": "SR-PRD-912965-02",
+    "model": "BX-14-02",
+    "series": "BX",
+    "name": "鮫鯊鋒鰭4-80N",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912965-03:BX-14-03:蒼龍神劍3-80B",
+    "sourceId": "SR-PRD-912965-03",
+    "model": "BX-14-03",
+    "series": "BX",
+    "name": "蒼龍神劍3-80B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912965-04:BX-14-04:惡魔紅鐮4-80LF",
+    "sourceId": "SR-PRD-912965-04",
+    "model": "BX-14-04",
+    "series": "BX",
+    "name": "惡魔紅鐮4-80LF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912965-05:BX-14-05:騎士重盾4-60LF",
+    "sourceId": "SR-PRD-912965-05",
+    "model": "BX-14-05",
+    "series": "BX",
+    "name": "騎士重盾4-60LF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912965-06:BX-14-06:魔導幻箭3-60T",
+    "sourceId": "SR-PRD-912965-06",
+    "model": "BX-14-06",
+    "series": "BX",
+    "name": "魔導幻箭3-60T",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913030-00:BX-15:雄獅獵爪5-60P",
+    "sourceId": "SR-PRD-913030-00",
+    "model": "BX-15",
+    "series": "BX",
+    "name": "雄獅獵爪5-60P",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912972-01:BX-16-01:王蛇鞭尾5-80O",
+    "sourceId": "SR-PRD-912972-01",
+    "model": "BX-16-01",
+    "series": "BX",
+    "name": "王蛇鞭尾5-80O",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912972-02:BX-16-02:王蛇鞭尾4-60F",
+    "sourceId": "SR-PRD-912972-02",
+    "model": "BX-16-02",
+    "series": "BX",
+    "name": "王蛇鞭尾4-60F",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-912972-03:BX-16-03:王蛇鞭尾3-80HN",
+    "sourceId": "SR-PRD-912972-03",
+    "model": "BX-16-03",
+    "series": "BX",
+    "name": "王蛇鞭尾3-80HN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913047-01:BX-17-01:蒼龍神劍3-60F\\n<size=36>                                                        火紅版</size>",
+    "sourceId": "SR-PRD-913047-01",
+    "model": "BX-17-01",
+    "series": "BX",
+    "name": "蒼龍神劍3-60F\\n<size=36>                                                        火紅版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913047-02:BX-17-02:魔導幻箭4-80B\\n<size=36>                                                        水藍版</size>",
+    "sourceId": "SR-PRD-913047-02",
+    "model": "BX-17-02",
+    "series": "BX",
+    "name": "魔導幻箭4-80B\\n<size=36>                                                        水藍版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913061-00:BX-19:戰犀重角3-80S",
+    "sourceId": "SR-PRD-913061-00",
+    "model": "BX-19",
+    "series": "BX",
+    "name": "戰犀重角3-80S",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913078-01:BX-20-01:蒼龍利刃4-60R",
+    "sourceId": "SR-PRD-913078-01",
+    "model": "BX-20-01",
+    "series": "BX",
+    "name": "蒼龍利刃4-60R",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913078-02:BX-20-02:鮫鯊鋒鰭3-80F",
+    "sourceId": "SR-PRD-913078-02",
+    "model": "BX-20-02",
+    "series": "BX",
+    "name": "鮫鯊鋒鰭3-80F",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913078-03:BX-20-03:騎士重盾5-80T",
+    "sourceId": "SR-PRD-913078-03",
+    "model": "BX-20-03",
+    "series": "BX",
+    "name": "騎士重盾5-80T",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913085-01:BX-21-01:惡魔鎖鏈5-60HT",
+    "sourceId": "SR-PRD-913085-01",
+    "model": "BX-21-01",
+    "series": "BX",
+    "name": "惡魔鎖鏈5-60HT",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913085-02:BX-21-02:騎士長槍3-60LF",
+    "sourceId": "SR-PRD-913085-02",
+    "model": "BX-21-02",
+    "series": "BX",
+    "name": "騎士長槍3-60LF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913085-03:BX-21-03:魔導幻箭4-80N",
+    "sourceId": "SR-PRD-913085-03",
+    "model": "BX-21-03",
+    "series": "BX",
+    "name": "魔導幻箭4-80N",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913139-00:BX-22:蒼龍神劍3-60F",
+    "sourceId": "SR-PRD-913139-00",
+    "model": "BX-22",
+    "series": "BX",
+    "name": "蒼龍神劍3-60F",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913092-00:BX-23:鳳凰飛翼9-60GF\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "sourceId": "SR-PRD-913092-00",
+    "model": "BX-23",
+    "series": "BX",
+    "name": "鳳凰飛翼9-60GF\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913108-01:BX-24-01:飛龍旋翼5-80GB",
+    "sourceId": "SR-PRD-913108-01",
+    "model": "BX-24-01",
+    "series": "BX",
+    "name": "飛龍旋翼5-80GB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913108-02:BX-24-02:飛龍旋翼3-60T",
+    "sourceId": "SR-PRD-913108-02",
+    "model": "BX-24-02",
+    "series": "BX",
+    "name": "飛龍旋翼3-60T",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913108-03:BX-24-03:騎士長槍4-60GB",
+    "sourceId": "SR-PRD-913108-03",
+    "model": "BX-24-03",
+    "series": "BX",
+    "name": "騎士長槍4-60GB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913108-04:BX-24-04:王蛇鞭尾5-60F",
+    "sourceId": "SR-PRD-913108-04",
+    "model": "BX-24-04",
+    "series": "BX",
+    "name": "王蛇鞭尾5-60F",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913108-05:BX-24-05:雄獅獵爪3-80HN",
+    "sourceId": "SR-PRD-913108-05",
+    "model": "BX-24-05",
+    "series": "BX",
+    "name": "雄獅獵爪3-80HN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913108-06:BX-24-06:魔導幻箭4-80GB",
+    "sourceId": "SR-PRD-913108-06",
+    "model": "BX-24-06",
+    "series": "BX",
+    "name": "魔導幻箭4-80GB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914464-00:BX-26:幻獸刺心5-60GP",
+    "sourceId": "SR-PRD-914464-00",
+    "model": "BX-26",
+    "series": "BX",
+    "name": "幻獸刺心5-60GP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913115-01:BX-27-01:魔獸護甲9-80GN",
+    "sourceId": "SR-PRD-913115-01",
+    "model": "BX-27-01",
+    "series": "BX",
+    "name": "魔獸護甲9-80GN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913115-02:BX-27-02:魔獸護甲4-80HT",
+    "sourceId": "SR-PRD-913115-02",
+    "model": "BX-27-02",
+    "series": "BX",
+    "name": "魔獸護甲4-80HT",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-913115-03:BX-27-03:魔獸護甲5-60O",
+    "sourceId": "SR-PRD-913115-03",
+    "model": "BX-27-03",
+    "series": "BX",
+    "name": "魔獸護甲5-60O",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914532-01:BX-31-01:暴龍霸擊4-70Q",
+    "sourceId": "SR-PRD-914532-01",
+    "model": "BX-31-01",
+    "series": "BX",
+    "name": "暴龍霸擊4-70Q",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914532-02:BX-31-02:暴龍霸擊3-60S",
+    "sourceId": "SR-PRD-914532-02",
+    "model": "BX-31-02",
+    "series": "BX",
+    "name": "暴龍霸擊3-60S",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914532-03:BX-31-03:惡魔鎖鏈9-80O",
+    "sourceId": "SR-PRD-914532-03",
+    "model": "BX-31-03",
+    "series": "BX",
+    "name": "惡魔鎖鏈9-80O",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914532-04:BX-31-04:蒼龍利刃4-70P",
+    "sourceId": "SR-PRD-914532-04",
+    "model": "BX-31-04",
+    "series": "BX",
+    "name": "蒼龍利刃4-70P",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914532-05:BX-31-05:鮫鯊鋒鰭1-60Q",
+    "sourceId": "SR-PRD-914532-05",
+    "model": "BX-31-05",
+    "series": "BX",
+    "name": "鮫鯊鋒鰭1-60Q",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914532-06:BX-31-06:戰犀重角5-80Q",
+    "sourceId": "SR-PRD-914532-06",
+    "model": "BX-31-06",
+    "series": "BX",
+    "name": "戰犀重角5-80Q",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914556-00:BX-33:皓戰猛虎3-60U",
+    "sourceId": "SR-PRD-914556-00",
+    "model": "BX-33",
+    "series": "BX",
+    "name": "皓戰猛虎3-60U",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914563-00:BX-34:蒼穹龍騎士2-60C",
+    "sourceId": "SR-PRD-914563-00",
+    "model": "BX-34",
+    "series": "BX",
+    "name": "蒼穹龍騎士2-60C",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914570-01:BX-35-01:玄冥戰甲4-60D",
+    "sourceId": "SR-PRD-914570-01",
+    "model": "BX-35-01",
+    "series": "BX",
+    "name": "玄冥戰甲4-60D",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914570-02:BX-35-02:玄冥戰甲9-80B",
+    "sourceId": "SR-PRD-914570-02",
+    "model": "BX-35-02",
+    "series": "BX",
+    "name": "玄冥戰甲9-80B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914570-03:BX-35-03:幻獸刺心3-70D",
+    "sourceId": "SR-PRD-914570-03",
+    "model": "BX-35-03",
+    "series": "BX",
+    "name": "幻獸刺心3-70D",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914570-04:BX-35-04:魔導神杖1-60R",
+    "sourceId": "SR-PRD-914570-04",
+    "model": "BX-35-04",
+    "series": "BX",
+    "name": "魔導神杖1-60R",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914570-05:BX-35-05:鳳凰飛翼5-80H",
+    "sourceId": "SR-PRD-914570-05",
+    "model": "BX-35-05",
+    "series": "BX",
+    "name": "鳳凰飛翼5-80H",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914570-06:BX-35-06:王蛇鞭尾5-70D",
+    "sourceId": "SR-PRD-914570-06",
+    "model": "BX-35-06",
+    "series": "BX",
+    "name": "王蛇鞭尾5-70D",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914617-01:BX-36-01:巨鯨怒濤5-80E",
+    "sourceId": "SR-PRD-914617-01",
+    "model": "BX-36-01",
+    "series": "BX",
+    "name": "巨鯨怒濤5-80E",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914617-02:BX-36-02:巨鯨怒濤4-70HN",
+    "sourceId": "SR-PRD-914617-02",
+    "model": "BX-36-02",
+    "series": "BX",
+    "name": "巨鯨怒濤4-70HN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914617-03:BX-36-03:巨鯨怒濤3-80GB",
+    "sourceId": "SR-PRD-914617-03",
+    "model": "BX-36-03",
+    "series": "BX",
+    "name": "巨鯨怒濤3-80GB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939481-00:BX-37:悍熊猛爪5-60F",
+    "sourceId": "SR-PRD-939481-00",
+    "model": "BX-37",
+    "series": "BX",
+    "name": "悍熊猛爪5-60F",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939504-00:BX-38:赫燃天鳳4-70TP",
+    "sourceId": "SR-PRD-939504-00",
+    "model": "BX-38",
+    "series": "BX",
+    "name": "赫燃天鳳4-70TP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939504-01:BX-38-01:赫燃天鳳4-70TP",
+    "sourceId": "SR-PRD-939504-01",
+    "model": "BX-38-01",
+    "series": "BX",
+    "name": "赫燃天鳳4-70TP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939511-01:BX-39-01:護城龍神7-80GP",
+    "sourceId": "SR-PRD-939511-01",
+    "model": "BX-39-01",
+    "series": "BX",
+    "name": "護城龍神7-80GP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939511-02:BX-39-02:護城龍神5-70O",
+    "sourceId": "SR-PRD-939511-02",
+    "model": "BX-39-02",
+    "series": "BX",
+    "name": "護城龍神5-70O",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939511-03:BX-39-03:護城龍神3-60D",
+    "sourceId": "SR-PRD-939511-03",
+    "model": "BX-39-03",
+    "series": "BX",
+    "name": "護城龍神3-60D",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939528-00:BX-44:三角強襲M-85BS",
+    "sourceId": "SR-PRD-939528-00",
+    "model": "BX-44",
+    "series": "BX",
+    "name": "三角強襲M-85BS",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939580-00:BX-45:武士魂斬6-70M",
+    "sourceId": "SR-PRD-939580-00",
+    "model": "BX-45",
+    "series": "BX",
+    "name": "武士魂斬6-70M",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-997610-01:BX-46-01:蒼穹龍神9-60R\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "sourceId": "SR-PRD-997610-01",
+    "model": "BX-46-01",
+    "series": "BX",
+    "name": "蒼穹龍神9-60R\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-997610-02:BX-46-02:戰羊阻截7-70T",
+    "sourceId": "SR-PRD-997610-02",
+    "model": "BX-46-02",
+    "series": "BX",
+    "name": "戰羊阻截7-70T",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096092-01:BX-48-01:蒼穹龍騎士9-80F\\n<size=36>                                                        金屬塗層:闇黑</size>",
+    "sourceId": "SR-PRD-096092-01",
+    "model": "BX-48-01",
+    "series": "BX",
+    "name": "蒼穹龍騎士9-80F\\n<size=36>                                                        金屬塗層:闇黑</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096092-02:BX-48-02:鮫鯊鋒鰭4-70E\\n<size=36>                                                        金屬塗層:水藍</size>",
+    "sourceId": "SR-PRD-096092-02",
+    "model": "BX-48-02",
+    "series": "BX",
+    "name": "鮫鯊鋒鰭4-70E\\n<size=36>                                                        金屬塗層:水藍</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096092-03:BX-48-03:猛瑪長牙7-60S\\n<size=36>                                                        金屬塗層:闇黑</size>",
+    "sourceId": "SR-PRD-096092-03",
+    "model": "BX-48-03",
+    "series": "BX",
+    "name": "猛瑪長牙7-60S\\n<size=36>                                                        金屬塗層:闇黑</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096092-04:BX-48-04:惡魔紅鐮3-85GB\\n<size=36>                                                        金屬塗層:燦金</size>",
+    "sourceId": "SR-PRD-096092-04",
+    "model": "BX-48-04",
+    "series": "BX",
+    "name": "惡魔紅鐮3-85GB\\n<size=36>                                                        金屬塗層:燦金</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096092-05:BX-48-05:蒼龍爆刃2-80Q\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "sourceId": "SR-PRD-096092-05",
+    "model": "BX-48-05",
+    "series": "BX",
+    "name": "蒼龍爆刃2-80Q\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096122-00:BX-49:蒼龍突擊4-50FF",
+    "sourceId": "SR-PRD-096122-00",
+    "model": "BX-49",
+    "series": "BX",
+    "name": "蒼龍突擊4-50FF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-084174-02R:BX-50:天國日輪6-60TP",
+    "sourceId": "SR-PRD-084174-02R",
+    "model": "BX-50",
+    "series": "BX",
+    "name": "天國日輪6-60TP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-084174-05R:BX-50:銀狼烈焰D9-65L",
+    "sourceId": "SR-PRD-084174-05R",
+    "model": "BX-50",
+    "series": "BX",
+    "name": "銀狼烈焰D9-65L",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-084174-01:BX-50-01:天國日輪 0-80DS",
+    "sourceId": "SR-PRD-084174-01",
+    "model": "BX-50-01",
+    "series": "BX",
+    "name": "天國日輪 0-80DS",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-084174-02:BX-50-02:天國日輪6-60TP",
+    "sourceId": "SR-PRD-084174-02",
+    "model": "BX-50-02",
+    "series": "BX",
+    "name": "天國日輪6-60TP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-084174-03:BX-50-03:衝擊龍神7-55FB",
+    "sourceId": "SR-PRD-084174-03",
+    "model": "BX-50-03",
+    "series": "BX",
+    "name": "衝擊龍神7-55FB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-084174-04:BX-50-04:幽靈元魂M-85DS",
+    "sourceId": "SR-PRD-084174-04",
+    "model": "BX-50-04",
+    "series": "BX",
+    "name": "幽靈元魂M-85DS",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-084174-05:BX-50-05:銀狼烈焰D 9-65L",
+    "sourceId": "SR-PRD-084174-05",
+    "model": "BX-50-05",
+    "series": "BX",
+    "name": "銀狼烈焰D 9-65L",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-084174-06:BX-50-06:魔犬獵魂B 0-80WB",
+    "sourceId": "SR-PRD-084174-06",
+    "model": "BX-50-06",
+    "series": "BX",
+    "name": "魔犬獵魂B 0-80WB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-930495-00R:CX-00:天馬爆擊ATr\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "sourceId": "SR-PRD-930495-00R",
+    "model": "CX-00",
+    "series": "CX",
+    "name": "天馬爆擊ATr\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-994350-00R:CX-00:雄獅獠牙T4-60A\\n<size=36>                                                        火紅版</size>",
+    "sourceId": "SR-PRD-994350-00R",
+    "model": "CX-00",
+    "series": "CX",
+    "name": "雄獅獠牙T4-60A\\n<size=36>                                                        火紅版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939597-00:CX-01:蒼龍勇氣S 6-60V",
+    "sourceId": "SR-PRD-939597-00",
+    "model": "CX-01",
+    "series": "CX",
+    "name": "蒼龍勇氣S 6-60V",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939603-00:CX-02:魔導至尊R 4-55LO",
+    "sourceId": "SR-PRD-939603-00",
+    "model": "CX-02",
+    "series": "CX",
+    "name": "魔導至尊R 4-55LO",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939610-00:CX-03:英仙幽冥B 6-80W",
+    "sourceId": "SR-PRD-939610-00",
+    "model": "CX-03",
+    "series": "CX",
+    "name": "英仙幽冥B 6-80W",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939634-01:CX-04-01:蒼龍勇氣S 6-60V\\n<size=36>                                                        特別版</size>",
+    "sourceId": "SR-PRD-939634-01",
+    "model": "CX-04-01",
+    "series": "CX",
+    "name": "蒼龍勇氣S 6-60V\\n<size=36>                                                        特別版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939634-02:CX-04-02:英仙幽冥B 6-80W\\n<size=36>                                                        特別版</size>",
+    "sourceId": "SR-PRD-939634-02",
+    "model": "CX-04-02",
+    "series": "CX",
+    "name": "英仙幽冥B 6-80W\\n<size=36>                                                        特別版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939627-03R:CX-05:惡魔至尊T3-85O",
+    "sourceId": "SR-PRD-939627-03R",
+    "model": "CX-05",
+    "series": "CX",
+    "name": "惡魔至尊T3-85O",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939627-01R:CX-05:惡魔獵魂T4-70K",
+    "sourceId": "SR-PRD-939627-01R",
+    "model": "CX-05",
+    "series": "CX",
+    "name": "惡魔獵魂T4-70K",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939627-01:CX-05-01:惡魔獵魂T 4-70K",
+    "sourceId": "SR-PRD-939627-01",
+    "model": "CX-05-01",
+    "series": "CX",
+    "name": "惡魔獵魂T 4-70K",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939627-02:CX-05-02:戰犀獵魂C 4-55D",
+    "sourceId": "SR-PRD-939627-02",
+    "model": "CX-05-02",
+    "series": "CX",
+    "name": "戰犀獵魂C 4-55D",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939627-03:CX-05-03:惡魔至尊T 3-85O",
+    "sourceId": "SR-PRD-939627-03",
+    "model": "CX-05-03",
+    "series": "CX",
+    "name": "惡魔至尊T 3-85O",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939627-04:CX-05-04:雄獅巔峰9-80K",
+    "sourceId": "SR-PRD-939627-04",
+    "model": "CX-05-04",
+    "series": "CX",
+    "name": "雄獅巔峰9-80K",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939627-05:CX-05-05:鳳凰尾翼4-70LF",
+    "sourceId": "SR-PRD-939627-05",
+    "model": "CX-05-05",
+    "series": "CX",
+    "name": "鳳凰尾翼4-70LF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939627-06:CX-05-06:巨鯨怒濤7-60K",
+    "sourceId": "SR-PRD-939627-06",
+    "model": "CX-05-06",
+    "series": "CX",
+    "name": "巨鯨怒濤7-60K",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956969-01:CX-06-01:極狐九尾J 9-70GR",
+    "sourceId": "SR-PRD-956969-01",
+    "model": "CX-06-01",
+    "series": "CX",
+    "name": "極狐九尾J 9-70GR",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956969-02:CX-06-02:極狐九尾J 0-80DB",
+    "sourceId": "SR-PRD-956969-02",
+    "model": "CX-06-02",
+    "series": "CX",
+    "name": "極狐九尾J 0-80DB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956969-03:CX-06-03:極狐九尾J 2-60U",
+    "sourceId": "SR-PRD-956969-03",
+    "model": "CX-06-03",
+    "series": "CX",
+    "name": "極狐九尾J 2-60U",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956976-00:CX-07:天馬爆擊ATr\\n<size=36>                                                        金屬塗層:碧綠</size>",
+    "sourceId": "SR-PRD-956976-00",
+    "model": "CX-07",
+    "series": "CX",
+    "name": "天馬爆擊ATr\\n<size=36>                                                        金屬塗層:碧綠</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956976-00R:CX-07:天馬爆擊ATr\\n<size=36>                                                        金屬塗層:碧綠</size>",
+    "sourceId": "SR-PRD-956976-00R",
+    "model": "CX-07",
+    "series": "CX",
+    "name": "天馬爆擊ATr\\n<size=36>                                                        金屬塗層:碧綠</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956983-01:CX-08-01:魔犬烈焰W 5-80WB",
+    "sourceId": "SR-PRD-956983-01",
+    "model": "CX-08-01",
+    "series": "CX",
+    "name": "魔犬烈焰W 5-80WB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956983-02:CX-08-02:巨鯨烈焰M 3-85HT",
+    "sourceId": "SR-PRD-956983-02",
+    "model": "CX-08-02",
+    "series": "CX",
+    "name": "巨鯨烈焰M 3-85HT",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956983-03:CX-08-03:魔犬幽冥W 1-60F",
+    "sourceId": "SR-PRD-956983-03",
+    "model": "CX-08-03",
+    "series": "CX",
+    "name": "魔犬幽冥W 1-60F",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956983-04:CX-08-04:蒼龍爆刃5-80MN",
+    "sourceId": "SR-PRD-956983-04",
+    "model": "CX-08-04",
+    "series": "CX",
+    "name": "蒼龍爆刃5-80MN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956983-05:CX-08-05:玄冥戰甲7-70WB",
+    "sourceId": "SR-PRD-956983-05",
+    "model": "CX-08-05",
+    "series": "CX",
+    "name": "玄冥戰甲7-70WB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-956983-06:CX-08-06:蒼穹龍騎士4-55WB",
+    "sourceId": "SR-PRD-956983-06",
+    "model": "CX-08-06",
+    "series": "CX",
+    "name": "蒼穹龍騎士4-55WB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-995678-00:CX-09:焰神滅世D 5-70TK",
+    "sourceId": "SR-PRD-995678-00",
+    "model": "CX-09",
+    "series": "CX",
+    "name": "焰神滅世D 5-70TK",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-995678-00R:CX-09:焰神滅世D5-70TK",
+    "sourceId": "SR-PRD-995678-00R",
+    "model": "CX-09",
+    "series": "CX",
+    "name": "焰神滅世D5-70TK",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097242-00:CX-10:銀狼狩獵F 0-60DB",
+    "sourceId": "SR-PRD-097242-00",
+    "model": "CX-10",
+    "series": "CX",
+    "name": "銀狼狩獵F 0-60DB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-098775-01R:CX-11:帝王威能HOp\\n<size=36>                                                        金屬塗層:闇黑</size>",
+    "sourceId": "SR-PRD-098775-01R",
+    "model": "CX-11",
+    "series": "CX",
+    "name": "帝王威能HOp\\n<size=36>                                                        金屬塗層:闇黑</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-098775-01:CX-11-01:帝王威能HOp\\n<size=36>                                                        金屬塗層:闇黑</size>",
+    "sourceId": "SR-PRD-098775-01",
+    "model": "CX-11-01",
+    "series": "CX",
+    "name": "帝王威能HOp\\n<size=36>                                                        金屬塗層:闇黑</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-098775-02:CX-11-02:魔像奇岩M-85HN\\n<size=36>                                                        金屬塗層:碧綠</size>",
+    "sourceId": "SR-PRD-098775-02",
+    "model": "CX-11-02",
+    "series": "CX",
+    "name": "魔像奇岩M-85HN\\n<size=36>                                                        金屬塗層:碧綠</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-098775-03:CX-11-03:鮫鯊撕裂5-60FB",
+    "sourceId": "SR-PRD-098775-03",
+    "model": "CX-11-03",
+    "series": "CX",
+    "name": "鮫鯊撕裂5-60FB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096153-00:CX-12:鳳凰閃焰Z 9-80WW\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "sourceId": "SR-PRD-096153-00",
+    "model": "CX-12",
+    "series": "CX",
+    "name": "鳳凰閃焰Z 9-80WW\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097259-00:CX-13:龍王閃擊BK 1-50I",
+    "sourceId": "SR-PRD-097259-00",
+    "model": "CX-13",
+    "series": "CX",
+    "name": "龍王閃擊BK 1-50I",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097266-00:CX-14:騎士堡壘GV 8-70UN",
+    "sourceId": "SR-PRD-097266-00",
+    "model": "CX-14",
+    "series": "CX",
+    "name": "騎士堡壘GV 8-70UN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097273-00:CX-15:邪神狂怒FE 4-55Y",
+    "sourceId": "SR-PRD-097273-00",
+    "model": "CX-15",
+    "series": "CX",
+    "name": "邪神狂怒FE 4-55Y",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097280-00:CX-16:龍王閃擊BK 1-50I\\n<size=36>                                                        異色版</size>",
+    "sourceId": "SR-PRD-097280-00",
+    "model": "CX-16",
+    "series": "CX",
+    "name": "龍王閃擊BK 1-50I\\n<size=36>                                                        異色版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-02R:CX-17:獨角極變PO1-80GR",
+    "sourceId": "SR-PRD-096146-02R",
+    "model": "CX-17",
+    "series": "CX",
+    "name": "獨角極變PO1-80GR",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-02RR:CX-17:獨角極變PO1-80GR",
+    "sourceId": "SR-PRD-096146-02RR",
+    "model": "CX-17",
+    "series": "CX",
+    "name": "獨角極變PO1-80GR",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-01R:CX-17:獨角極變PO3-60GU",
+    "sourceId": "SR-PRD-096146-01R",
+    "model": "CX-17",
+    "series": "CX",
+    "name": "獨角極變PO3-60GU",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-01RR:CX-17:獨角極變PO3-60GU",
+    "sourceId": "SR-PRD-096146-01RR",
+    "model": "CX-17",
+    "series": "CX",
+    "name": "獨角極變PO3-60GU",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-01:CX-17-01:獨角極變PO 3-60GU",
+    "sourceId": "SR-PRD-096146-01",
+    "model": "CX-17-01",
+    "series": "CX",
+    "name": "獨角極變PO 3-60GU",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-02:CX-17-02:獨角極變PO 1-80GR",
+    "sourceId": "SR-PRD-096146-02",
+    "model": "CX-17-02",
+    "series": "CX",
+    "name": "獨角極變PO 1-80GR",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-03:CX-17-03:武士星劍9-65LO",
+    "sourceId": "SR-PRD-096146-03",
+    "model": "CX-17-03",
+    "series": "CX",
+    "name": "武士星劍9-65LO",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-04:CX-17-04:惡魔重錘3-85GU",
+    "sourceId": "SR-PRD-096146-04",
+    "model": "CX-17-04",
+    "series": "CX",
+    "name": "惡魔重錘3-85GU",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-05:CX-17-05:暴龍霸擊3-60N",
+    "sourceId": "SR-PRD-096146-05",
+    "model": "CX-17-05",
+    "series": "CX",
+    "name": "暴龍霸擊3-60N",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096146-06:CX-17-06:赫燃天鳳7-80GU",
+    "sourceId": "SR-PRD-096146-06",
+    "model": "CX-17-06",
+    "series": "CX",
+    "name": "赫燃天鳳7-80GU",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096177-01:CX-18-01:腕龍鞭打OW 5-70Nr",
+    "sourceId": "SR-PRD-096177-01",
+    "model": "CX-18-01",
+    "series": "CX",
+    "name": "腕龍鞭打OW 5-70Nr",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096177-02:CX-18-02:腕龍鞭打OW 5-70Nr",
+    "sourceId": "SR-PRD-096177-02",
+    "model": "CX-18-02",
+    "series": "CX",
+    "name": "腕龍鞭打OW 5-70Nr",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096177-03:CX-18-03:腕龍鞭打OW 5-70Nr",
+    "sourceId": "SR-PRD-096177-03",
+    "model": "CX-18-03",
+    "series": "CX",
+    "name": "腕龍鞭打OW 5-70Nr",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-080626-01:CX-19-01:鱷魚碾壓 TQ5-50GN",
+    "sourceId": "SR-PRD-080626-01",
+    "model": "CX-19-01",
+    "series": "CX",
+    "name": "鱷魚碾壓 TQ5-50GN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-080626-02:CX-19-02:鱷魚碾壓 TQ5-50GN",
+    "sourceId": "SR-PRD-080626-02",
+    "model": "CX-19-02",
+    "series": "CX",
+    "name": "鱷魚碾壓 TQ5-50GN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-080626-03:CX-19-03:鱷魚碾壓 TQ5-50GN",
+    "sourceId": "SR-PRD-080626-03",
+    "model": "CX-19-03",
+    "series": "CX",
+    "name": "鱷魚碾壓 TQ5-50GN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-080558-00R:UX-00:天蠍長矛0-70Z\\n<size=36>                                                         金屬塗層:品紅</size>",
+    "sourceId": "SR-PRD-080558-00R",
+    "model": "UX-00",
+    "series": "UX",
+    "name": "天蠍長矛0-70Z\\n<size=36>                                                         金屬塗層:品紅</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914471-00:UX-01:蒼龍爆刃1-60A",
+    "sourceId": "SR-PRD-914471-00",
+    "model": "UX-01",
+    "series": "UX",
+    "name": "蒼龍爆刃1-60A",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914488-00:UX-02:惡魔重錘3-70H",
+    "sourceId": "SR-PRD-914488-00",
+    "model": "UX-02",
+    "series": "UX",
+    "name": "惡魔重錘3-70H",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914495-00:UX-03:魔導神杖5-70DB",
+    "sourceId": "SR-PRD-914495-00",
+    "model": "UX-03",
+    "series": "UX",
+    "name": "魔導神杖5-70DB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914501-01:UX-04-01:蒼龍爆刃1-60A\\n<size=36>                                                        特別版</size>",
+    "sourceId": "SR-PRD-914501-01",
+    "model": "UX-04-01",
+    "series": "UX",
+    "name": "蒼龍爆刃1-60A\\n<size=36>                                                        特別版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914501-02:UX-04-02:魔導神杖5-70DB\\n<size=36>                                                        特別版</size>",
+    "sourceId": "SR-PRD-914501-02",
+    "model": "UX-04-02",
+    "series": "UX",
+    "name": "魔導神杖5-70DB\\n<size=36>                                                        特別版</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914549-01:UX-05-01:忍者闇影1-80MN",
+    "sourceId": "SR-PRD-914549-01",
+    "model": "UX-05-01",
+    "series": "UX",
+    "name": "忍者闇影1-80MN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914549-02:UX-05-02:忍者闇影9-60LF",
+    "sourceId": "SR-PRD-914549-02",
+    "model": "UX-05-02",
+    "series": "UX",
+    "name": "忍者闇影9-60LF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914549-03:UX-05-03:忍者闇影3-70GP",
+    "sourceId": "SR-PRD-914549-03",
+    "model": "UX-05-03",
+    "series": "UX",
+    "name": "忍者闇影3-70GP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914600-00:UX-06:雄獅巔峰7-60GN",
+    "sourceId": "SR-PRD-914600-00",
+    "model": "UX-06",
+    "series": "UX",
+    "name": "雄獅巔峰7-60GN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914594-01:UX-07-01:鳳凰尾翼9-70G\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "sourceId": "SR-PRD-914594-01",
+    "model": "UX-07-01",
+    "series": "UX",
+    "name": "鳳凰尾翼9-70G\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914594-02:UX-07-02:飛龍旋翼2-60S",
+    "sourceId": "SR-PRD-914594-02",
+    "model": "UX-07-02",
+    "series": "UX",
+    "name": "飛龍旋翼2-60S",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-914594-03:UX-07-03:魔獸護甲1-80GF",
+    "sourceId": "SR-PRD-914594-03",
+    "model": "UX-07-03",
+    "series": "UX",
+    "name": "魔獸護甲1-80GF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939498-00:UX-08:霜輝銀狼3-80FB",
+    "sourceId": "SR-PRD-939498-00",
+    "model": "UX-08",
+    "series": "UX",
+    "name": "霜輝銀狼3-80FB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939535-00:UX-09:武士星劍2-70L",
+    "sourceId": "SR-PRD-939535-00",
+    "model": "UX-09",
+    "series": "UX",
+    "name": "武士星劍2-70L",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939542-01:UX-10-01:騎士圓甲3-85BS",
+    "sourceId": "SR-PRD-939542-01",
+    "model": "UX-10-01",
+    "series": "UX",
+    "name": "騎士圓甲3-85BS",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939542-02:UX-10-02:暴龍霸擊1-60RA\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "sourceId": "SR-PRD-939542-02",
+    "model": "UX-10-02",
+    "series": "UX",
+    "name": "暴龍霸擊1-60RA\\n<size=36>                                                        金屬塗層:火紅</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939542-03:UX-10-03:翼龍神翼7-70B",
+    "sourceId": "SR-PRD-939542-03",
+    "model": "UX-10-03",
+    "series": "UX",
+    "name": "翼龍神翼7-70B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939559-00:UX-11:衝擊龍神9-60LR",
+    "sourceId": "SR-PRD-939559-00",
+    "model": "UX-11",
+    "series": "UX",
+    "name": "衝擊龍神9-60LR",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939566-01:UX-12-01:幽靈元魂0-80GB",
+    "sourceId": "SR-PRD-939566-01",
+    "model": "UX-12-01",
+    "series": "UX",
+    "name": "幽靈元魂0-80GB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939566-02:UX-12-02:幽靈元魂4-60H",
+    "sourceId": "SR-PRD-939566-02",
+    "model": "UX-12-02",
+    "series": "UX",
+    "name": "幽靈元魂4-60H",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939566-03:UX-12-03:忍者闇影3-80F",
+    "sourceId": "SR-PRD-939566-03",
+    "model": "UX-12-03",
+    "series": "UX",
+    "name": "忍者闇影3-80F",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939566-04:UX-12-04:雄獅獵爪0-80E",
+    "sourceId": "SR-PRD-939566-04",
+    "model": "UX-12-04",
+    "series": "UX",
+    "name": "雄獅獵爪0-80E",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939566-05:UX-12-05:鳳凰翔羽2-60N",
+    "sourceId": "SR-PRD-939566-05",
+    "model": "UX-12-05",
+    "series": "UX",
+    "name": "鳳凰翔羽2-60N",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939566-06:UX-12-06:飛龍旋翼0-80C",
+    "sourceId": "SR-PRD-939566-06",
+    "model": "UX-12-06",
+    "series": "UX",
+    "name": "飛龍旋翼0-80C",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-939573-00:UX-13:魔像奇岩1-60UN",
+    "sourceId": "SR-PRD-939573-00",
+    "model": "UX-13",
+    "series": "UX",
+    "name": "魔像奇岩1-60UN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-958499-00:UX-14:天蠍長矛0-70Z",
+    "sourceId": "SR-PRD-958499-00",
+    "model": "UX-14",
+    "series": "UX",
+    "name": "天蠍長矛0-70Z",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-958499-01:UX-14-01:天蠍長矛0-70Z",
+    "sourceId": "SR-PRD-958499-01",
+    "model": "UX-14-01",
+    "series": "UX",
+    "name": "天蠍長矛0-70Z",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-982432-01:UX-15-01:鮫鯊狂鱗4-50UF",
+    "sourceId": "SR-PRD-982432-01",
+    "model": "UX-15-01",
+    "series": "UX",
+    "name": "鮫鯊狂鱗4-50UF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-982432-02:UX-15-02:暴龍咆哮1-70L",
+    "sourceId": "SR-PRD-982432-02",
+    "model": "UX-15-02",
+    "series": "UX",
+    "name": "暴龍咆哮1-70L",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-982432-03:UX-15-03:惡魔勇氣J 3-60GF",
+    "sourceId": "SR-PRD-982432-03",
+    "model": "UX-15-03",
+    "series": "UX",
+    "name": "惡魔勇氣J 3-60GF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-990154-01:UX-16-01:時鐘幻象9-65B",
+    "sourceId": "SR-PRD-990154-01",
+    "model": "UX-16-01",
+    "series": "UX",
+    "name": "時鐘幻象9-65B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-990154-02:UX-16-02:時鐘幻象9-65B",
+    "sourceId": "SR-PRD-990154-02",
+    "model": "UX-16-02",
+    "series": "UX",
+    "name": "時鐘幻象9-65B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-990154-03:UX-16-03:時鐘幻象9-65B",
+    "sourceId": "SR-PRD-990154-03",
+    "model": "UX-16-03",
+    "series": "UX",
+    "name": "時鐘幻象9-65B",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-997627-00:UX-17:隕星龍騎士3-70J\\n<size=36>                                                        金屬塗層:白色</size>",
+    "sourceId": "SR-PRD-997627-00",
+    "model": "UX-17",
+    "series": "UX",
+    "name": "隕星龍騎士3-70J\\n<size=36>                                                        金屬塗層:白色</size>",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097167-04R:UX-18:焰神勇氣C9-70TP",
+    "sourceId": "SR-PRD-097167-04R",
+    "model": "UX-18",
+    "series": "UX",
+    "name": "焰神勇氣C9-70TP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097167-01:UX-18-01:古屍詛咒7-55W",
+    "sourceId": "SR-PRD-097167-01",
+    "model": "UX-18-01",
+    "series": "UX",
+    "name": "古屍詛咒7-55W",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097167-02:UX-18-02:古屍詛咒4-60C",
+    "sourceId": "SR-PRD-097167-02",
+    "model": "UX-18-02",
+    "series": "UX",
+    "name": "古屍詛咒4-60C",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097167-03:UX-18-03:天馬九尾M 3-85W",
+    "sourceId": "SR-PRD-097167-03",
+    "model": "UX-18-03",
+    "series": "UX",
+    "name": "天馬九尾M 3-85W",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097167-04:UX-18-04:焰神勇氣C 9-70TP",
+    "sourceId": "SR-PRD-097167-04",
+    "model": "UX-18-04",
+    "series": "UX",
+    "name": "焰神勇氣C 9-70TP",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097167-05:UX-18-05:蒼龍利刃7-55G",
+    "sourceId": "SR-PRD-097167-05",
+    "model": "UX-18-05",
+    "series": "UX",
+    "name": "蒼龍利刃7-55G",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-097167-06:UX-18-06:皓戰猛虎4-80LR",
+    "sourceId": "SR-PRD-097167-06",
+    "model": "UX-18-06",
+    "series": "UX",
+    "name": "皓戰猛虎4-80LR",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096160-00:UX-19:彈丸獅鷲H",
+    "sourceId": "SR-PRD-096160-00",
+    "model": "UX-19",
+    "series": "UX",
+    "name": "彈丸獅鷲H",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-096139-00:UX-20:榮耀戰神LF 金屬塗層:白色",
+    "sourceId": "SR-PRD-096139-00",
+    "model": "UX-20",
+    "series": "UX",
+    "name": "榮耀戰神LF 金屬塗層:白色",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-085546-01R:UX-21:惡魔冥界Z",
+    "sourceId": "SR-PRD-085546-01R",
+    "model": "UX-21",
+    "series": "UX",
+    "name": "惡魔冥界Z",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-085546-01:UX-21-01:惡魔冥界Z",
+    "sourceId": "SR-PRD-085546-01",
+    "model": "UX-21-01",
+    "series": "UX",
+    "name": "惡魔冥界Z",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-085546-02:UX-21-02:霜輝銀狼9-70R 金屬塗層:紫",
+    "sourceId": "SR-PRD-085546-02",
+    "model": "UX-21-02",
+    "series": "UX",
+    "name": "霜輝銀狼9-70R 金屬塗層:紫",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-085546-03:UX-21-03:飛龍凌空8-80B",
+    "sourceId": "SR-PRD-085546-03",
+    "model": "UX-21-03",
+    "series": "UX",
+    "name": "飛龍凌空8-80B",
+    "image": ""
+  }
+]
