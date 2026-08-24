@@ -1,7 +1,28 @@
 const DATA_URL = './data/beyblades.json';
+const REMOTE_DATA_URL = 'https://beyblade.phstudy.org/data/main.json';
 const STORAGE_KEY = 'spin-bp-state-v1';
 const EDITOR_SESSION_KEY = 'spin-bp-editor-password';
 const API_BASE = String(window.SPIN_BP_CONFIG?.apiBase || '').replace(/\/$/, '');
+
+function normalizeRemoteCatalog(payload) {
+  const root = payload?.data || payload;
+  const groups = {
+    BeybladeSeries: '陀螺', BeybladePartsBlade: '刀刃', BeybladePartsMainBlade: '主刀刃',
+    BeybladePartsAssistBlade: '輔助刀刃', BeybladePartsOverBlade: '上層刀刃',
+    BeybladePartsMetalBlade: '金屬刀刃', BeybladePartsLockChip: '紋章鎖',
+    BeybladePartsRatchet: 'Ratchet', BeybladePartsBit: 'Bit',
+  };
+  const rows = [];
+  for (const [key, label] of Object.entries(groups)) {
+    for (const [fallbackId, item] of Object.entries(root?.[key] || {})) {
+      const id = item?.id || fallbackId;
+      const title = item?.name?.['zh-TW'] || item?.catalog_title?.['zh-TW'] || item?.name?.['zh-HK'] || id;
+      const image = Object.values(item || {}).flatMap((v) => typeof v === 'string' ? [v] : []).find((v) => /\.(png|jpe?g|webp)/i.test(v)) || '';
+      rows.push({ id, sourceId: id, model: item?.model || item?.model_name || id, series: key === 'BeybladeSeries' ? String(id).split('-')[0] : key, category: label, name: title, image });
+    }
+  }
+  return rows;
+}
 
 const els = {
   modeTabs: document.querySelector('#modeTabs'),
@@ -217,6 +238,12 @@ function setStatus(message, isError = false) {
 }
 
 function renderTabs() {
+  const categories = [...new Set(state.beys.map((bey) => bey.category).filter(Boolean))];
+  for (const category of categories) {
+    if (!els.seriesTabs.querySelector(`[data-series="${CSS.escape(category)}"]`)) {
+      const button = document.createElement('button'); button.type = 'button'; button.className = 'series'; button.dataset.series = category; button.textContent = category; els.seriesTabs.append(button);
+    }
+  }
   els.modeTabs.querySelectorAll('[data-mode]').forEach((button) => {
     button.classList.toggle('active', button.dataset.mode === state.mode);
   });
@@ -749,10 +776,16 @@ async function init() {
   await renderPreview();
 
   try {
-    const response = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: 'no-store' });
+    let response;
+    try {
+      response = await fetch(`${API_BASE || ''}/api/catalog?v=${Date.now()}`, { cache: 'no-store' });
+    } catch {
+      response = null;
+    }
+    if (!response?.ok) response = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const payload = await response.json();
-    state.rawBeys = Array.isArray(payload) ? payload : payload.items || [];
+    state.rawBeys = payload?.data ? normalizeRemoteCatalog(payload) : (Array.isArray(payload) ? payload : payload.items || []);
     const { aliases } = dedupeMirrors(state.rawBeys);
     await loadOverrides();
     rebuildCatalog(aliases);

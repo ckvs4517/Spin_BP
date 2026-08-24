@@ -20,6 +20,12 @@ export default {
         return json({ ok: true }, 200, cors);
       }
 
+      if (url.pathname === '/api/catalog' && request.method === 'GET') {
+        const upstream = await fetch('https://beyblade.phstudy.org/data/main.json', { headers: { 'user-agent': 'Spin-BP catalog proxy' } });
+        if (!upstream.ok) throw new HttpError(502, 'Catalog source unavailable.');
+        return new Response(await upstream.text(), { status: 200, headers: { ...cors, ...JSON_HEADERS, 'cache-control': 'public, max-age=300' } });
+      }
+
       if (url.pathname === '/api/auth/check' && request.method === 'POST') {
         requireEditor(request, env);
         return new Response(null, { status: 204, headers: cors });
