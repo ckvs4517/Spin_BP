@@ -49,8 +49,8 @@ h2 { font-size: 22px; letter-spacing: -.02em; }
 .bey-card.selected { border-color: #4f46e5; box-shadow: inset 0 0 0 1px #4f46e5; }
 .bey-card .check { position: absolute; right: 8px; top: 8px; width: 26px; height: 26px; border-radius: 50%; background: rgba(17,24,39,.78); color: white; display: grid; place-items: center; font-size: 14px; font-weight: 900; opacity: 0; transform: scale(.85); transition: .12s ease; }
 .bey-card.selected .check { opacity: 1; transform: scale(1); }
-.image-box { aspect-ratio: 1 / 1; background: #f9fafb; display: grid; place-items: center; padding: 8px; }
-.image-box img { width: 100%; height: 100%; object-fit: contain; }
+.image-box { aspect-ratio: 1 / 1; background: #f9fafb; display: grid; place-items: center; padding: 12px; }
+.image-box img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; object-fit: contain; }
 .image-fallback { width: 72%; aspect-ratio: 1; border-radius: 50%; background: #e5e7eb; display: grid; place-items: center; color: #6b7280; font-weight: 900; font-size: 20px; }
 .card-meta { padding: 10px; min-width: 0; }
 .card-code { font-size: 11px; color: var(--muted); font-weight: 800; }
