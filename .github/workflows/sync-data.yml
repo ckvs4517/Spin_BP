@@ -5,13 +5,10 @@ on:
   schedule:
     - cron: '17 21 * * *'
   push:
-    paths-ignore:
-      - 'data/**'
-      - 'images/**'
-  pull_request:
-    paths-ignore:
-      - 'data/**'
-      - 'images/**'
+    branches: [main]
+    paths:
+      - 'scripts/sync-data.mjs'
+      - '.github/workflows/sync-data.yml'
 
 permissions:
   contents: write
@@ -20,19 +17,17 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
+      - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
       - name: Sync catalog data and images
         run: npm run sync:data
-      - name: Commit updated snapshot
+      - name: Commit updated snapshot only when catalog changed
         run: |
-          if git diff --quiet -- data images; then
-            echo "No data changes."
+          if [ -z "$(git status --porcelain -- data/beyblades.json images)" ]; then
+            git checkout -- data/meta.json
+            echo "No catalog changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
