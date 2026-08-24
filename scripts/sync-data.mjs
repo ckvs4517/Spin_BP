@@ -8,10 +8,19 @@ const MAIN_URL = 'https://beyblade.phstudy.org/data/main.json';
 const HARDCODED_URL = 'https://beyblade.phstudy.org/data/hardcoded.json';
 const SITE = 'https://beyblade.phstudy.org';
 const ALLOWED = new Set(['BX', 'UX', 'CX']);
+const IMAGE_CONCURRENCY = 12;
+const FETCH_TIMEOUT_MS = 15000;
+
+async function fetchWithTimeout(url) {
+  return fetch(url, {
+    headers: { 'user-agent': 'Spin-BP data sync/1.0' },
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
+}
 
 async function fetchJson(url, optional = false) {
   try {
-    const res = await fetch(url, { headers: { 'user-agent': 'Spin-BP data sync/1.0' } });
+    const res = await fetchWithTimeout(url);
     if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
     return await res.json();
   } catch (error) {
@@ -32,22 +41,26 @@ function titleOf(item) {
   return item?.catalog_title?.['zh-TW'] || item?.catalog_title?.['zh-HK'] || item?.catalog_title?.['ja-JP'] || item?.title || '';
 }
 
-function modelFrom(text) {
-  return String(text || '').match(/\b(BX|UX|CX)-\d+(?:-\d+)?\b/i)?.[0]?.toUpperCase() || '';
-}
-
-function cleanName(title, model) {
-  let name = String(title || '').trim();
-  if (model) name = name.replace(new RegExp(`^${model.replace('-', '\\-')}\\s*`, 'i'), '');
-  return name.replace(/^[-–—:：\s]+/, '').trim() || model;
-}
-
 function deepStrings(value, out = [], depth = 0) {
   if (depth > 4 || value == null) return out;
   if (typeof value === 'string') out.push(value);
   else if (Array.isArray(value)) value.forEach((v) => deepStrings(v, out, depth + 1));
   else if (typeof value === 'object') Object.values(value).forEach((v) => deepStrings(v, out, depth + 1));
   return out;
+}
+
+function modelFrom(text) {
+  return String(text || '').match(/\b(BX|UX|CX)-\d+(?:-\d+)?\b/i)?.[0]?.toUpperCase() || '';
+}
+
+function modelFromItem(item, title) {
+  return modelFrom(`${title} ${deepStrings(item).join(' ')}`);
+}
+
+function cleanName(title, model) {
+  let name = String(title || '').trim();
+  if (model) name = name.replace(new RegExp(`^${model.replace('-', '\\-')}\\s*`, 'i'), '');
+  return name.replace(/^[-–—:：\s]+/, '').trim() || model;
 }
 
 function imageCandidates(item, sourceId) {
@@ -59,6 +72,7 @@ function imageCandidates(item, sourceId) {
     ...fromRecord,
     `${SITE}/images/app/Series/${sourceId}.png`,
     `${SITE}/images/app/BeybladeSeries/${sourceId}.png`,
+    `${SITE}/images/app/Beyblade/${sourceId}.png`,
   ])];
 }
 
@@ -77,7 +91,7 @@ function extensionFromResponse(url, contentType) {
 async function downloadFirstImage(candidates, fileBase) {
   for (const url of candidates) {
     try {
-      const res = await fetch(url, { headers: { 'user-agent': 'Spin-BP data sync/1.0' } });
+      const res = await fetchWithTimeout(url);
       const type = res.headers.get('content-type') || '';
       if (!res.ok || !type.startsWith('image/')) continue;
       const bytes = new Uint8Array(await res.arrayBuffer());
@@ -99,6 +113,20 @@ async function existingData() {
   }
 }
 
+async function mapPool(list, concurrency, worker) {
+  let cursor = 0;
+  const output = new Array(list.length);
+  async function run() {
+    while (true) {
+      const index = cursor++;
+      if (index >= list.length) return;
+      output[index] = await worker(list[index], index);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(concurrency, Math.max(1, list.length)) }, run));
+  return output;
+}
+
 async function main() {
   await mkdir(DATA_DIR, { recursive: true });
   await mkdir(IMAGE_DIR, { recursive: true });
@@ -117,7 +145,7 @@ async function main() {
       if (!item) continue;
       const sourceId = item.id || fallbackId;
       const title = titleOf(item);
-      const model = modelFrom(title);
+      const model = modelFromItem(item, title);
       const series = model.split('-')[0] || '';
       if (!ALLOWED.has(series)) continue;
       rows.push({ sourceId, model, series, name: cleanName(title, model), item });
@@ -130,10 +158,9 @@ async function main() {
     if (!unique.has(key)) unique.set(key, row);
   }
 
-  const items = [];
   let imageDownloads = 0;
   let imageMisses = 0;
-  for (const row of unique.values()) {
+  const items = await mapPool([...unique.values()], IMAGE_CONCURRENCY, async (row) => {
     const old = previousBySourceId.get(row.sourceId);
     let image = old?.image || '';
     if (!image) {
@@ -141,15 +168,15 @@ async function main() {
       if (image) imageDownloads++;
       else imageMisses++;
     }
-    items.push({
+    return {
       id: `${row.sourceId}:${row.model}:${row.name}`,
       sourceId: row.sourceId,
       model: row.model,
       series: row.series,
       name: row.name,
       image,
-    });
-  }
+    };
+  });
 
   items.sort((a, b) => {
     const s = a.series.localeCompare(b.series);
