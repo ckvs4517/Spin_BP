@@ -58,7 +58,14 @@ function modelFromItem(item, title) {
 }
 
 function cleanName(title, model) {
-  let name = String(title || '').trim();
+  let name = String(title || '')
+    .replace(/\\n/g, ' ')
+    .replace(/[\r\n]+/g, ' ')
+    .replace(/<size=\d+>/gi, ' ')
+    .replace(/<\/size>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
   if (model) name = name.replace(new RegExp(`^${model.replace('-', '\\-')}\\s*`, 'i'), '');
   return name.replace(/^[-–—:：\s]+/, '').trim() || model;
 }
@@ -143,7 +150,7 @@ async function main() {
   const previous = await existingData();
   const previousBySourceId = new Map(previous.map((item) => [item.sourceId, item]));
 
-  const rows = [];
+  const unique = new Map();
   for (const source of sources) {
     for (const [fallbackId, item] of asEntries(source?.BeybladeSeries)) {
       if (!item) continue;
@@ -152,14 +159,9 @@ async function main() {
       const model = modelFromItem(item, title);
       const series = model.split('-')[0] || '';
       if (!ALLOWED.has(series)) continue;
-      rows.push({ sourceId, model, series, name: cleanName(title, model), item });
+      const row = { sourceId, model, series, name: cleanName(title, model), item };
+      if (!unique.has(sourceId)) unique.set(sourceId, row);
     }
-  }
-
-  const unique = new Map();
-  for (const row of rows) {
-    const key = `${row.sourceId}|${row.model}|${row.name}`;
-    if (!unique.has(key)) unique.set(key, row);
   }
 
   let imageDownloads = 0;
@@ -173,7 +175,7 @@ async function main() {
       else imageMisses++;
     }
     return {
-      id: `${row.sourceId}:${row.model}:${row.name}`,
+      id: row.sourceId,
       sourceId: row.sourceId,
       model: row.model,
       series: row.series,
