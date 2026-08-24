@@ -51,6 +51,54 @@ function normalizeText(value) {
   return String(value || '').trim().toLocaleLowerCase('zh-Hant-TW');
 }
 
+function canonicalName(value) {
+  return String(value || '')
+    .normalize('NFKC')
+    .toLocaleLowerCase('zh-Hant-TW')
+    .replace(/\s+/g, '');
+}
+
+function beyKey(bey) {
+  return `${bey.series || ''}|${canonicalName(bey.name)}`;
+}
+
+function beyPreferenceScore(bey) {
+  let score = 0;
+  if (bey.image) score += 1000;
+  if (!/R+$/i.test(bey.sourceId || bey.id || '')) score += 100;
+  if (/^(BX|UX|CX)-\d+-\d+$/i.test(bey.model || '')) score += 40;
+  if (/-00$/i.test(bey.sourceId || bey.id || '')) score += 15;
+  return score;
+}
+
+function dedupeBeys(items) {
+  const groups = new Map();
+  for (const bey of items) {
+    const key = beyKey(bey);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(bey);
+  }
+
+  const aliases = new Map();
+  const deduped = [];
+  for (const group of groups.values()) {
+    const representative = [...group].sort((a, b) => {
+      const score = beyPreferenceScore(b) - beyPreferenceScore(a);
+      if (score) return score;
+      return String(a.model || '').localeCompare(String(b.model || ''), undefined, { numeric: true });
+    })[0];
+    deduped.push(representative);
+    for (const bey of group) aliases.set(bey.id, representative.id);
+  }
+
+  deduped.sort((a, b) => {
+    const s = String(a.series || '').localeCompare(String(b.series || ''));
+    if (s) return s;
+    return String(a.model || '').localeCompare(String(b.model || ''), undefined, { numeric: true }) || String(a.name || '').localeCompare(String(b.name || ''), 'zh-Hant');
+  });
+  return { beys: deduped, aliases };
+}
+
 function filteredBeys() {
   const q = normalizeText(state.query);
   return state.beys.filter((bey) => {
@@ -94,6 +142,7 @@ function createCard(bey) {
   if (bey.image) {
     const img = document.createElement('img');
     img.loading = 'lazy';
+    img.decoding = 'async';
     img.alt = `${bey.name} 圖片`;
     img.src = bey.image;
     img.addEventListener('error', () => {
@@ -140,7 +189,7 @@ function renderGrid() {
   els.selectedCount.textContent = String(state.selected.size);
   els.visibleCount.textContent = `／目前顯示 ${visible.length} 顆`;
   els.downloadBtn.disabled = state.selected.size === 0;
-  if (state.beys.length) setStatus(`圖鑑共 ${state.beys.length} 顆，資料可直接搜尋與篩選。`);
+  if (state.beys.length) setStatus(`圖鑑共 ${state.beys.length} 顆，已自動合併同名同組合的重複資料。`);
 }
 
 const imageCache = new Map();
@@ -237,6 +286,8 @@ async function renderPreview() {
       const scale = Math.min(maxW / image.width, maxH / image.height);
       const w = image.width * scale;
       const h = image.height * scale;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(image, x + (cardW - w) / 2, y + (imgAreaH - h) / 2, w, h);
     } else {
       ctx.fillStyle = '#e5e7eb';
@@ -343,9 +394,16 @@ async function init() {
     const response = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: 'no-store' });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const payload = await response.json();
-    state.beys = Array.isArray(payload) ? payload : payload.items || [];
+    const rawBeys = Array.isArray(payload) ? payload : payload.items || [];
+    const { beys, aliases } = dedupeBeys(rawBeys);
+    state.beys = beys;
+
     const knownIds = new Set(state.beys.map((bey) => bey.id));
-    state.selected = new Set([...state.selected].filter((id) => knownIds.has(id)));
+    state.selected = new Set(
+      [...state.selected]
+        .map((id) => aliases.get(id) || id)
+        .filter((id) => knownIds.has(id)),
+    );
     saveState();
     renderGrid();
     await renderPreview();
