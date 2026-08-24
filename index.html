@@ -51,13 +51,25 @@
 
       <div class="toolbar">
         <div class="series-tabs" id="seriesTabs" aria-label="系列篩選">
-          <button type="button" class="series active" data-series="ALL">全部</button>
+          <button type="button" class="series active" data-series="all">全部</button>
           <button type="button" class="series" data-series="BX">BX</button>
           <button type="button" class="series" data-series="UX">UX</button>
           <button type="button" class="series" data-series="CX">CX</button>
-          <button type="button" class="series" data-series="LOCK_CHIP">紋章鎖</button>
+          <button type="button" class="series" data-series="BXG">復刻</button>
+          <button type="button" class="series" data-series="EVE">比賽</button>
+          <button type="button" class="series" data-series="LIMITED">限定版</button>
         </div>
-        <div class="series-tabs" id="partTabs" aria-label="零件分類"><button type="button" class="series active" data-part="ALL">全部零件</button></div>
+        <div class="series-tabs" id="partTabs" aria-label="零件分類">
+          <button type="button" class="series active" data-part="Series" data-label="系列">系列</button>
+          <button type="button" class="series" data-part="Blade" data-label="鋼鐵戰刃">鋼鐵戰刃</button>
+          <button type="button" class="series" data-part="Ratchet" data-label="固鎖輪盤">固鎖輪盤</button>
+          <button type="button" class="series" data-part="Bit" data-label="軸心">軸心</button>
+          <button type="button" class="series" data-part="LockChip" data-label="紋章鎖">紋章鎖</button>
+          <button type="button" class="series" data-part="MainBlade" data-label="主要戰刃">主要戰刃</button>
+          <button type="button" class="series" data-part="OverBlade" data-label="超越戰刃">超越戰刃</button>
+          <button type="button" class="series" data-part="MetalBlade" data-label="金屬戰刃">金屬戰刃</button>
+          <button type="button" class="series" data-part="AssistBlade" data-label="輔助戰刃">輔助戰刃</button>
+        </div>
         <label class="search-wrap">
           <span class="sr-only">搜尋陀螺</span>
           <input id="search" type="search" placeholder="搜尋名稱或型號…" autocomplete="off" />

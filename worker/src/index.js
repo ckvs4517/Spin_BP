@@ -21,9 +21,23 @@ export default {
       }
 
       if (url.pathname === '/api/catalog' && request.method === 'GET') {
-        const upstream = await fetch('https://beyblade.phstudy.org/data/main.json', { headers: { 'user-agent': 'Spin-BP catalog proxy' } });
-        if (!upstream.ok) throw new HttpError(502, 'Catalog source unavailable.');
-        return new Response(await upstream.text(), { status: 200, headers: { ...cors, ...JSON_HEADERS, 'cache-control': 'public, max-age=300' } });
+        const sourceUrls = ['main.json', 'hardcoded.json', 'hasbro.json'].map((name) => `https://beyblade.phstudy.org/data/${name}`);
+        const responses = await Promise.all(sourceUrls.map((sourceUrl) => fetch(sourceUrl, { headers: { 'user-agent': 'Spin-BP catalog proxy' } }).catch(() => null)));
+        if (!responses[0]?.ok) throw new HttpError(502, 'Catalog source unavailable.');
+        const documents = await Promise.all(responses.map(async (response) => response?.ok ? response.json() : null));
+        const catalog = documents[0];
+        for (let index = 1; index < documents.length; index += 1) {
+          const overlay = documents[index];
+          if (!overlay?.data) continue;
+          for (const [group, records] of Object.entries(overlay.data)) {
+            catalog.data[group] ||= {};
+            for (const [id, record] of Object.entries(records || {})) {
+              if (index === 2 && record && typeof record === 'object') record.brandSource = 'Hasbro';
+              catalog.data[group][id] = record;
+            }
+          }
+        }
+        return json(catalog, 200, { ...cors, 'cache-control': 'public, max-age=300' });
       }
 
       if (url.pathname === '/api/auth/check' && request.method === 'POST') {

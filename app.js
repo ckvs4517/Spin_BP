@@ -7,26 +7,28 @@ const API_BASE = String(window.SPIN_BP_CONFIG?.apiBase || '').replace(/\/$/, '')
 function normalizeRemoteCatalog(payload) {
   const root = payload?.data || payload;
   const groups = {
-    BeybladeSeries: '陀螺', BeybladePartsBlade: '刀刃', BeybladePartsMainBlade: '主刀刃',
-    BeybladePartsAssistBlade: '輔助刀刃', BeybladePartsOverBlade: '上層刀刃',
-    BeybladePartsMetalBlade: '金屬刀刃', BeybladePartsLockChip: '紋章鎖',
-    BeybladePartsRatchet: 'Ratchet', BeybladePartsBit: 'Bit',
+    BeybladeSeries: 'Series', BeybladePartsBlade: 'Blade', BeybladePartsRatchet: 'Ratchet',
+    BeybladePartsBit: 'Bit', BeybladePartsLockChip: 'LockChip', BeybladePartsMainBlade: 'MainBlade',
+    BeybladePartsOverBlade: 'OverBlade', BeybladePartsMetalBlade: 'MetalBlade',
+    BeybladePartsAssistBlade: 'AssistBlade',
   };
   const rows = [];
   for (const [key, label] of Object.entries(groups)) {
     for (const [fallbackId, item] of Object.entries(root?.[key] || {})) {
+      if (!item || item.invalid === true) continue;
+      const visibility = item.collection_visible;
+      if (visibility && typeof visibility === 'object' && !Object.values(visibility).some(Boolean)) continue;
       const id = item?.id || fallbackId;
       const title = item?.name?.['zh-TW'] || item?.catalog_title?.['zh-TW'] || item?.name?.['zh-HK'] || id;
-      const folders = { BeybladeSeries: 'BeybladeSeries', BeybladePartsBlade: 'Blade', BeybladePartsMainBlade: 'MainBlade', BeybladePartsAssistBlade: 'AssistBlade', BeybladePartsOverBlade: 'OverBlade', BeybladePartsMetalBlade: 'MetalBlade', BeybladePartsLockChip: 'LockChip', BeybladePartsRatchet: 'Ratchet', BeybladePartsBit: 'Bit' };
-      const strings = [];
-      const collect = (value) => { if (typeof value === 'string') strings.push(value); else if (Array.isArray(value)) value.forEach(collect); else if (value && typeof value === 'object') Object.values(value).forEach(collect); };
-      collect(item);
-      const direct = strings.find((v) => /\.(png|jpe?g|webp)(\?.*)?$/i.test(v));
-      const image = direct ? (direct.startsWith('//') ? `https:${direct}` : direct.startsWith('/') ? `https://beyblade.phstudy.org${direct}` : direct) : `https://beyblade.phstudy.org/images/app/${folders[key]}/${id}.png`;
+      const siteFolders = { Series: 'Blade', Blade: 'Blade', Ratchet: 'Ratchet', Bit: 'Bit', LockChip: 'LockChip', MainBlade: 'MainBlade', OverBlade: 'OverBlade', MetalBlade: 'MetalBlade', AssistBlade: 'AssistBlade' };
+      const appFolders = { Series: 'Big', Blade: 'Big', Ratchet: 'Ratchet', Bit: 'Bit', LockChip: 'LockChip', MainBlade: 'MainBlade', OverBlade: 'OverBlade', MetalBlade: 'MetalBlade', AssistBlade: 'AssistBlade' };
+      const imageId = label === 'Series' ? (item.blade_id || id.replace(/^SR-/, 'BL-')) : id;
+      const image = `https://beyblade.phstudy.org/images/site/${siteFolders[label]}/${imageId}.png`;
+      const imageFallbacks = [`https://beyblade.phstudy.org/images/site/${siteFolders[label]}/${imageId}.jpg`, `https://beyblade.phstudy.org/images/app/${appFolders[label]}/${imageId}.png`];
       const model = item?.model || item?.model_name || title || id;
       const seriesMatch = `${model} ${title} ${JSON.stringify(item)}`.match(/\b(BXA|BX|UX|CX)-/i);
       const series = key === 'BeybladeSeries' ? (seriesMatch?.[1]?.toUpperCase() === 'BXA' ? 'BX' : seriesMatch?.[1]?.toUpperCase() || 'ALL') : key;
-      rows.push({ id, sourceId: id, model, series, category: label, name: title, image });
+      rows.push({ id, sourceId: id, model, series, category: label, tags: Array.isArray(item?.tags) ? item.tags.map((tag) => String(tag).toLowerCase()) : [], name: title, image, imageFallbacks });
     }
   }
   return rows;
@@ -73,8 +75,8 @@ const els = {
 
 const state = {
   mode: 'ban',
-  series: 'ALL',
-  part: 'ALL',
+  series: 'all',
+  part: 'Series',
   query: '',
   eventName: '',
   note: '',
@@ -235,11 +237,11 @@ function rebuildCatalog(aliases = null) {
 
 function filteredBeys() {
   const q = normalizeText(state.query);
-  const partFilters = new Set(['刀刃', '主刀刃', '輔助刀刃', '上層刀刃', '金屬刀刃', '紋章鎖', 'Ratchet', 'Bit']);
+  const versionTags = { BX: 'bx', UX: 'ux', CX: 'cx', BXG: 'reprint', EVE: 'convention', LIMITED: 'other' };
   return state.beys.filter((bey) => {
     if (!state.editorMode && bey.hidden) return false;
-    if (state.series !== 'ALL' && bey.series !== state.series) return false;
-    if (state.part !== 'ALL' && bey.category !== state.part) return false;
+    if (bey.category !== state.part) return false;
+    if (state.series !== 'all' && !bey.tags?.includes(versionTags[state.series])) return false;
     if (!q) return true;
     return normalizeText(`${bey.model} ${bey.name} ${bey.originalName || ''} ${bey.series}`).includes(q);
   });
@@ -251,10 +253,7 @@ function setStatus(message, isError = false) {
 }
 
 function renderTabs() {
-  const categories = [...new Set(state.beys.map((bey) => bey.category).filter(Boolean))];
-  for (const category of categories) {
-    if (!els.partTabs.querySelector(`[data-part="${CSS.escape(category)}"]`)) { const button=document.createElement('button'); button.type='button'; button.className='series'; button.dataset.part=category; button.textContent=category; els.partTabs.append(button); }
-  }
+  const versionTags = { BX: 'bx', UX: 'ux', CX: 'cx', BXG: 'reprint', EVE: 'convention', LIMITED: 'other' };
   els.modeTabs.querySelectorAll('[data-mode]').forEach((button) => {
     button.classList.toggle('active', button.dataset.mode === state.mode);
   });
@@ -262,6 +261,10 @@ function renderTabs() {
     button.classList.toggle('active', button.dataset.series === state.series);
   });
   els.partTabs.querySelectorAll('[data-part]').forEach((button) => button.classList.toggle('active', button.dataset.part === state.part));
+  els.partTabs.querySelectorAll('[data-part]').forEach((button) => {
+    const count = state.beys.filter((bey) => bey.category === button.dataset.part && (state.series === 'all' || bey.tags?.includes(versionTags[state.series]))).length;
+    button.textContent = `${button.dataset.label} (${count})`;
+  });
 }
 
 function renderEditorState() {
@@ -298,10 +301,12 @@ function createCard(bey) {
     img.decoding = 'async';
     img.alt = `${bey.name} 圖片`;
     img.src = bey.image;
+    const fallbacks = [...(bey.imageFallbacks || [])];
     img.addEventListener('error', () => {
-      imageBox.textContent = '';
-      imageBox.append(makeImageFallback(bey.series));
-    }, { once: true });
+      const next = fallbacks.shift();
+      if (next) img.src = next;
+      else { imageBox.textContent = ''; imageBox.append(makeImageFallback(bey.category)); }
+    });
     imageBox.append(img);
   } else {
     imageBox.append(makeImageFallback(bey.series));
@@ -687,7 +692,6 @@ function bindEvents() {
     const button = event.target.closest('[data-series]');
     if (!button) return;
     state.series = button.dataset.series;
-    state.part = 'ALL';
     renderTabs();
     renderGrid();
   });
