@@ -1008,6 +1008,654 @@
     "image": ""
   },
   {
+    "id": "LC-EVE-088899-00",
+    "sourceId": "LC-EVE-088899-00",
+    "model": "LC-EVE-088899-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-22 邪神",
+    "image": "./images/LC-EVE-088899-00.png"
+  },
+  {
+    "id": "LC-EVE-958772-01",
+    "sourceId": "LC-EVE-958772-01",
+    "model": "LC-EVE-958772-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-15 英仙",
+    "image": "./images/LC-EVE-958772-01.png"
+  },
+  {
+    "id": "LC-EVE-982524-01",
+    "sourceId": "LC-EVE-982524-01",
+    "model": "LC-EVE-982524-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-16-01 蒼龍",
+    "image": "./images/LC-EVE-982524-01.png"
+  },
+  {
+    "id": "LC-EVE-982524-02",
+    "sourceId": "LC-EVE-982524-02",
+    "model": "LC-EVE-982524-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-16-02 蒼龍",
+    "image": "./images/LC-EVE-982524-02.png"
+  },
+  {
+    "id": "LC-EVE-982524-03",
+    "sourceId": "LC-EVE-982524-03",
+    "model": "LC-EVE-982524-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-16-03 蒼龍",
+    "image": "./images/LC-EVE-982524-03.png"
+  },
+  {
+    "id": "LC-PRD-072447-00",
+    "sourceId": "LC-PRD-072447-00",
+    "model": "LC-PRD-072447-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXC-19 龍王",
+    "image": "./images/LC-PRD-072447-00.png"
+  },
+  {
+    "id": "LC-PRD-077305-00",
+    "sourceId": "LC-PRD-077305-00",
+    "model": "LC-PRD-077305-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-79 黃蜂",
+    "image": "./images/LC-PRD-077305-00.png"
+  },
+  {
+    "id": "LC-PRD-077336-00",
+    "sourceId": "LC-PRD-077336-00",
+    "model": "LC-PRD-077336-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-80 海怪",
+    "image": "./images/LC-PRD-077336-00.png"
+  },
+  {
+    "id": "LC-PRD-077367-00",
+    "sourceId": "LC-PRD-077367-00",
+    "model": "LC-PRD-077367-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-81 雄鹿",
+    "image": "./images/LC-PRD-077367-00.png"
+  },
+  {
+    "id": "LC-PRD-077398-00",
+    "sourceId": "LC-PRD-077398-00",
+    "model": "LC-PRD-077398-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-23-01 龍神",
+    "image": "./images/LC-PRD-077398-00.png"
+  },
+  {
+    "id": "LC-PRD-080572-00",
+    "sourceId": "LC-PRD-080572-00",
+    "model": "LC-PRD-080572-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-51 蒼龍",
+    "image": "./images/LC-PRD-080572-00.png"
+  },
+  {
+    "id": "LC-PRD-080626-01",
+    "sourceId": "LC-PRD-080626-01",
+    "model": "LC-PRD-080626-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-19-01 鱷魚",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-080626-02",
+    "sourceId": "LC-PRD-080626-02",
+    "model": "LC-PRD-080626-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-19-02 鱷魚",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-080626-03",
+    "sourceId": "LC-PRD-080626-03",
+    "model": "LC-PRD-080626-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-19-03 鱷魚",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-080640-01",
+    "sourceId": "LC-PRD-080640-01",
+    "model": "LC-PRD-080640-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-70-01 迪卡",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-080640-11",
+    "sourceId": "LC-PRD-080640-11",
+    "model": "LC-PRD-080640-11",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-70-11 迪卡",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-084174-05",
+    "sourceId": "LC-PRD-084174-05",
+    "model": "LC-PRD-084174-05",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BX-50-05 銀狼",
+    "image": "./images/LC-PRD-084174-05.png"
+  },
+  {
+    "id": "LC-PRD-084174-05R",
+    "sourceId": "LC-PRD-084174-05R",
+    "model": "LC-PRD-084174-05R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BX-50 銀狼",
+    "image": "./images/LC-PRD-084174-05R.png"
+  },
+  {
+    "id": "LC-PRD-084174-06",
+    "sourceId": "LC-PRD-084174-06",
+    "model": "LC-PRD-084174-06",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BX-50-06 魔犬",
+    "image": "./images/LC-PRD-084174-06.png"
+  },
+  {
+    "id": "LC-PRD-085683-01",
+    "sourceId": "LC-PRD-085683-01",
+    "model": "LC-PRD-085683-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-57-01 福音戰士",
+    "image": "./images/LC-PRD-085683-01.png"
+  },
+  {
+    "id": "LC-PRD-085683-02",
+    "sourceId": "LC-PRD-085683-02",
+    "model": "LC-PRD-085683-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-57-02 福音戰士",
+    "image": "./images/LC-PRD-085683-02.png"
+  },
+  {
+    "id": "LC-PRD-085683-03",
+    "sourceId": "LC-PRD-085683-03",
+    "model": "LC-PRD-085683-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-57-03 福音戰士",
+    "image": "./images/LC-PRD-085683-03.png"
+  },
+  {
+    "id": "LC-PRD-089148-00",
+    "sourceId": "LC-PRD-089148-00",
+    "model": "LC-PRD-089148-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-23-02 龍神",
+    "image": "./images/LC-PRD-089148-00.png"
+  },
+  {
+    "id": "LC-PRD-096146-01",
+    "sourceId": "LC-PRD-096146-01",
+    "model": "LC-PRD-096146-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-17-01 獨角",
+    "image": "./images/LC-PRD-096146-01.png"
+  },
+  {
+    "id": "LC-PRD-096146-01R",
+    "sourceId": "LC-PRD-096146-01R",
+    "model": "LC-PRD-096146-01R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-17 獨角",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-096146-01RR",
+    "sourceId": "LC-PRD-096146-01RR",
+    "model": "LC-PRD-096146-01RR",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-17 獨角",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-096146-02",
+    "sourceId": "LC-PRD-096146-02",
+    "model": "LC-PRD-096146-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-17-02 獨角",
+    "image": "./images/LC-PRD-096146-02.png"
+  },
+  {
+    "id": "LC-PRD-096146-02R",
+    "sourceId": "LC-PRD-096146-02R",
+    "model": "LC-PRD-096146-02R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-17 獨角",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-096146-02RR",
+    "sourceId": "LC-PRD-096146-02RR",
+    "model": "LC-PRD-096146-02RR",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-17 獨角",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-096153-00",
+    "sourceId": "LC-PRD-096153-00",
+    "model": "LC-PRD-096153-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-12 鳳凰",
+    "image": "./images/LC-PRD-096153-00.png"
+  },
+  {
+    "id": "LC-PRD-096177-01",
+    "sourceId": "LC-PRD-096177-01",
+    "model": "LC-PRD-096177-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-18-01 腕龍",
+    "image": "./images/LC-PRD-096177-01.png"
+  },
+  {
+    "id": "LC-PRD-096177-02",
+    "sourceId": "LC-PRD-096177-02",
+    "model": "LC-PRD-096177-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-18-02 腕龍",
+    "image": "./images/LC-PRD-096177-02.png"
+  },
+  {
+    "id": "LC-PRD-096177-03",
+    "sourceId": "LC-PRD-096177-03",
+    "model": "LC-PRD-096177-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-18-03 腕龍",
+    "image": "./images/LC-PRD-096177-03.png"
+  },
+  {
+    "id": "LC-PRD-097167-03",
+    "sourceId": "LC-PRD-097167-03",
+    "model": "LC-PRD-097167-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "UX-18-03 天馬",
+    "image": "./images/LC-PRD-097167-03.png"
+  },
+  {
+    "id": "LC-PRD-097167-04",
+    "sourceId": "LC-PRD-097167-04",
+    "model": "LC-PRD-097167-04",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "UX-18-04 焰神",
+    "image": "./images/LC-PRD-097167-04.png"
+  },
+  {
+    "id": "LC-PRD-097167-04R",
+    "sourceId": "LC-PRD-097167-04R",
+    "model": "LC-PRD-097167-04R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "UX-18 焰神",
+    "image": "./images/LC-PRD-097167-04R.png"
+  },
+  {
+    "id": "LC-PRD-097242-00",
+    "sourceId": "LC-PRD-097242-00",
+    "model": "LC-PRD-097242-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-10 銀狼",
+    "image": "./images/LC-PRD-097242-00.png"
+  },
+  {
+    "id": "LC-PRD-097259-00",
+    "sourceId": "LC-PRD-097259-00",
+    "model": "LC-PRD-097259-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-13 龍王",
+    "image": "./images/LC-PRD-097259-00.png"
+  },
+  {
+    "id": "LC-PRD-097266-00",
+    "sourceId": "LC-PRD-097266-00",
+    "model": "LC-PRD-097266-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-14 騎士",
+    "image": "./images/LC-PRD-097266-00.png"
+  },
+  {
+    "id": "LC-PRD-097273-00",
+    "sourceId": "LC-PRD-097273-00",
+    "model": "LC-PRD-097273-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-15 邪神",
+    "image": "./images/LC-PRD-097273-00.png"
+  },
+  {
+    "id": "LC-PRD-097280-00",
+    "sourceId": "LC-PRD-097280-00",
+    "model": "LC-PRD-097280-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-16 龍王",
+    "image": "./images/LC-PRD-097280-00.png"
+  },
+  {
+    "id": "LC-PRD-098775-01",
+    "sourceId": "LC-PRD-098775-01",
+    "model": "LC-PRD-098775-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-11-01 帝王",
+    "image": "./images/LC-PRD-098775-01.png"
+  },
+  {
+    "id": "LC-PRD-098775-01R",
+    "sourceId": "LC-PRD-098775-01R",
+    "model": "LC-PRD-098775-01R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-11 帝王",
+    "image": "./images/LC-PRD-098775-01R.png"
+  },
+  {
+    "id": "LC-PRD-930495-00",
+    "sourceId": "LC-PRD-930495-00",
+    "model": "LC-PRD-930495-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-45 天馬",
+    "image": "./images/LC-PRD-930495-00.png"
+  },
+  {
+    "id": "LC-PRD-930495-00R",
+    "sourceId": "LC-PRD-930495-00R",
+    "model": "LC-PRD-930495-00R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-00 天馬",
+    "image": "./images/LC-PRD-930495-00R.png"
+  },
+  {
+    "id": "LC-PRD-930907-00",
+    "sourceId": "LC-PRD-930907-00",
+    "model": "LC-PRD-930907-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-43 魔導",
+    "image": "./images/LC-PRD-930907-00.png"
+  },
+  {
+    "id": "LC-PRD-939597-00",
+    "sourceId": "LC-PRD-939597-00",
+    "model": "LC-PRD-939597-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-01 蒼龍",
+    "image": "./images/LC-PRD-939597-00.png"
+  },
+  {
+    "id": "LC-PRD-939603-00",
+    "sourceId": "LC-PRD-939603-00",
+    "model": "LC-PRD-939603-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-02 魔導",
+    "image": "./images/LC-PRD-939603-00.png"
+  },
+  {
+    "id": "LC-PRD-939610-00",
+    "sourceId": "LC-PRD-939610-00",
+    "model": "LC-PRD-939610-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-03 英仙",
+    "image": "./images/LC-PRD-939610-00.png"
+  },
+  {
+    "id": "LC-PRD-939627-01",
+    "sourceId": "LC-PRD-939627-01",
+    "model": "LC-PRD-939627-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-05-01 惡魔",
+    "image": "./images/LC-PRD-939627-01.png"
+  },
+  {
+    "id": "LC-PRD-939627-01R",
+    "sourceId": "LC-PRD-939627-01R",
+    "model": "LC-PRD-939627-01R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-05 惡魔",
+    "image": "./images/LC-PRD-939627-01R.png"
+  },
+  {
+    "id": "LC-PRD-939627-02",
+    "sourceId": "LC-PRD-939627-02",
+    "model": "LC-PRD-939627-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-05-02 戰犀",
+    "image": "./images/LC-PRD-939627-02.png"
+  },
+  {
+    "id": "LC-PRD-939627-03",
+    "sourceId": "LC-PRD-939627-03",
+    "model": "LC-PRD-939627-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-05-03 惡魔",
+    "image": "./images/LC-PRD-939627-03.png"
+  },
+  {
+    "id": "LC-PRD-939627-03R",
+    "sourceId": "LC-PRD-939627-03R",
+    "model": "LC-PRD-939627-03R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-05 惡魔",
+    "image": "./images/LC-PRD-939627-03R.png"
+  },
+  {
+    "id": "LC-PRD-939634-01",
+    "sourceId": "LC-PRD-939634-01",
+    "model": "LC-PRD-939634-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-04-01 蒼龍",
+    "image": "./images/LC-PRD-939634-01.png"
+  },
+  {
+    "id": "LC-PRD-939634-02",
+    "sourceId": "LC-PRD-939634-02",
+    "model": "LC-PRD-939634-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-04-02 英仙",
+    "image": "./images/LC-PRD-939634-02.png"
+  },
+  {
+    "id": "LC-PRD-953715-00",
+    "sourceId": "LC-PRD-953715-00",
+    "model": "LC-PRD-953715-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-17 蒼龍 透明闇黑版",
+    "image": "./images/LC-PRD-953715-00.png"
+  },
+  {
+    "id": "LC-PRD-954316-00",
+    "sourceId": "LC-PRD-954316-00",
+    "model": "LC-PRD-954316-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXH-14> 戰神",
+    "image": "./images/LC-PRD-954316-00.png"
+  },
+  {
+    "id": "LC-PRD-956969-01",
+    "sourceId": "LC-PRD-956969-01",
+    "model": "LC-PRD-956969-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-06-01 極狐",
+    "image": "./images/LC-PRD-956969-01.png"
+  },
+  {
+    "id": "LC-PRD-956969-02",
+    "sourceId": "LC-PRD-956969-02",
+    "model": "LC-PRD-956969-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-06-02 極狐",
+    "image": "./images/LC-PRD-956969-02.png"
+  },
+  {
+    "id": "LC-PRD-956969-03",
+    "sourceId": "LC-PRD-956969-03",
+    "model": "LC-PRD-956969-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-06-03 極狐",
+    "image": "./images/LC-PRD-956969-03.png"
+  },
+  {
+    "id": "LC-PRD-956976-00",
+    "sourceId": "LC-PRD-956976-00",
+    "model": "LC-PRD-956976-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-07 天馬",
+    "image": "./images/LC-PRD-956976-00.png"
+  },
+  {
+    "id": "LC-PRD-956976-00R",
+    "sourceId": "LC-PRD-956976-00R",
+    "model": "LC-PRD-956976-00R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-07 天馬",
+    "image": "./images/LC-PRD-956976-00R.png"
+  },
+  {
+    "id": "LC-PRD-956983-01",
+    "sourceId": "LC-PRD-956983-01",
+    "model": "LC-PRD-956983-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-08-01 魔犬",
+    "image": "./images/LC-PRD-956983-01.png"
+  },
+  {
+    "id": "LC-PRD-956983-02",
+    "sourceId": "LC-PRD-956983-02",
+    "model": "LC-PRD-956983-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-08-02 巨鯨",
+    "image": "./images/LC-PRD-956983-02.png"
+  },
+  {
+    "id": "LC-PRD-956983-03",
+    "sourceId": "LC-PRD-956983-03",
+    "model": "LC-PRD-956983-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-08-03 魔犬",
+    "image": "./images/LC-PRD-956983-03.png"
+  },
+  {
+    "id": "LC-PRD-982432-03",
+    "sourceId": "LC-PRD-982432-03",
+    "model": "LC-PRD-982432-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "UX-15-03 惡魔",
+    "image": "./images/LC-PRD-982432-03.png"
+  },
+  {
+    "id": "LC-PRD-993872-00",
+    "sourceId": "LC-PRD-993872-00",
+    "model": "LC-PRD-993872-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXC-13 蒼龍",
+    "image": "./images/LC-PRD-993872-00.png"
+  },
+  {
+    "id": "LC-PRD-994350-00",
+    "sourceId": "LC-PRD-994350-00",
+    "model": "LC-PRD-994350-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-38 雄獅",
+    "image": "./images/LC-PRD-994350-00.png"
+  },
+  {
+    "id": "LC-PRD-994350-00R",
+    "sourceId": "LC-PRD-994350-00R",
+    "model": "LC-PRD-994350-00R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-00 雄獅",
+    "image": "./images/LC-PRD-994350-00R.png"
+  },
+  {
+    "id": "LC-PRD-995678-00",
+    "sourceId": "LC-PRD-995678-00",
+    "model": "LC-PRD-995678-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-09 焰神",
+    "image": "./images/LC-PRD-995678-00.png"
+  },
+  {
+    "id": "LC-PRD-995678-00R",
+    "sourceId": "LC-PRD-995678-00R",
+    "model": "LC-PRD-995678-00R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-09 焰神",
+    "image": "./images/LC-PRD-995678-00R.png"
+  },
+  {
     "id": "SR-PRD-080558-00R",
     "sourceId": "SR-PRD-080558-00R",
     "model": "UX-00",

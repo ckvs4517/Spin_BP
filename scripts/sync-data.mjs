@@ -308,6 +308,23 @@ async function main() {
     };
   });
 
+  // Keep lock chips as a separate category while allowing mixed selection/export.
+  const lockRows = [];
+  for (const source of sources) {
+    for (const [fallbackId, item] of asEntries(source?.BeybladePartsLockChip)) {
+      if (!item) continue;
+      const sourceId = item.id || fallbackId;
+      const title = titleOf(item);
+      lockRows.push({ sourceId, model: sourceId, series: 'LOCK_CHIP', category: '紋章鎖', name: cleanName(title, sourceId), item });
+    }
+  }
+  const lockItems = await mapPool(lockRows, IMAGE_CONCURRENCY, async (row) => {
+    let image = await firstExistingLocalImage([row], previousBySource.get(row.sourceId) || []);
+    if (!image) image = await downloadFirstValidImage(imageCandidates([row], row), row.sourceId);
+    return { id: row.sourceId, sourceId: row.sourceId, model: row.model, series: row.series, category: row.category, name: row.name, image };
+  });
+  items.push(...lockItems);
+
   items.sort((a, b) => {
     const s = a.series.localeCompare(b.series);
     if (s) return s;

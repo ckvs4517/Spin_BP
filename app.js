@@ -205,7 +205,7 @@ function filteredBeys() {
   const q = normalizeText(state.query);
   return state.beys.filter((bey) => {
     if (!state.editorMode && bey.hidden) return false;
-    if (state.series !== 'ALL' && bey.series !== state.series) return false;
+    if (state.series !== 'ALL' && (state.series === 'LOCK_CHIP' ? bey.category !== '紋章鎖' : bey.series !== state.series)) return false;
     if (!q) return true;
     return normalizeText(`${bey.model} ${bey.name} ${bey.originalName || ''} ${bey.series}`).includes(q);
   });
