@@ -409,9 +409,10 @@ async function renderPreview() {
   canvas.width = width;
   canvas.height = height;
 
-  ctx.fillStyle = '#ffffff';
+  // Keep exported images consistent with the application's dark theme.
+  ctx.fillStyle = '#080b10';
   ctx.fillRect(0, 0, width, height);
-  ctx.fillStyle = '#111827';
+  ctx.fillStyle = '#f3f4f6';
   ctx.font = '800 28px system-ui, sans-serif';
   ctx.fillText('SPIN BP', side, 64);
   ctx.font = '900 54px system-ui, sans-serif';
@@ -422,10 +423,10 @@ async function renderPreview() {
   const badgeText = isBan ? '以下陀螺禁止使用' : '只有以下陀螺可使用';
   ctx.font = '900 27px system-ui, sans-serif';
   const badgeW = ctx.measureText(badgeText).width + 50;
-  ctx.fillStyle = isBan ? '#fef2f2' : '#f0fdf4';
+  ctx.fillStyle = isBan ? '#351b22' : '#123126';
   roundRect(ctx, side, 185, badgeW, 52, 26);
   ctx.fill();
-  ctx.fillStyle = isBan ? '#b91c1c' : '#166534';
+  ctx.fillStyle = isBan ? '#ff9b9b' : '#72e3a4';
   ctx.fillText(badgeText, side + 25, 220);
 
   const images = await Promise.all(selected.map((bey) => loadImage(bey.image)));
@@ -434,10 +435,10 @@ async function renderPreview() {
     const col = index % cols;
     const x = side + col * (cardW + gap);
     const y = headerH + row * (cardH + gap);
-    ctx.fillStyle = '#f9fafb';
+    ctx.fillStyle = '#111821';
     roundRect(ctx, x, y, cardW, cardH, 24);
     ctx.fill();
-    ctx.strokeStyle = '#e5e7eb';
+    ctx.strokeStyle = '#354254';
     ctx.lineWidth = 2;
     ctx.stroke();
 
@@ -454,35 +455,35 @@ async function renderPreview() {
       ctx.imageSmoothingQuality = 'high';
       ctx.drawImage(image, x + (cardW - w) / 2, y + (imgAreaH - h) / 2, w, h);
     } else {
-      ctx.fillStyle = '#e5e7eb';
+      ctx.fillStyle = '#293342';
       ctx.beginPath();
       ctx.arc(x + cardW / 2, y + imgAreaH / 2, cardW * .27, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = '#6b7280';
+      ctx.fillStyle = '#c0c7d1';
       ctx.font = '900 34px system-ui, sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(bey.series || 'X', x + cardW / 2, y + imgAreaH / 2 + 12);
       ctx.textAlign = 'left';
     }
 
-    ctx.fillStyle = '#6b7280';
+    ctx.fillStyle = '#9aa4b2';
     ctx.font = '800 20px system-ui, sans-serif';
     ctx.fillText(bey.model || bey.series, x + 18, y + cardW + 18);
-    ctx.fillStyle = '#111827';
+    ctx.fillStyle = '#f3f4f6';
     ctx.font = '900 23px system-ui, sans-serif';
     drawWrappedText(ctx, bey.name, x + 18, y + cardW + 49, cardW - 36, 27, 2);
   });
 
   const footerY = headerH + rows * (cardH + gap) + 18;
   if (state.note) {
-    ctx.fillStyle = '#111827';
+    ctx.fillStyle = '#f3f4f6';
     ctx.font = '900 24px system-ui, sans-serif';
     ctx.fillText('補充規則', side, footerY + 22);
-    ctx.fillStyle = '#374151';
+    ctx.fillStyle = '#c0c7d1';
     ctx.font = '600 22px system-ui, sans-serif';
     drawWrappedText(ctx, state.note, side, footerY + 58, width - side * 2, 31, 2);
   }
-  ctx.fillStyle = '#9ca3af';
+  ctx.fillStyle = '#7f8b9d';
   ctx.font = '500 17px system-ui, sans-serif';
   ctx.fillText('資料來源：beyblade.phstudy.org　｜　由 Spin BP 產生', side, height - 34);
 }
