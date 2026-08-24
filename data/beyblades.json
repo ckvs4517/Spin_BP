@@ -32,6 +32,22 @@
     "image": "./images/SR-PRD-910404-00.png"
   },
   {
+    "id": "SR-PRD-910497-00",
+    "sourceId": "SR-PRD-910497-00",
+    "model": "BX-05",
+    "series": "BX",
+    "name": "魔導幻箭4-80B",
+    "image": "./images/SR-PRD-910497-00.png"
+  },
+  {
+    "id": "SR-PRD-910480-00",
+    "sourceId": "SR-PRD-910480-00",
+    "model": "BX-06",
+    "series": "BX",
+    "name": "騎士重盾3-80N",
+    "image": "./images/SR-PRD-910480-00.png"
+  },
+  {
     "id": "SR-PRD-910589-00",
     "sourceId": "SR-PRD-910589-00",
     "model": "BX-07",
@@ -222,6 +238,14 @@
     "series": "BX",
     "name": "魔導幻箭4-80N",
     "image": "./images/SR-PRD-913085-03.png"
+  },
+  {
+    "id": "SR-PRD-913139-00",
+    "sourceId": "SR-PRD-913139-00",
+    "model": "BX-22",
+    "series": "BX",
+    "name": "蒼龍神劍3-60F",
+    "image": "./images/SR-PRD-913139-00.png"
   },
   {
     "id": "SR-PRD-913092-00",
@@ -454,6 +478,14 @@
     "series": "BX",
     "name": "悍熊猛爪5-60F",
     "image": "./images/SR-PRD-939481-00.png"
+  },
+  {
+    "id": "SR-PRD-939504-00",
+    "sourceId": "SR-PRD-939504-00",
+    "model": "BX-38",
+    "series": "BX",
+    "name": "赫燃天鳳4-70TP",
+    "image": "./images/SR-PRD-939504-00.png"
   },
   {
     "id": "SR-PRD-939504-01",
@@ -936,12 +968,44 @@
     "image": "./images/SR-PRD-096177-01.png"
   },
   {
+    "id": "SR-PRD-096177-02",
+    "sourceId": "SR-PRD-096177-02",
+    "model": "CX-18-02",
+    "series": "CX",
+    "name": "腕龍鞭打OW 5-70Nr",
+    "image": "./images/SR-PRD-096177-02.png"
+  },
+  {
+    "id": "SR-PRD-096177-03",
+    "sourceId": "SR-PRD-096177-03",
+    "model": "CX-18-03",
+    "series": "CX",
+    "name": "腕龍鞭打OW 5-70Nr",
+    "image": "./images/SR-PRD-096177-03.png"
+  },
+  {
     "id": "SR-PRD-080626-01",
     "sourceId": "SR-PRD-080626-01",
     "model": "CX-19-01",
     "series": "CX",
     "name": "鱷魚碾壓 TQ5-50GN",
     "image": "./images/SR-PRD-080626-01.jpg"
+  },
+  {
+    "id": "SR-PRD-080626-02",
+    "sourceId": "SR-PRD-080626-02",
+    "model": "CX-19-02",
+    "series": "CX",
+    "name": "鱷魚碾壓 TQ5-50GN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-080626-03",
+    "sourceId": "SR-PRD-080626-03",
+    "model": "CX-19-03",
+    "series": "CX",
+    "name": "鱷魚碾壓 TQ5-50GN",
+    "image": ""
   },
   {
     "id": "SR-PRD-080558-00R",
@@ -1152,6 +1216,14 @@
     "image": "./images/SR-PRD-939573-00.png"
   },
   {
+    "id": "SR-PRD-958499-00",
+    "sourceId": "SR-PRD-958499-00",
+    "model": "UX-14",
+    "series": "UX",
+    "name": "天蠍長矛0-70Z",
+    "image": "./images/SR-PRD-958499-00.png"
+  },
+  {
     "id": "SR-PRD-958499-01",
     "sourceId": "SR-PRD-958499-01",
     "model": "UX-14-01",
@@ -1190,6 +1262,22 @@
     "series": "UX",
     "name": "時鐘幻象9-65B",
     "image": "./images/SR-PRD-990154-01.png"
+  },
+  {
+    "id": "SR-PRD-990154-02",
+    "sourceId": "SR-PRD-990154-02",
+    "model": "UX-16-02",
+    "series": "UX",
+    "name": "時鐘幻象9-65B",
+    "image": "./images/SR-PRD-990154-02.png"
+  },
+  {
+    "id": "SR-PRD-990154-03",
+    "sourceId": "SR-PRD-990154-03",
+    "model": "UX-16-03",
+    "series": "UX",
+    "name": "時鐘幻象9-65B",
+    "image": "./images/SR-PRD-990154-03.png"
   },
   {
     "id": "SR-PRD-997627-00",
