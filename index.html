@@ -14,11 +14,22 @@
       <h1>比賽規則圖片產生器</h1>
       <p class="sub">勾選陀螺，直接產生參賽者一眼就看懂的規則圖。</p>
     </div>
-    <a class="source-link" href="https://beyblade.phstudy.org/index.html" target="_blank" rel="noreferrer">資料來源 ↗</a>
+    <div class="top-actions">
+      <button type="button" class="secondary-btn" id="editorToggle">編輯者模式</button>
+      <a class="source-link" href="https://beyblade.phstudy.org/index.html" target="_blank" rel="noreferrer">資料來源 ↗</a>
+    </div>
   </header>
 
   <main class="layout">
     <section class="panel controls-panel" aria-label="規則設定">
+      <div id="editorBar" class="editor-bar" hidden>
+        <div>
+          <strong>編輯者模式</strong>
+          <p id="editorSummary">人工修改會永久保存到後端。</p>
+        </div>
+        <span class="editor-mode-dot" aria-hidden="true"></span>
+      </div>
+
       <div class="field-group">
         <label class="field-label">規則模式</label>
         <div class="segmented" id="modeTabs">
@@ -82,6 +93,80 @@
     資料由公開圖鑑同步；商品圖片與名稱權利屬原權利人。本工具僅協助整理比賽規則。
   </footer>
 
+  <dialog id="editorLoginDialog" class="modal compact-modal">
+    <form method="dialog" class="modal-card" onsubmit="return false;">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">EDITOR</p>
+          <h2>進入編輯者模式</h2>
+        </div>
+      </div>
+      <label class="field modal-field">
+        <span>編輯者密碼</span>
+        <input id="editorPassword" type="password" autocomplete="current-password" placeholder="輸入後端編輯密碼" />
+      </label>
+      <p id="editorLoginError" class="dialog-status" aria-live="polite"></p>
+      <div class="modal-actions">
+        <button type="button" class="secondary-btn" id="editorLoginCancel">取消</button>
+        <button type="submit" class="primary-btn" id="editorLoginSubmit">登入</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="itemEditorDialog" class="modal">
+    <form id="itemEditorForm" class="modal-card editor-modal-card">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">CATALOG OVERRIDE</p>
+          <h2>編輯圖鑑項目</h2>
+        </div>
+        <button type="button" class="icon-btn" id="editCancel" aria-label="關閉">×</button>
+      </div>
+
+      <div class="editor-item-meta">
+        <strong id="editModel">—</strong>
+        <code id="editSourceId">—</code>
+      </div>
+
+      <div class="editor-form-grid">
+        <div>
+          <div id="editImagePreview" class="edit-image-preview"></div>
+          <label class="upload-btn">
+            上傳新圖片
+            <input id="editImageInput" type="file" accept="image/png,image/jpeg,image/webp" hidden />
+          </label>
+          <button type="button" class="text-btn danger-text" id="editRemoveImage">移除自訂圖片</button>
+          <p class="hint">支援 PNG / JPG / WEBP，單檔上限 5 MB。自訂圖片會優先於自動同步圖片。</p>
+        </div>
+
+        <div class="editor-fields">
+          <label class="field modal-field">
+            <span>顯示名稱</span>
+            <input id="editName" type="text" maxlength="100" />
+          </label>
+          <label class="field modal-field">
+            <span>管理備註</span>
+            <textarea id="editNote" maxlength="300" rows="4" placeholder="例：Hasbro / TT 重複，保留此版本"></textarea>
+          </label>
+          <label class="check-field">
+            <input id="editHidden" type="checkbox" />
+            <span>在一般模式隱藏此項目</span>
+          </label>
+        </div>
+      </div>
+
+      <p id="editStatus" class="dialog-status" aria-live="polite"></p>
+      <div class="modal-actions split-actions">
+        <button type="button" class="secondary-btn danger-outline" id="editRestore">恢復原始資料</button>
+        <div class="modal-actions-right">
+          <button type="button" class="secondary-btn" onclick="document.querySelector('#itemEditorDialog').close()">取消</button>
+          <button type="submit" class="primary-btn" id="editSave">儲存</button>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="./config.js"></script>
   <script type="module" src="./app.js"></script>
 </body>
 </html>
