@@ -18,7 +18,11 @@ function normalizeRemoteCatalog(payload) {
       const id = item?.id || fallbackId;
       const title = item?.name?.['zh-TW'] || item?.catalog_title?.['zh-TW'] || item?.name?.['zh-HK'] || id;
       const folders = { BeybladeSeries: 'BeybladeSeries', BeybladePartsBlade: 'Blade', BeybladePartsMainBlade: 'MainBlade', BeybladePartsAssistBlade: 'AssistBlade', BeybladePartsOverBlade: 'OverBlade', BeybladePartsMetalBlade: 'MetalBlade', BeybladePartsLockChip: 'LockChip', BeybladePartsRatchet: 'Ratchet', BeybladePartsBit: 'Bit' };
-      const image = Object.values(item || {}).flatMap((v) => typeof v === 'string' ? [v] : []).find((v) => /\.(png|jpe?g|webp)/i.test(v)) || `https://beyblade.phstudy.org/images/app/${folders[key]}/${id}.png`;
+      const strings = [];
+      const collect = (value) => { if (typeof value === 'string') strings.push(value); else if (Array.isArray(value)) value.forEach(collect); else if (value && typeof value === 'object') Object.values(value).forEach(collect); };
+      collect(item);
+      const direct = strings.find((v) => /\.(png|jpe?g|webp)(\?.*)?$/i.test(v));
+      const image = direct ? (direct.startsWith('//') ? `https:${direct}` : direct.startsWith('/') ? `https://beyblade.phstudy.org${direct}` : direct) : `https://beyblade.phstudy.org/images/app/${folders[key]}/${id}.png`;
       const model = item?.model || item?.model_name || title || id;
       const seriesMatch = `${model} ${title} ${JSON.stringify(item)}`.match(/\b(BXA|BX|UX|CX)-/i);
       const series = key === 'BeybladeSeries' ? (seriesMatch?.[1]?.toUpperCase() === 'BXA' ? 'BX' : seriesMatch?.[1]?.toUpperCase() || 'ALL') : key;
