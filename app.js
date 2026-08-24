@@ -28,6 +28,7 @@ function normalizeRemoteCatalog(payload) {
 const els = {
   modeTabs: document.querySelector('#modeTabs'),
   seriesTabs: document.querySelector('#seriesTabs'),
+  partTabs: document.querySelector('#partTabs'),
   eventName: document.querySelector('#eventName'),
   note: document.querySelector('#note'),
   search: document.querySelector('#search'),
@@ -66,6 +67,7 @@ const els = {
 const state = {
   mode: 'ban',
   series: 'ALL',
+  part: 'ALL',
   query: '',
   eventName: '',
   note: '',
@@ -229,10 +231,8 @@ function filteredBeys() {
   const partFilters = new Set(['刀刃', '主刀刃', '輔助刀刃', '上層刀刃', '金屬刀刃', '紋章鎖', 'Ratchet', 'Bit']);
   return state.beys.filter((bey) => {
     if (!state.editorMode && bey.hidden) return false;
-    if (state.series !== 'ALL') {
-      const matches = partFilters.has(state.series) ? bey.category === state.series : bey.series === state.series;
-      if (!matches) return false;
-    }
+    if (state.series !== 'ALL' && bey.series !== state.series) return false;
+    if (state.part !== 'ALL' && bey.category !== state.part) return false;
     if (!q) return true;
     return normalizeText(`${bey.model} ${bey.name} ${bey.originalName || ''} ${bey.series}`).includes(q);
   });
@@ -250,12 +250,16 @@ function renderTabs() {
       const button = document.createElement('button'); button.type = 'button'; button.className = 'series'; button.dataset.series = category; button.textContent = category; els.seriesTabs.append(button);
     }
   }
+  for (const category of categories) {
+    if (!els.partTabs.querySelector(`[data-part="${CSS.escape(category)}"]`)) { const button=document.createElement('button'); button.type='button'; button.className='series'; button.dataset.part=category; button.textContent=category; els.partTabs.append(button); }
+  }
   els.modeTabs.querySelectorAll('[data-mode]').forEach((button) => {
     button.classList.toggle('active', button.dataset.mode === state.mode);
   });
   els.seriesTabs.querySelectorAll('[data-series]').forEach((button) => {
     button.classList.toggle('active', button.dataset.series === state.series);
   });
+  els.partTabs.querySelectorAll('[data-part]').forEach((button) => button.classList.toggle('active', button.dataset.part === state.part));
 }
 
 function renderEditorState() {
@@ -684,6 +688,7 @@ function bindEvents() {
     renderTabs();
     renderGrid();
   });
+  els.partTabs.addEventListener('click', (event) => { const button = event.target.closest('[data-part]'); if (!button) return; state.part = button.dataset.part; renderTabs(); renderGrid(); renderPreview(); });
   els.search.addEventListener('input', () => {
     state.query = els.search.value;
     renderGrid();
