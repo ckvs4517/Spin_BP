@@ -226,9 +226,13 @@ function rebuildCatalog(aliases = null) {
 
 function filteredBeys() {
   const q = normalizeText(state.query);
+  const partFilters = new Set(['刀刃', '主刀刃', '輔助刀刃', '上層刀刃', '金屬刀刃', '紋章鎖', 'Ratchet', 'Bit']);
   return state.beys.filter((bey) => {
     if (!state.editorMode && bey.hidden) return false;
-    if (state.series !== 'ALL' && (bey.category === state.series ? false : (bey.category && ['陀螺','刀刃','主刀刃','輔助刀刃','上層刀刃','金屬刀刃','紋章鎖','Ratchet','Bit'].includes(state.series) ? bey.category !== state.series : bey.series !== state.series))) return false;
+    if (state.series !== 'ALL') {
+      const matches = partFilters.has(state.series) ? bey.category === state.series : bey.series === state.series;
+      if (!matches) return false;
+    }
     if (!q) return true;
     return normalizeText(`${bey.model} ${bey.name} ${bey.originalName || ''} ${bey.series}`).includes(q);
   });
