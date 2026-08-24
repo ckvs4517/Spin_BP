@@ -17,7 +17,8 @@ function normalizeRemoteCatalog(payload) {
     for (const [fallbackId, item] of Object.entries(root?.[key] || {})) {
       const id = item?.id || fallbackId;
       const title = item?.name?.['zh-TW'] || item?.catalog_title?.['zh-TW'] || item?.name?.['zh-HK'] || id;
-      const image = Object.values(item || {}).flatMap((v) => typeof v === 'string' ? [v] : []).find((v) => /\.(png|jpe?g|webp)/i.test(v)) || '';
+      const folders = { BeybladeSeries: 'BeybladeSeries', BeybladePartsBlade: 'Blade', BeybladePartsMainBlade: 'MainBlade', BeybladePartsAssistBlade: 'AssistBlade', BeybladePartsOverBlade: 'OverBlade', BeybladePartsMetalBlade: 'MetalBlade', BeybladePartsLockChip: 'LockChip', BeybladePartsRatchet: 'Ratchet', BeybladePartsBit: 'Bit' };
+      const image = Object.values(item || {}).flatMap((v) => typeof v === 'string' ? [v] : []).find((v) => /\.(png|jpe?g|webp)/i.test(v)) || `https://beyblade.phstudy.org/images/app/${folders[key]}/${id}.png`;
       rows.push({ id, sourceId: id, model: item?.model || item?.model_name || id, series: key === 'BeybladeSeries' ? String(id).split('-')[0] : key, category: label, name: title, image });
     }
   }
@@ -218,6 +219,7 @@ function rebuildCatalog(aliases = null) {
       .filter((id) => visibleIds.has(id)),
   );
   saveState();
+  renderTabs();
   renderGrid();
   renderPreview();
 }
@@ -226,7 +228,7 @@ function filteredBeys() {
   const q = normalizeText(state.query);
   return state.beys.filter((bey) => {
     if (!state.editorMode && bey.hidden) return false;
-    if (state.series !== 'ALL' && (state.series === 'LOCK_CHIP' ? bey.category !== '紋章鎖' : bey.series !== state.series)) return false;
+    if (state.series !== 'ALL' && (bey.category === state.series ? false : (bey.category && ['陀螺','刀刃','主刀刃','輔助刀刃','上層刀刃','金屬刀刃','紋章鎖','Ratchet','Bit'].includes(state.series) ? bey.category !== state.series : bey.series !== state.series))) return false;
     if (!q) return true;
     return normalizeText(`${bey.model} ${bey.name} ${bey.originalName || ''} ${bey.series}`).includes(q);
   });
