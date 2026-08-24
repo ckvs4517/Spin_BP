@@ -19,7 +19,10 @@ function normalizeRemoteCatalog(payload) {
       const title = item?.name?.['zh-TW'] || item?.catalog_title?.['zh-TW'] || item?.name?.['zh-HK'] || id;
       const folders = { BeybladeSeries: 'BeybladeSeries', BeybladePartsBlade: 'Blade', BeybladePartsMainBlade: 'MainBlade', BeybladePartsAssistBlade: 'AssistBlade', BeybladePartsOverBlade: 'OverBlade', BeybladePartsMetalBlade: 'MetalBlade', BeybladePartsLockChip: 'LockChip', BeybladePartsRatchet: 'Ratchet', BeybladePartsBit: 'Bit' };
       const image = Object.values(item || {}).flatMap((v) => typeof v === 'string' ? [v] : []).find((v) => /\.(png|jpe?g|webp)/i.test(v)) || `https://beyblade.phstudy.org/images/app/${folders[key]}/${id}.png`;
-      rows.push({ id, sourceId: id, model: item?.model || item?.model_name || id, series: key === 'BeybladeSeries' ? String(id).split('-')[0] : key, category: label, name: title, image });
+      const model = item?.model || item?.model_name || title || id;
+      const seriesMatch = String(model).match(/\b(BXA|BX|UX|CX)-/i);
+      const series = key === 'BeybladeSeries' ? (seriesMatch?.[1]?.toUpperCase() === 'BXA' ? 'BX' : seriesMatch?.[1]?.toUpperCase() || 'ALL') : key;
+      rows.push({ id, sourceId: id, model, series, category: label, name: title, image });
     }
   }
   return rows;
