@@ -1,0 +1,12 @@
+{
+  "name": "spin-bp",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "sync:data": "node scripts/sync-data.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
