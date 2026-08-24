@@ -1,54 +1,84 @@
 # Spin BP
 
-一個極簡的 BEYBLADE X 比賽規則圖片產生器。
+BEYBLADE X 比賽規則圖片產生器，正式部署目標為 ChatGPT Sites。
 
-## 使用方式
+## 功能
 
-1. 開啟網站。
-2. 選擇「以下陀螺禁止使用」或「只有以下陀螺可使用」。
-3. 用 BX / UX / CX 與搜尋快速篩選。
-4. 點選要列入規則圖的陀螺。
-5. 輸入比賽名稱與補充規則。
-6. 下載 PNG，直接貼到 LINE / Discord / Facebook / 報名頁。
+- BX / UX / CX 圖鑑搜尋與篩選
+- 「禁止使用」或「只有以下可使用」規則模式
+- 1080px PNG 規則圖輸出
+- 保留不同配色版本，只合併明確的來源鏡像資料（如尾端 R / RR）
+- 編輯者模式：隱藏 / 恢復 item、修改名稱、管理備註
+- 編輯者可上傳 PNG / JPG / WEBP 替換圖片
+- 人工修正以 `sourceId` 為 key 永久保存，不會被後續圖鑑同步覆蓋
+
+## 架構
+
+### GitHub
+
+GitHub 是 source of truth，並持續由 `.github/workflows/sync-data.yml` 每日同步 `beyblade.phstudy.org` 的 BX / UX / CX 圖鑑快照與圖片。
+
+### ChatGPT Sites
+
+`npm run build` 產生 Sites 部署目錄：
+
+- `dist/client/`：HTML / CSS / JS、`data/`、`images/`
+- `dist/server/index.js`：Sites Worker 入口
+- `dist/server/api.js`：圖鑑人工修正 API
+- `dist/.openai/hosting.json`：Sites storage bindings
+- `dist/.openai/drizzle/`：D1 migration
+
+`.openai/hosting.json` 宣告：
+
+- D1 binding：`DB`
+- R2 binding：`IMAGES`
+
+D1 只保存人工 override metadata；R2 只保存人工上傳的替換圖片。
+
+## 編輯者後端
+
+公開訪客可以讀取 `GET /api/overrides`，因此人工修正會套用到所有裝置。
+
+寫入操作需要伺服器端環境變數 / secret：
+
+- `EDITOR_PASSWORD`
+
+編輯者密碼不應寫進 repo、`config.js` 或 `.openai/hosting.json`。
+
+主要 API：
+
+- `GET /api/overrides`
+- `POST /api/auth/check`
+- `PUT /api/overrides/:sourceId`
+- `DELETE /api/overrides/:sourceId`
+- `POST /api/overrides/:sourceId/image`
+- `DELETE /api/overrides/:sourceId/image`
+- `GET /media/:key`
+
+## Build
+
+```bash
+npm run build
+```
 
 ## 圖鑑同步
 
-- GitHub Action 每天自動從 `https://beyblade.phstudy.org/data/main.json` 同步 BX / UX / CX 圖鑑資料。
-- 不同配色 / 商品版本會分開保留。
-- 只自動合併明確的來源鏡像資料，例如同 source ID 尾端的 `R` / `RR` alias。
-- 自動同步圖片存放在 repo 的 `images/`，避免 Canvas 跨網域限制。
-
-## 編輯者模式
-
-網站支援永久人工修正，不會因為換電腦或重新同步圖鑑而消失：
-
-- 隱藏 / 恢復圖鑑 item
-- 修改顯示名稱
-- 加管理備註
-- 上傳 PNG / JPG / WEBP 自訂圖片
-- 移除自訂圖片並退回同步圖
-- 一鍵清除某個 item 的所有人工修改
-
-人工修正以穩定 `sourceId` 為 key，存在 Cloudflare D1；自訂圖片存在 Cloudflare R2。GitHub Pages 每次載入圖鑑後，再套用後端 overrides。
-
-後端程式與設定範本位於 [`worker/`](./worker/README.md)。第一次部署完成後，只需要把 Worker URL 填入根目錄 `config.js`；之後圖鑑更新不需要重新做人工修正。
-
-## 手動更新資料
-
-GitHub → Actions → **Sync Beyblade data** → **Run workflow**。
-
-本機也可以：
+GitHub → Actions → **Sync Beyblade data** → **Run workflow**，或本機：
 
 ```bash
 npm run sync:data
 ```
 
-## 部署
+同步只更新基礎圖鑑。Sites D1 / R2 內的人工修改不會被同步流程刪除。
 
-前端使用 GitHub Pages，`.github/workflows/deploy-pages.yml` 會在 `main` 更新後自動發布。
+## 部署原則
 
-編輯者後端使用 Cloudflare Worker + D1 + R2。詳細的一次性建立步驟請看 `worker/README.md`。
+- 正式 hosting：ChatGPT Sites
+- GitHub Pages：不再作為 production hosting
+- GitHub：保留原始碼與每日圖鑑同步
+
+第一次由 ChatGPT Sites 建立 hosted project 時，Sites 會為 `.openai/hosting.json` 補上 `project_id` 並配置 D1 / R2。
 
 ## 資料與圖片
 
-圖鑑資料來源為 `beyblade.phstudy.org`。商品名稱、圖片與相關權利屬其原權利人；本專案只做比賽規則整理與圖片產生。
+圖鑑資料來源為 `beyblade.phstudy.org`。商品名稱、圖片與相關權利屬原權利人；本專案僅用於比賽規則整理與圖片產生。

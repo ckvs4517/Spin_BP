@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS overrides (
   custom_name TEXT,
   note TEXT,
   custom_image_key TEXT,
-  updated_at TEXT NOT NULL
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX IF NOT EXISTS idx_overrides_updated_at ON overrides(updated_at DESC);
+CREATE INDEX IF NOT EXISTS idx_overrides_updated_at
+  ON overrides(updated_at DESC);
