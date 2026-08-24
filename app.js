@@ -28,7 +28,7 @@ function normalizeRemoteCatalog(payload) {
       const model = item?.model || item?.model_name || title || id;
       const seriesMatch = `${model} ${title} ${JSON.stringify(item)}`.match(/\b(BXA|BX|UX|CX)-/i);
       const series = key === 'BeybladeSeries' ? (seriesMatch?.[1]?.toUpperCase() === 'BXA' ? 'BX' : seriesMatch?.[1]?.toUpperCase() || 'ALL') : key;
-      rows.push({ id, sourceId: id, model, series, category: label, tags: Array.isArray(item?.tags) ? item.tags.map((tag) => String(tag).toLowerCase()) : [], name: title, image, imageFallbacks });
+      rows.push({ id, sourceId: id, model, series, category: label, brand: item?.brandSource === 'Hasbro' ? 'Hasbro' : 'TT', tags: Array.isArray(item?.tags) ? item.tags.map((tag) => String(tag).toLowerCase()) : [], name: title, image, imageFallbacks });
     }
   }
   return rows;
@@ -38,6 +38,7 @@ const els = {
   modeTabs: document.querySelector('#modeTabs'),
   seriesTabs: document.querySelector('#seriesTabs'),
   partTabs: document.querySelector('#partTabs'),
+  brandTabs: document.querySelector('#brandTabs'),
   eventName: document.querySelector('#eventName'),
   note: document.querySelector('#note'),
   search: document.querySelector('#search'),
@@ -77,6 +78,7 @@ const state = {
   mode: 'ban',
   series: 'all',
   part: 'Series',
+  brand: 'all',
   query: '',
   eventName: '',
   note: '',
@@ -242,6 +244,7 @@ function filteredBeys() {
     if (!state.editorMode && bey.hidden) return false;
     if (bey.category !== state.part) return false;
     if (state.series !== 'all' && !bey.tags?.includes(versionTags[state.series])) return false;
+    if (state.brand !== 'all' && (bey.brand || 'TT') !== state.brand) return false;
     if (!q) return true;
     return normalizeText(`${bey.model} ${bey.name} ${bey.originalName || ''} ${bey.series}`).includes(q);
   });
@@ -260,9 +263,10 @@ function renderTabs() {
   els.seriesTabs.querySelectorAll('[data-series]').forEach((button) => {
     button.classList.toggle('active', button.dataset.series === state.series);
   });
+  els.brandTabs.querySelectorAll('[data-brand]').forEach((button) => button.classList.toggle('active', button.dataset.brand === state.brand));
   els.partTabs.querySelectorAll('[data-part]').forEach((button) => button.classList.toggle('active', button.dataset.part === state.part));
   els.partTabs.querySelectorAll('[data-part]').forEach((button) => {
-    const count = state.beys.filter((bey) => bey.category === button.dataset.part && (state.series === 'all' || bey.tags?.includes(versionTags[state.series]))).length;
+    const count = state.beys.filter((bey) => bey.category === button.dataset.part && (state.series === 'all' || bey.tags?.includes(versionTags[state.series])) && (state.brand === 'all' || (bey.brand || 'TT') === state.brand)).length;
     button.textContent = `${button.dataset.label} (${count})`;
   });
 }
@@ -695,6 +699,7 @@ function bindEvents() {
     renderTabs();
     renderGrid();
   });
+  els.brandTabs.addEventListener('click', (event) => { const button = event.target.closest('[data-brand]'); if (!button) return; state.brand = button.dataset.brand; renderTabs(); renderGrid(); renderPreview(); });
   els.partTabs.addEventListener('click', (event) => { const button = event.target.closest('[data-part]'); if (!button) return; state.part = button.dataset.part; renderTabs(); renderGrid(); renderPreview(); });
   els.search.addEventListener('input', () => {
     state.query = els.search.value;

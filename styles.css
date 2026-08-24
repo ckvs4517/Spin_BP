@@ -40,7 +40,7 @@ h2 { font-size: 22px; letter-spacing: -.02em; }
 .field textarea { resize: vertical; line-height: 1.5; }
 .field input:focus, .field textarea:focus, .search-wrap input:focus { border-color: #9ca3af; box-shadow: 0 0 0 3px #f3f4f6; }
 .toolbar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 320px); align-items: start; gap: 12px; margin-bottom: 14px; }
-.toolbar #seriesTabs, .toolbar #partTabs { grid-column: 1 / -1; }
+.toolbar #brandTabs, .toolbar #seriesTabs, .toolbar #partTabs { grid-column: 1 / -1; }
 .toolbar .search-wrap { grid-column: 2; justify-self: end; }
 .series-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
 .series { min-height: 40px; padding: 7px 13px; }
