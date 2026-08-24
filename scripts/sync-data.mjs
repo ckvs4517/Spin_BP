@@ -11,11 +11,17 @@ const ALLOWED = new Set(['BX', 'UX', 'CX']);
 const IMAGE_CONCURRENCY = 8;
 const FETCH_TIMEOUT_MS = 12000;
 const MIN_IMAGE_BYTES = 1500;
-const GOOD_IMAGE_AREA = 800 * 800;
+
+const MANUAL_IMAGE_URLS = new Map([
+  [
+    'CX|鱷魚碾壓tq5-50gn',
+    'https://image.news.livedoor.com/newsimage/stf/f/8/f88db_1839_079f9f887520808bbf3c26bcb8268979.jpg',
+  ],
+]);
 
 async function fetchWithTimeout(url) {
   return fetch(url, {
-    headers: { 'user-agent': 'Spin-BP data sync/1.1' },
+    headers: { 'user-agent': 'Spin-BP data sync/1.2' },
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
   });
 }
@@ -120,33 +126,40 @@ function folderForId(id) {
     OB: 'OverBlade',
     MLB: 'MetalBlade',
     MT: 'MetalBlade',
+    RC: 'Ratchet',
     RT: 'Ratchet',
     BT: 'Bit',
   }[prefix] || '';
 }
 
-function imageCandidates(item, sourceId) {
-  const strings = deepStrings(item);
-  const directImages = strings
-    .filter((s) => /\.(png|jpe?g|webp)(\?.*)?$/i.test(s))
-    .map((s) => s.startsWith('//') ? `https:${s}` : s.startsWith('/') ? `${SITE}${s}` : s)
-    .filter((s) => s.startsWith('http'));
+function imageCandidates(rows, key) {
+  const candidates = [];
+  const manual = MANUAL_IMAGE_URLS.get(key);
+  if (manual) candidates.push(manual);
 
-  const ids = new Set([sourceId, ...extractPartIds(item)]);
-  const inferredSuffix = sourceId.replace(/^SR-/, '');
-  for (const prefix of ['BL', 'MB', 'LC', 'AB', 'OB', 'MLB']) ids.add(`${prefix}-${inferredSuffix}`);
+  for (const row of rows) {
+    const directImages = deepStrings(row.item)
+      .filter((s) => /\.(png|jpe?g|webp)(\?.*)?$/i.test(s))
+      .map((s) => s.startsWith('//') ? `https:${s}` : s.startsWith('/') ? `${SITE}${s}` : s)
+      .filter((s) => s.startsWith('http'));
+    candidates.push(...directImages);
 
-  const generated = [];
-  for (const id of ids) {
-    const folder = folderForId(id);
-    if (folder) generated.push(`${SITE}/images/app/${folder}/${id}.png`);
-    if (id.startsWith('SR-')) {
-      generated.push(`${SITE}/images/app/BeybladeSeries/${id}.png`);
-      generated.push(`${SITE}/images/app/Beyblade/${id}.png`);
+    const ids = new Set([row.sourceId, ...extractPartIds(row.item)]);
+    const inferredSuffix = row.sourceId.replace(/^SR-/, '');
+    for (const prefix of ['BL', 'MB', 'LC', 'AB', 'OB', 'MLB']) ids.add(`${prefix}-${inferredSuffix}`);
+
+    for (const id of ids) {
+      const folder = folderForId(id);
+      if (folder) candidates.push(`${SITE}/images/app/${folder}/${id}.png`);
+      if (id.startsWith('SR-')) {
+        candidates.push(`${SITE}/images/app/Series/${id}.png`);
+        candidates.push(`${SITE}/images/app/BeybladeSeries/${id}.png`);
+        candidates.push(`${SITE}/images/app/Beyblade/${id}.png`);
+      }
     }
   }
 
-  return [...new Set([...directImages, ...generated])];
+  return [...new Set(candidates)];
 }
 
 function safeFileBase(value) {
@@ -161,52 +174,17 @@ function extensionFromResponse(url, contentType) {
   return '.png';
 }
 
-function pngDimensions(bytes) {
-  if (bytes.length < 24) return null;
-  const signature = [137, 80, 78, 71, 13, 10, 26, 10];
-  if (!signature.every((byte, index) => bytes[index] === byte)) return null;
-  const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
-  return { width: view.getUint32(16), height: view.getUint32(20) };
-}
-
-function imageMetrics(bytes) {
-  const dims = pngDimensions(bytes);
-  return {
-    bytes: bytes.length,
-    area: dims ? dims.width * dims.height : 0,
-    width: dims?.width || 0,
-    height: dims?.height || 0,
-  };
-}
-
-function isBetterImage(next, current) {
-  if (!current) return true;
-  if (next.area && current.area && next.area !== current.area) return next.area > current.area;
-  if (next.area && !current.area) return true;
-  if (!next.area && current.area) return false;
-  return next.bytes > current.bytes;
-}
-
-async function readLocalImage(relativePath) {
-  if (!relativePath || !relativePath.startsWith('./images/')) return null;
+async function localImageExists(relativePath) {
+  if (!relativePath || !relativePath.startsWith('./images/')) return false;
   try {
-    const fileName = relativePath.replace('./images/', '');
-    const bytes = new Uint8Array(await readFile(new URL(fileName, IMAGE_DIR)));
-    return { path: relativePath, bytes, metrics: imageMetrics(bytes) };
+    await readFile(new URL(relativePath.replace('./images/', ''), IMAGE_DIR));
+    return true;
   } catch {
-    return null;
+    return false;
   }
 }
 
-async function downloadBestImage(candidates, fileBase, existingPaths = []) {
-  let best = null;
-  for (const path of [...new Set(existingPaths.filter(Boolean))]) {
-    const local = await readLocalImage(path);
-    if (local && (!best || isBetterImage(local.metrics, best.metrics))) best = { ...local, remote: false };
-  }
-
-  if (best?.metrics.area >= GOOD_IMAGE_AREA) return { path: best.path, changed: false, metrics: best.metrics };
-
+async function downloadFirstValidImage(candidates, fileBase) {
   for (const url of candidates) {
     try {
       const res = await fetchWithTimeout(url);
@@ -214,21 +192,13 @@ async function downloadBestImage(candidates, fileBase, existingPaths = []) {
       if (!res.ok || !type.startsWith('image/')) continue;
       const bytes = new Uint8Array(await res.arrayBuffer());
       if (bytes.length < MIN_IMAGE_BYTES) continue;
-      const metrics = imageMetrics(bytes);
-      if (!best || isBetterImage(metrics, best.metrics)) {
-        best = { url, bytes, metrics, remote: true, contentType: type };
-      }
-      if (metrics.area >= GOOD_IMAGE_AREA) break;
+      const ext = extensionFromResponse(url, type);
+      const fileName = `${safeFileBase(fileBase)}${ext}`;
+      await writeFile(new URL(fileName, IMAGE_DIR), bytes);
+      return `./images/${fileName}`;
     } catch { }
   }
-
-  if (!best) return { path: '', changed: false, metrics: null };
-  if (!best.remote) return { path: best.path, changed: false, metrics: best.metrics };
-
-  const ext = extensionFromResponse(best.url, best.contentType);
-  const fileName = `${safeFileBase(fileBase)}${ext}`;
-  await writeFile(new URL(fileName, IMAGE_DIR), best.bytes);
-  return { path: `./images/${fileName}`, changed: true, metrics: best.metrics };
+  return '';
 }
 
 async function existingData() {
@@ -303,19 +273,23 @@ async function main() {
 
   let imageDownloads = 0;
   let imageMisses = 0;
-  let improvedImages = 0;
-  const groupEntries = [...groups.entries()];
-  const items = await mapPool(groupEntries, IMAGE_CONCURRENCY, async ([key, rows]) => {
+  const items = await mapPool([...groups.entries()], IMAGE_CONCURRENCY, async ([key, rows]) => {
     const representative = chooseRepresentative(rows);
-    const candidates = [...new Set(rows.flatMap((row) => imageCandidates(row.item, row.sourceId)))];
+    let image = '';
+
     const existingPaths = (previousByKey.get(key) || []).map((item) => item.image).filter(Boolean);
-    const imageResult = await downloadBestImage(candidates, representative.sourceId, existingPaths);
-    if (imageResult.path) {
-      if (imageResult.changed) {
-        imageDownloads++;
-        if (existingPaths.length) improvedImages++;
+    for (const path of existingPaths) {
+      if (await localImageExists(path)) {
+        image = path;
+        break;
       }
-    } else imageMisses++;
+    }
+
+    if (!image) {
+      image = await downloadFirstValidImage(imageCandidates(rows, key), representative.sourceId);
+      if (image) imageDownloads++;
+      else imageMisses++;
+    }
 
     return {
       id: representative.sourceId,
@@ -323,7 +297,7 @@ async function main() {
       model: representative.model,
       series: representative.series,
       name: representative.name,
-      image: imageResult.path,
+      image,
     };
   });
 
@@ -337,8 +311,7 @@ async function main() {
   const dataChanged = nextText !== previousText;
   if (dataChanged) await writeFile(new URL('beyblades.json', DATA_DIR), nextText);
 
-  const imagesChanged = imageDownloads > 0;
-  if (dataChanged || imagesChanged) {
+  if (dataChanged || imageDownloads > 0) {
     await writeFile(new URL('meta.json', DATA_DIR), `${JSON.stringify({
       generatedAt: new Date().toISOString(),
       source: MAIN_URL,
@@ -346,12 +319,11 @@ async function main() {
       count: items.length,
       duplicatesRemoved: bySourceId.size - items.length,
       imageDownloads,
-      improvedImages,
       imageMisses,
     }, null, 2)}\n`);
   }
 
-  console.log(`synced ${items.length} unique BX/UX/CX entries from ${bySourceId.size} source rows; duplicates removed=${bySourceId.size - items.length}; images updated=${imageDownloads}, improved=${improvedImages}, missing=${imageMisses}`);
+  console.log(`synced ${items.length} unique BX/UX/CX entries from ${bySourceId.size} source rows; duplicates removed=${bySourceId.size - items.length}; images new=${imageDownloads}, missing=${imageMisses}`);
 }
 
 main().catch((error) => {
