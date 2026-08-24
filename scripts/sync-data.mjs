@@ -12,16 +12,17 @@ const IMAGE_CONCURRENCY = 8;
 const FETCH_TIMEOUT_MS = 12000;
 const MIN_IMAGE_BYTES = 1500;
 
+// Only use manual fallbacks when the image is known to match that exact variant.
 const MANUAL_IMAGE_URLS = new Map([
   [
-    'CX|鱷魚碾壓tq5-50gn',
+    'CX-19-01',
     'https://image.news.livedoor.com/newsimage/stf/f/8/f88db_1839_079f9f887520808bbf3c26bcb8268979.jpg',
   ],
 ]);
 
 async function fetchWithTimeout(url) {
   return fetch(url, {
-    headers: { 'user-agent': 'Spin-BP data sync/1.2' },
+    headers: { 'user-agent': 'Spin-BP data sync/1.3' },
     signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
   });
 }
@@ -78,15 +79,8 @@ function cleanName(title, model) {
   return name.replace(/^[-–—:：\s]+/, '').trim() || model;
 }
 
-function canonicalName(value) {
-  return String(value || '')
-    .normalize('NFKC')
-    .toLocaleLowerCase('zh-Hant-TW')
-    .replace(/\s+/g, '');
-}
-
-function canonicalKey(row) {
-  return `${row.series}|${canonicalName(row.name)}`;
+function stripMirrorSuffix(sourceId) {
+  return String(sourceId || '').replace(/R+$/i, '');
 }
 
 function rowScore(row) {
@@ -132,9 +126,9 @@ function folderForId(id) {
   }[prefix] || '';
 }
 
-function imageCandidates(rows, key) {
+function imageCandidates(rows, representative) {
   const candidates = [];
-  const manual = MANUAL_IMAGE_URLS.get(key);
+  const manual = MANUAL_IMAGE_URLS.get(representative.model);
   if (manual) candidates.push(manual);
 
   for (const row of rows) {
@@ -157,6 +151,12 @@ function imageCandidates(rows, key) {
         candidates.push(`${SITE}/images/app/Beyblade/${id}.png`);
       }
     }
+
+    // The viewer itself exposes model-labelled images. Try these before giving up.
+    for (const folder of ['Series', 'BeybladeSeries', 'Beyblade', 'Blade', 'MainBlade']) {
+      candidates.push(`${SITE}/images/app/${folder}/${row.model}.png`);
+    }
+    candidates.push(`${SITE}/images/${row.model}.png`);
   }
 
   return [...new Set(candidates)];
@@ -182,6 +182,18 @@ async function localImageExists(relativePath) {
   } catch {
     return false;
   }
+}
+
+async function firstExistingLocalImage(rows, previousItems = []) {
+  const candidates = [];
+  for (const item of previousItems) if (item.image) candidates.push(item.image);
+  for (const row of rows) {
+    for (const ext of ['png', 'jpg', 'webp']) candidates.push(`./images/${row.sourceId}.${ext}`);
+  }
+  for (const path of [...new Set(candidates)]) {
+    if (await localImageExists(path)) return path;
+  }
+  return '';
 }
 
 async function downloadFirstValidImage(candidates, fileBase) {
@@ -257,36 +269,31 @@ async function main() {
     }
   }
 
+  const sourceIds = new Set(bySourceId.keys());
   const groups = new Map();
   for (const row of bySourceId.values()) {
-    const key = canonicalKey(row);
+    const stripped = stripMirrorSuffix(row.sourceId);
+    const key = stripped !== row.sourceId && sourceIds.has(stripped) ? stripped : row.sourceId;
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(row);
   }
 
-  const previousByKey = new Map();
+  const previousBySource = new Map();
   for (const item of previous) {
-    const key = `${item.series}|${canonicalName(item.name)}`;
-    if (!previousByKey.has(key)) previousByKey.set(key, []);
-    previousByKey.get(key).push(item);
+    const stripped = stripMirrorSuffix(item.sourceId || item.id);
+    const key = stripped || item.sourceId || item.id;
+    if (!previousBySource.has(key)) previousBySource.set(key, []);
+    previousBySource.get(key).push(item);
   }
 
   let imageDownloads = 0;
   let imageMisses = 0;
   const items = await mapPool([...groups.entries()], IMAGE_CONCURRENCY, async ([key, rows]) => {
     const representative = chooseRepresentative(rows);
-    let image = '';
-
-    const existingPaths = (previousByKey.get(key) || []).map((item) => item.image).filter(Boolean);
-    for (const path of existingPaths) {
-      if (await localImageExists(path)) {
-        image = path;
-        break;
-      }
-    }
+    let image = await firstExistingLocalImage(rows, previousBySource.get(key) || []);
 
     if (!image) {
-      image = await downloadFirstValidImage(imageCandidates(rows, key), representative.sourceId);
+      image = await downloadFirstValidImage(imageCandidates(rows, representative), representative.sourceId);
       if (image) imageDownloads++;
       else imageMisses++;
     }
@@ -317,13 +324,14 @@ async function main() {
       source: MAIN_URL,
       sourceCount: bySourceId.size,
       count: items.length,
-      duplicatesRemoved: bySourceId.size - items.length,
+      mirrorDuplicatesRemoved: bySourceId.size - items.length,
       imageDownloads,
       imageMisses,
+      dedupePolicy: 'Preserve distinct color/product variants; collapse only explicit mirrored source IDs such as trailing R/RR aliases.',
     }, null, 2)}\n`);
   }
 
-  console.log(`synced ${items.length} unique BX/UX/CX entries from ${bySourceId.size} source rows; duplicates removed=${bySourceId.size - items.length}; images new=${imageDownloads}, missing=${imageMisses}`);
+  console.log(`synced ${items.length} BX/UX/CX variants from ${bySourceId.size} source rows; mirror duplicates removed=${bySourceId.size - items.length}; images new=${imageDownloads}, missing=${imageMisses}`);
 }
 
 main().catch((error) => {
