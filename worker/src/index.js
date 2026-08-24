@@ -40,6 +40,28 @@ export default {
         return json(catalog, 200, { ...cors, 'cache-control': 'public, max-age=300' });
       }
 
+      if (url.pathname === '/api/catalog-image' && request.method === 'GET') {
+        const sourcePath = url.searchParams.get('path') || '';
+        if (!/^\/images\/(site|app)\/[A-Za-z0-9._%/-]+\.(png|jpe?g|webp)$/i.test(sourcePath) || sourcePath.includes('..')) {
+          return json({ error: 'Invalid catalog image path.' }, 400, cors);
+        }
+
+        const sourceUrl = new URL(sourcePath, 'https://beyblade.phstudy.org');
+        const response = await fetch(sourceUrl, { headers: { 'user-agent': 'Spin-BP image proxy' } });
+        if (!response.ok) return json({ error: 'Catalog image not found.' }, response.status === 404 ? 404 : 502, cors);
+
+        const contentType = String(response.headers.get('content-type') || '').split(';')[0].toLowerCase();
+        if (!IMAGE_TYPES.has(contentType)) return json({ error: 'Unsupported catalog image.' }, 415, cors);
+
+        return new Response(response.body, {
+          headers: {
+            ...cors,
+            'content-type': contentType,
+            'cache-control': 'public, max-age=86400',
+          },
+        });
+      }
+
       if (url.pathname === '/api/auth/check' && request.method === 'POST') {
         requireEditor(request, env);
         return new Response(null, { status: 204, headers: cors });

@@ -418,6 +418,30 @@ function loadImage(src) {
   return promise;
 }
 
+function canvasImageUrl(src) {
+  if (!src) return '';
+  try {
+    const url = new URL(src, window.location.href);
+    if (url.hostname === 'beyblade.phstudy.org' && url.pathname.startsWith('/images/')) {
+      return `/api/catalog-image?path=${encodeURIComponent(url.pathname)}`;
+    }
+  } catch {
+    return src;
+  }
+  return src;
+}
+
+async function loadCatalogImage(bey) {
+  const sources = [bey.image, ...(bey.imageFallbacks || [])]
+    .filter(Boolean)
+    .map(canvasImageUrl);
+  for (const source of [...new Set(sources)]) {
+    const image = await loadImage(source);
+    if (image) return image;
+  }
+  return null;
+}
+
 function roundRect(ctx, x, y, w, h, r) {
   const radius = Math.min(r, w / 2, h / 2);
   ctx.beginPath();
@@ -477,7 +501,7 @@ async function renderPreview() {
   ctx.fillStyle = isBan ? '#ff9b9b' : '#72e3a4';
   ctx.fillText(badgeText, side + 25, 220);
 
-  const images = await Promise.all(selected.map((bey) => loadImage(bey.image)));
+  const images = await Promise.all(selected.map(loadCatalogImage));
   selected.forEach((bey, index) => {
     const row = Math.floor(index / cols);
     const col = index % cols;
