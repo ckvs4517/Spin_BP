@@ -11,13 +11,27 @@
 5. 輸入比賽名稱與補充規則。
 6. 下載 PNG，直接貼到 LINE / Discord / Facebook / 報名頁。
 
-## 架構
+## 圖鑑同步
 
-- 純 HTML / CSS / JavaScript，沒有後端、帳號、資料庫。
-- 前端只讀取 repo 內的 `data/beyblades.json` 與 `images/`。
 - GitHub Action 每天自動從 `https://beyblade.phstudy.org/data/main.json` 同步 BX / UX / CX 圖鑑資料。
-- 同步時把圖片下載到 repo，確保 Canvas 輸出 PNG 時不會被跨網域限制卡住。
-- 瀏覽器用 localStorage 記住上次選擇。
+- 不同配色 / 商品版本會分開保留。
+- 只自動合併明確的來源鏡像資料，例如同 source ID 尾端的 `R` / `RR` alias。
+- 自動同步圖片存放在 repo 的 `images/`，避免 Canvas 跨網域限制。
+
+## 編輯者模式
+
+網站支援永久人工修正，不會因為換電腦或重新同步圖鑑而消失：
+
+- 隱藏 / 恢復圖鑑 item
+- 修改顯示名稱
+- 加管理備註
+- 上傳 PNG / JPG / WEBP 自訂圖片
+- 移除自訂圖片並退回同步圖
+- 一鍵清除某個 item 的所有人工修改
+
+人工修正以穩定 `sourceId` 為 key，存在 Cloudflare D1；自訂圖片存在 Cloudflare R2。GitHub Pages 每次載入圖鑑後，再套用後端 overrides。
+
+後端程式與設定範本位於 [`worker/`](./worker/README.md)。第一次部署完成後，只需要把 Worker URL 填入根目錄 `config.js`；之後圖鑑更新不需要重新做人工修正。
 
 ## 手動更新資料
 
@@ -31,7 +45,9 @@ npm run sync:data
 
 ## 部署
 
-這是完全靜態網站，可直接使用 GitHub Pages。將 Pages 的 Source 設為 `Deploy from a branch`，Branch 選 `main` / `/ (root)` 即可。
+前端使用 GitHub Pages，`.github/workflows/deploy-pages.yml` 會在 `main` 更新後自動發布。
+
+編輯者後端使用 Cloudflare Worker + D1 + R2。詳細的一次性建立步驟請看 `worker/README.md`。
 
 ## 資料與圖片
 
