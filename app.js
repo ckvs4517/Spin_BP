@@ -283,7 +283,7 @@ async function renderPreview() {
     if (image) {
       const maxW = cardW - imgPad * 2;
       const maxH = imgAreaH - imgPad * 2;
-      const scale = Math.min(maxW / image.width, maxH / image.height);
+      const scale = Math.min(1, maxW / image.width, maxH / image.height);
       const w = image.width * scale;
       const h = image.height * scale;
       ctx.imageSmoothingEnabled = true;
