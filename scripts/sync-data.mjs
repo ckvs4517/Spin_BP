@@ -59,7 +59,7 @@ function deepStrings(value, out = [], depth = 0) {
 }
 
 function modelFrom(text) {
-  return String(text || '').match(/\b(BX|UX|CX)-\d+(?:-\d+)?\b/i)?.[0]?.toUpperCase() || '';
+  return String(text || '').match(/\b(BXA|BX|UX|CX)-\d+(?:-\d+)?\b/i)?.[0]?.toUpperCase() || '';
 }
 
 function modelFromItem(item, title) {
@@ -262,7 +262,7 @@ async function main() {
       const sourceId = item.id || fallbackId;
       const title = titleOf(item);
       const model = modelFromItem(item, title);
-      const series = model.split('-')[0] || '';
+      const series = model.startsWith('BXA-') ? 'BX' : model.split('-')[0] || '';
       if (!ALLOWED.has(series)) continue;
       const row = { sourceId, model, series, name: cleanName(title, model), item };
       if (!bySourceId.has(sourceId) || rowScore(row) > rowScore(bySourceId.get(sourceId))) bySourceId.set(sourceId, row);

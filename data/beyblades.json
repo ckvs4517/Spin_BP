@@ -648,6 +648,78 @@
     "image": "./images/SR-PRD-084174-06.png"
   },
   {
+    "id": "SR-PRD-939672-00",
+    "sourceId": "SR-PRD-939672-00",
+    "model": "BXA-01",
+    "series": "BX",
+    "name": "蒼龍神劍 3-60F 壽司郎聯名版",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-305718-02",
+    "sourceId": "SR-PRD-305718-02",
+    "model": "BXA-03",
+    "series": "BX",
+    "name": "紅浩克 1-80R",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-305718-01",
+    "sourceId": "SR-PRD-305718-01",
+    "model": "BXA-03",
+    "series": "BX",
+    "name": "美國隊長 4-70GB",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-305725-01",
+    "sourceId": "SR-PRD-305725-01",
+    "model": "BXA-04",
+    "series": "BX",
+    "name": "終極蜘蛛人 1-60GN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-305725-02",
+    "sourceId": "SR-PRD-305725-02",
+    "model": "BXA-04",
+    "series": "BX",
+    "name": "綠惡魔 9-80HT",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-305732-02",
+    "sourceId": "SR-PRD-305732-02",
+    "model": "BXA-05",
+    "series": "BX",
+    "name": "葛里維斯將軍 3-80HN",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-305732-01",
+    "sourceId": "SR-PRD-305732-01",
+    "model": "BXA-05",
+    "series": "BX",
+    "name": "歐比王肯諾比 4-60P",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-305749-01",
+    "sourceId": "SR-PRD-305749-01",
+    "model": "BXA-06",
+    "series": "BX",
+    "name": "丘巴卡 4-80LF",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-305749-02",
+    "sourceId": "SR-PRD-305749-02",
+    "model": "BXA-06",
+    "series": "BX",
+    "name": "風暴兵 5-70B",
+    "image": ""
+  },
+  {
     "id": "SR-PRD-930495-00R",
     "sourceId": "SR-PRD-930495-00R",
     "model": "CX-00",
