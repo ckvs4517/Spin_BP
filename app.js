@@ -3,6 +3,9 @@ const REMOTE_DATA_URL = 'https://beyblade.phstudy.org/data/main.json';
 const STORAGE_KEY = 'spin-bp-state-v1';
 const EDITOR_SESSION_KEY = 'spin-bp-editor-password';
 const API_BASE = String(window.SPIN_BP_CONFIG?.apiBase || '').replace(/\/$/, '');
+const EXPORT_WIDTH = 1080;
+const EXPORT_HEIGHT = 1350;
+const EXPORT_PAGE_SIZE = 12;
 
 function normalizeRemoteCatalog(payload) {
   const root = payload?.data || payload;
@@ -91,6 +94,9 @@ const state = {
   editingId: '',
   removeCustomImage: false,
 };
+
+let previewRenderToken = 0;
+let renderedExportPages = [];
 
 function loadSavedState() {
   try {
@@ -464,24 +470,36 @@ function drawWrappedText(ctx, text, x, y, maxWidth, lineHeight, maxLines = 2) {
   lines.forEach((line, index) => ctx.fillText(line, x, y + index * lineHeight));
 }
 
-async function renderPreview() {
-  const selected = state.beys.filter((bey) => !bey.hidden && state.selected.has(bey.id));
-  const canvas = els.canvas;
-  const ctx = canvas.getContext('2d');
-  const width = 1080;
-  const cols = selected.length <= 6 ? 3 : 4;
-  const gap = 24;
-  const side = 64;
-  const cardW = (width - side * 2 - gap * (cols - 1)) / cols;
-  const cardH = cardW + 88;
-  const rows = Math.max(1, Math.ceil(selected.length / cols));
-  const headerH = 250;
-  const noteH = state.note ? 112 : 52;
-  const height = Math.max(1080, headerH + rows * (cardH + gap) + noteH + 70);
-  canvas.width = width;
-  canvas.height = height;
+function paginateItems(items, pageSize = EXPORT_PAGE_SIZE) {
+  if (!items.length) return [[]];
+  const pages = [];
+  for (let index = 0; index < items.length; index += pageSize) {
+    pages.push(items.slice(index, index + pageSize));
+  }
+  return pages;
+}
 
-  // Keep exported images consistent with the application's dark theme.
+function layoutForPage(count) {
+  if (count <= 1) return { cols: 1, maxCardWidth: 560 };
+  if (count <= 4) return { cols: 2, maxCardWidth: 430 };
+  return { cols: 3, maxCardWidth: Infinity };
+}
+
+async function renderRulePage(items, pageIndex, totalPages) {
+  const canvas = document.createElement('canvas');
+  canvas.width = EXPORT_WIDTH;
+  canvas.height = EXPORT_HEIGHT;
+  const ctx = canvas.getContext('2d');
+  const width = EXPORT_WIDTH;
+  const height = EXPORT_HEIGHT;
+  const side = 64;
+  const gap = 22;
+  const headerH = 242;
+  const footerH = state.note ? 132 : 78;
+  const gridTop = headerH + 6;
+  const gridBottom = height - footerH;
+  const gridAvailableH = gridBottom - gridTop;
+
   ctx.fillStyle = '#080b10';
   ctx.fillRect(0, 0, width, height);
   ctx.fillStyle = '#f3f4f6';
@@ -501,63 +519,117 @@ async function renderPreview() {
   ctx.fillStyle = isBan ? '#ff9b9b' : '#72e3a4';
   ctx.fillText(badgeText, side + 25, 220);
 
-  const images = await Promise.all(selected.map(loadCatalogImage));
-  selected.forEach((bey, index) => {
-    const row = Math.floor(index / cols);
-    const col = index % cols;
-    const x = side + col * (cardW + gap);
-    const y = headerH + row * (cardH + gap);
-    ctx.fillStyle = '#111821';
-    roundRect(ctx, x, y, cardW, cardH, 24);
-    ctx.fill();
-    ctx.strokeStyle = '#354254';
-    ctx.lineWidth = 2;
-    ctx.stroke();
-
-    const image = images[index];
-    const imgPad = 20;
-    const imgAreaH = cardW - 8;
-    if (image) {
-      const maxW = cardW - imgPad * 2;
-      const maxH = imgAreaH - imgPad * 2;
-      const scale = Math.min(1, maxW / image.width, maxH / image.height);
-      const w = image.width * scale;
-      const h = image.height * scale;
-      ctx.imageSmoothingEnabled = true;
-      ctx.imageSmoothingQuality = 'high';
-      ctx.drawImage(image, x + (cardW - w) / 2, y + (imgAreaH - h) / 2, w, h);
-    } else {
-      ctx.fillStyle = '#293342';
-      ctx.beginPath();
-      ctx.arc(x + cardW / 2, y + imgAreaH / 2, cardW * .27, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = '#c0c7d1';
-      ctx.font = '900 34px system-ui, sans-serif';
-      ctx.textAlign = 'center';
-      ctx.fillText(bey.series || 'X', x + cardW / 2, y + imgAreaH / 2 + 12);
-      ctx.textAlign = 'left';
-    }
-
+  if (!items.length) {
     ctx.fillStyle = '#9aa4b2';
-    ctx.font = '800 20px system-ui, sans-serif';
-    ctx.fillText(bey.model || bey.series, x + 18, y + cardW + 18);
-    ctx.fillStyle = '#f3f4f6';
-    ctx.font = '900 23px system-ui, sans-serif';
-    drawWrappedText(ctx, bey.name, x + 18, y + cardW + 49, cardW - 36, 27, 2);
-  });
+    ctx.font = '700 30px system-ui, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('選擇陀螺後，這裡會顯示 4:5 貼文預覽', width / 2, height / 2);
+    ctx.textAlign = 'left';
+  } else {
+    const { cols, maxCardWidth } = layoutForPage(items.length);
+    const rows = Math.ceil(items.length / cols);
+    const rawCardW = (width - side * 2 - gap * (cols - 1)) / cols;
+    const cardW = Math.min(rawCardW, maxCardWidth);
+    const maxCardH = (gridAvailableH - gap * (rows - 1)) / rows;
+    const cardH = Math.min(cardW + 78, maxCardH);
+    const usedW = cols * cardW + gap * (cols - 1);
+    const usedH = rows * cardH + gap * (rows - 1);
+    const startX = (width - usedW) / 2;
+    const startY = gridTop + Math.max(0, (gridAvailableH - usedH) / 2);
+    const images = await Promise.all(items.map(loadCatalogImage));
+    const compact = items.length > 9;
+    const metaH = compact ? 70 : 82;
 
-  const footerY = headerH + rows * (cardH + gap) + 18;
+    items.forEach((bey, index) => {
+      const row = Math.floor(index / cols);
+      const col = index % cols;
+      const x = startX + col * (cardW + gap);
+      const y = startY + row * (cardH + gap);
+      ctx.fillStyle = '#111821';
+      roundRect(ctx, x, y, cardW, cardH, 22);
+      ctx.fill();
+      ctx.strokeStyle = '#354254';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      const image = images[index];
+      const imgPad = compact ? 14 : 18;
+      const imgAreaH = Math.max(80, cardH - metaH);
+      if (image) {
+        const maxW = cardW - imgPad * 2;
+        const maxH = imgAreaH - imgPad * 2;
+        const scale = Math.min(1, maxW / image.width, maxH / image.height);
+        const w = image.width * scale;
+        const h = image.height * scale;
+        ctx.imageSmoothingEnabled = true;
+        ctx.imageSmoothingQuality = 'high';
+        ctx.drawImage(image, x + (cardW - w) / 2, y + (imgAreaH - h) / 2, w, h);
+      } else {
+        ctx.fillStyle = '#293342';
+        ctx.beginPath();
+        ctx.arc(x + cardW / 2, y + imgAreaH / 2, Math.min(cardW, imgAreaH) * .24, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#c0c7d1';
+        ctx.font = `900 ${compact ? 26 : 32}px system-ui, sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.fillText(bey.series || bey.category || 'X', x + cardW / 2, y + imgAreaH / 2 + 10);
+        ctx.textAlign = 'left';
+      }
+
+      const textX = x + (compact ? 14 : 18);
+      const textW = cardW - (compact ? 28 : 36);
+      ctx.fillStyle = '#9aa4b2';
+      ctx.font = `800 ${compact ? 16 : 19}px system-ui, sans-serif`;
+      ctx.fillText(bey.model || bey.series, textX, y + imgAreaH + (compact ? 20 : 24));
+      ctx.fillStyle = '#f3f4f6';
+      ctx.font = `900 ${compact ? 18 : 22}px system-ui, sans-serif`;
+      drawWrappedText(ctx, bey.name, textX, y + imgAreaH + (compact ? 44 : 54), textW, compact ? 21 : 25, 2);
+    });
+  }
+
   if (state.note) {
     ctx.fillStyle = '#f3f4f6';
-    ctx.font = '900 24px system-ui, sans-serif';
-    ctx.fillText('補充規則', side, footerY + 22);
+    ctx.font = '900 19px system-ui, sans-serif';
+    ctx.fillText('補充規則', side, height - 102);
     ctx.fillStyle = '#c0c7d1';
-    ctx.font = '600 22px system-ui, sans-serif';
-    drawWrappedText(ctx, state.note, side, footerY + 58, width - side * 2, 31, 2);
+    ctx.font = '600 18px system-ui, sans-serif';
+    drawWrappedText(ctx, state.note, side, height - 76, width - side * 2, 22, 2);
   }
+
   ctx.fillStyle = '#7f8b9d';
-  ctx.font = '500 17px system-ui, sans-serif';
-  ctx.fillText('資料來源：beyblade.phstudy.org　｜　由 Spin BP 產生', side, height - 34);
+  ctx.font = '500 16px system-ui, sans-serif';
+  ctx.fillText('資料來源：beyblade.phstudy.org　｜　由 Spin BP 產生', side, height - 28);
+  ctx.textAlign = 'right';
+  ctx.font = '800 17px system-ui, sans-serif';
+  ctx.fillText(`${pageIndex + 1} / ${totalPages}`, width - side, height - 28);
+  ctx.textAlign = 'left';
+  return canvas;
+}
+
+async function renderAllRulePages() {
+  const selected = state.beys.filter((bey) => !bey.hidden && state.selected.has(bey.id));
+  const itemPages = paginateItems(selected);
+  const canvases = [];
+  for (let pageIndex = 0; pageIndex < itemPages.length; pageIndex += 1) {
+    canvases.push(await renderRulePage(itemPages[pageIndex], pageIndex, itemPages.length));
+  }
+  return canvases;
+}
+
+async function renderPreview() {
+  const token = ++previewRenderToken;
+  const pages = await renderAllRulePages();
+  if (token !== previewRenderToken) return;
+  renderedExportPages = pages;
+  const firstPage = pages[0];
+  els.canvas.width = EXPORT_WIDTH;
+  els.canvas.height = EXPORT_HEIGHT;
+  const ctx = els.canvas.getContext('2d');
+  ctx.clearRect(0, 0, EXPORT_WIDTH, EXPORT_HEIGHT);
+  ctx.drawImage(firstPage, 0, 0);
+  els.canvas.setAttribute('aria-label', `規則圖預覽，第 1 頁，共 ${pages.length} 頁`);
+  els.canvas.title = pages.length > 1 ? `目前預覽第 1 頁，共 ${pages.length} 頁；下載時會輸出全部頁面。` : '4:5 規則圖預覽';
+  els.downloadBtn.textContent = pages.length > 1 ? `下載 ${pages.length} 張 PNG` : '下載 PNG';
 }
 
 function setDialogStatus(message, isError = false) {
@@ -707,6 +779,14 @@ async function enterEditorMode() {
   setTimeout(() => els.editorPassword.focus(), 0);
 }
 
+function canvasToBlob(canvas) {
+  return new Promise((resolve) => canvas.toBlob(resolve, 'image/png'));
+}
+
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 function bindEvents() {
   els.modeTabs.addEventListener('click', (event) => {
     const button = event.target.closest('[data-mode]');
@@ -752,19 +832,32 @@ function bindEvents() {
     renderPreview();
   });
   els.downloadBtn.addEventListener('click', async () => {
-    await renderPreview();
-    const safeName = (state.eventName || 'spin-bp-rule').replace(/[\\/:*?"<>|]+/g, '-').trim() || 'spin-bp-rule';
-    els.canvas.toBlob((blob) => {
-      if (!blob) return;
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = `${safeName}.png`;
-      document.body.append(link);
-      link.click();
-      link.remove();
-      URL.revokeObjectURL(url);
-    }, 'image/png');
+    els.downloadBtn.disabled = true;
+    const originalText = els.downloadBtn.textContent;
+    els.downloadBtn.textContent = '正在產生圖片…';
+    try {
+      const pages = renderedExportPages.length ? renderedExportPages : await renderAllRulePages();
+      const safeName = (state.eventName || 'spin-bp-rule').replace(/[\\/:*?"<>|]+/g, '-').trim() || 'spin-bp-rule';
+      for (let index = 0; index < pages.length; index += 1) {
+        const blob = await canvasToBlob(pages[index]);
+        if (!blob) continue;
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = pages.length > 1
+          ? `${safeName}-${String(index + 1).padStart(2, '0')}.png`
+          : `${safeName}.png`;
+        document.body.append(link);
+        link.click();
+        link.remove();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        if (pages.length > 1) await wait(180);
+      }
+    } finally {
+      els.downloadBtn.disabled = state.selected.size === 0;
+      const pageCount = renderedExportPages.length || 1;
+      els.downloadBtn.textContent = pageCount > 1 ? `下載 ${pageCount} 張 PNG` : (originalText || '下載 PNG');
+    }
   });
 
   els.editorToggle.addEventListener('click', async () => {
