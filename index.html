@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#111827" />
   <title>Spin BP｜比賽規則圖片產生器</title>
   <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./preview-pagination.css" />
 </head>
 <body>
   <header class="topbar">
@@ -104,7 +105,13 @@
       <div class="canvas-shell">
         <canvas id="ruleCanvas" width="1080" height="1350" aria-label="規則圖預覽"></canvas>
       </div>
-      <p class="hint">輸出為 1080px 寬 PNG，適合 LINE、Discord、Facebook 與報名頁直接分享。</p>
+      <div id="previewPager" class="preview-pager" hidden aria-label="規則圖分頁導覽">
+        <button type="button" class="preview-page-btn" id="previewPrev" aria-label="上一張預覽">←</button>
+        <span id="previewPageLabel" class="preview-page-label">第 1 / 1 張</span>
+        <button type="button" class="preview-page-btn" id="previewNext" aria-label="下一張預覽">→</button>
+      </div>
+      <div id="previewThumbnails" class="preview-thumbnails" hidden aria-label="規則圖縮圖列表"></div>
+      <p class="hint">輸出固定為 1080 × 1350（4:5）PNG；多頁時可在上方切換預覽，適合 Threads、Instagram 與其他社群貼文。</p>
     </aside>
   </main>
 
