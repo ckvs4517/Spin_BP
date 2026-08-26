@@ -19,14 +19,18 @@ await Promise.all([
 ]);
 
 const apiSource = await readFile(join(projectRoot, 'worker', 'src', 'index.js'), 'utf8');
+const appSource = await readFile(join(projectRoot, 'app.js'), 'utf8');
+const previewPaginationExtension = await readFile(join(projectRoot, 'preview-pagination-extension.js'), 'utf8');
+const bundledAppSource = `${appSource.trimEnd()}\n\n${previewPaginationExtension.trim()}\n`;
 const serverEntry = `import api from './api.js';\n\nexport default {\n  async fetch(request, env) {\n    const url = new URL(request.url);\n    if (url.pathname.startsWith('/api/') || url.pathname.startsWith('/media/')) {\n      return api.fetch(request, env);\n    }\n    return env.ASSETS.fetch(request);\n  },\n};\n`;
 
 await Promise.all([
   writeFile(join(serverDir, 'api.js'), apiSource, 'utf8'),
   writeFile(join(serverDir, 'index.js'), serverEntry, 'utf8'),
   (async () => { const html = await readFile(join(projectRoot, 'index.html'), 'utf8'); const sha = execFileSync('git', ['rev-parse', '--short', 'HEAD'], { cwd: projectRoot, encoding: 'utf8' }).trim(); await writeFile(join(clientDir, 'index.html'), html.replaceAll('__COMMIT_SHA__', sha), 'utf8'); })(),
-  cp(join(projectRoot, 'app.js'), join(clientDir, 'app.js')),
+  writeFile(join(clientDir, 'app.js'), bundledAppSource, 'utf8'),
   cp(join(projectRoot, 'styles.css'), join(clientDir, 'styles.css')),
+  cp(join(projectRoot, 'preview-pagination.css'), join(clientDir, 'preview-pagination.css')),
   cp(join(projectRoot, 'config.js'), join(clientDir, 'config.js')),
   cp(join(projectRoot, 'data'), join(clientDir, 'data'), { recursive: true }),
   cp(join(projectRoot, 'images'), join(clientDir, 'images'), { recursive: true }),
@@ -44,12 +48,17 @@ const requiredFiles = [
   [join(clientDir, 'index.html'), 500],
   [join(clientDir, 'app.js'), 1000],
   [join(clientDir, 'styles.css'), 1000],
+  [join(clientDir, 'preview-pagination.css'), 500],
   [join(clientDir, 'config.js'), 50],
   [join(dist, '.openai', 'hosting.json'), 20],
 ];
 for (const [path, minimumBytes] of requiredFiles) {
   const info = await stat(path);
   if (!info.isFile() || info.size < minimumBytes) throw new Error(`Invalid build artifact: ${path}`);
+}
+
+if (!bundledAppSource.includes('spinBpRenderPreviewNavigation')) {
+  throw new Error('Preview pagination extension was not bundled into app.js.');
 }
 
 console.log(`Spin BP Sites build completed with ${migrationNames.length} migration(s).`);
