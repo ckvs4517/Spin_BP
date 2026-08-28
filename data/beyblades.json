@@ -1069,7 +1069,7 @@
     "model": "CX-19-02",
     "series": "CX",
     "name": "鱷魚碾壓 TQ5-50GN",
-    "image": ""
+    "image": "./images/SR-PRD-080626-02.png"
   },
   {
     "id": "SR-PRD-080626-03",
@@ -1077,7 +1077,7 @@
     "model": "CX-19-03",
     "series": "CX",
     "name": "鱷魚碾壓 TQ5-50GN",
-    "image": ""
+    "image": "./images/SR-PRD-080626-03.png"
   },
   {
     "id": "LC-EVE-088899-00",
@@ -1185,7 +1185,7 @@
     "series": "LOCK_CHIP",
     "category": "紋章鎖",
     "name": "CX-19-01 鱷魚",
-    "image": ""
+    "image": "./images/LC-PRD-080626-01.png"
   },
   {
     "id": "LC-PRD-080626-02",
@@ -1194,7 +1194,7 @@
     "series": "LOCK_CHIP",
     "category": "紋章鎖",
     "name": "CX-19-02 鱷魚",
-    "image": ""
+    "image": "./images/LC-PRD-080626-02.png"
   },
   {
     "id": "LC-PRD-080626-03",
@@ -1203,7 +1203,7 @@
     "series": "LOCK_CHIP",
     "category": "紋章鎖",
     "name": "CX-19-03 鱷魚",
-    "image": ""
+    "image": "./images/LC-PRD-080626-03.png"
   },
   {
     "id": "LC-PRD-080640-01",
@@ -2068,7 +2068,7 @@
     "sourceId": "SR-PRD-096139-00",
     "model": "UX-20",
     "series": "UX",
-    "name": "榮耀戰神LF 金屬塗層:白色",
+    "name": "榮耀武神LF 金屬塗層:白色",
     "image": "./images/SR-PRD-096139-00.png"
   },
   {
