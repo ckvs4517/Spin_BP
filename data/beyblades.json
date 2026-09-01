@@ -1268,15 +1268,6 @@
     "image": "./images/LC-PRD-085683-01.png"
   },
   {
-    "id": "LC-PRD-085683-01",
-    "sourceId": "LC-PRD-085683-01",
-    "model": "LC-PRD-085683-01",
-    "series": "LOCK_CHIP",
-    "category": "紋章鎖",
-    "name": "BXG-57-01 福音戰士",
-    "image": "./images/LC-PRD-085683-01.png"
-  },
-  {
     "id": "LC-PRD-085683-02",
     "sourceId": "LC-PRD-085683-02",
     "model": "LC-PRD-085683-02",
@@ -1286,30 +1277,12 @@
     "image": "./images/LC-PRD-085683-02.png"
   },
   {
-    "id": "LC-PRD-085683-02",
-    "sourceId": "LC-PRD-085683-02",
-    "model": "LC-PRD-085683-02",
-    "series": "LOCK_CHIP",
-    "category": "紋章鎖",
-    "name": "BXG-57-02 福音戰士",
-    "image": "./images/LC-PRD-085683-02.png"
-  },
-  {
     "id": "LC-PRD-085683-03",
     "sourceId": "LC-PRD-085683-03",
     "model": "LC-PRD-085683-03",
     "series": "LOCK_CHIP",
     "category": "紋章鎖",
     "name": "BXG-57-03 新世紀福音戰士",
-    "image": "./images/LC-PRD-085683-03.png"
-  },
-  {
-    "id": "LC-PRD-085683-03",
-    "sourceId": "LC-PRD-085683-03",
-    "model": "LC-PRD-085683-03",
-    "series": "LOCK_CHIP",
-    "category": "紋章鎖",
-    "name": "BXG-57-03 福音戰士",
     "image": "./images/LC-PRD-085683-03.png"
   },
   {
