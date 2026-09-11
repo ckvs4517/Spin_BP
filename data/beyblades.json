@@ -648,6 +648,38 @@
     "image": "./images/SR-PRD-084174-06.png"
   },
   {
+    "id": "SR-PRD-085553-00",
+    "sourceId": "SR-PRD-085553-00",
+    "model": "BX-52",
+    "series": "BX",
+    "name": "光輝龍騎士 6-60LC",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-073734-01",
+    "sourceId": "SR-PRD-073734-01",
+    "model": "BX-53-01",
+    "series": "BX",
+    "name": "騎士重盾 3-80N 版本2.0",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-073734-02",
+    "sourceId": "SR-PRD-073734-02",
+    "model": "BX-53-02",
+    "series": "BX",
+    "name": "魔導幻箭 4-80B 版本2.0",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-073734-03",
+    "sourceId": "SR-PRD-073734-03",
+    "model": "BX-53-03",
+    "series": "BX",
+    "name": "空力天馬 3-70A 金屬塗層:藍/青",
+    "image": ""
+  },
+  {
     "id": "SR-PRD-939672-00",
     "sourceId": "SR-PRD-939672-00",
     "model": "BXA-01",
@@ -726,6 +758,30 @@
     "series": "CX",
     "name": "天馬爆擊ATr 金屬塗層:火紅",
     "image": "./images/SR-PRD-930495-00R.png"
+  },
+  {
+    "id": "SR-PRD-080640-00M",
+    "sourceId": "SR-PRD-080640-00M",
+    "model": "CX-00",
+    "series": "CX",
+    "name": "迪卡狂怒FT3-60T",
+    "image": "./images/SR-PRD-080640-00M.png"
+  },
+  {
+    "id": "SR-PRD-080640-00RM",
+    "sourceId": "SR-PRD-080640-00RM",
+    "model": "CX-00",
+    "series": "CX",
+    "name": "迪卡狂怒FT3-60T",
+    "image": "./images/SR-PRD-080640-00RM.png"
+  },
+  {
+    "id": "SR-PRD-080640-00RRM",
+    "sourceId": "SR-PRD-080640-00RRM",
+    "model": "CX-00",
+    "series": "CX",
+    "name": "迪卡狂怒FT3-60T",
+    "image": "./images/SR-PRD-080640-00RRM.png"
   },
   {
     "id": "SR-PRD-994350-00R",
@@ -1068,7 +1124,7 @@
     "sourceId": "SR-PRD-080626-01",
     "model": "CX-19-01",
     "series": "CX",
-    "name": "鱷魚碾壓 TQ5-50GN",
+    "name": "鱷魚裂甲TQ 5-50GN",
     "image": "./images/SR-PRD-080626-01.jpg"
   },
   {
@@ -1076,7 +1132,7 @@
     "sourceId": "SR-PRD-080626-02",
     "model": "CX-19-02",
     "series": "CX",
-    "name": "鱷魚碾壓 TQ5-50GN",
+    "name": "鱷魚裂甲TQ 5-50GN",
     "image": "./images/SR-PRD-080626-02.png"
   },
   {
@@ -1084,7 +1140,7 @@
     "sourceId": "SR-PRD-080626-03",
     "model": "CX-19-03",
     "series": "CX",
-    "name": "鱷魚碾壓 TQ5-50GN",
+    "name": "鱷魚裂甲TQ 5-50GN",
     "image": "./images/SR-PRD-080626-03.png"
   },
   {
@@ -1214,22 +1270,58 @@
     "image": "./images/LC-PRD-080626-03.png"
   },
   {
-    "id": "LC-PRD-080640-01",
-    "sourceId": "LC-PRD-080640-01",
-    "model": "LC-PRD-080640-01",
+    "id": "LC-PRD-080640-00",
+    "sourceId": "LC-PRD-080640-00",
+    "model": "LC-PRD-080640-00",
     "series": "LOCK_CHIP",
     "category": "紋章鎖",
-    "name": "BXG-70-01 迪卡",
-    "image": ""
+    "name": "BXG-70 迪卡",
+    "image": "./images/LC-PRD-080640-00.png"
   },
   {
-    "id": "LC-PRD-080640-11",
-    "sourceId": "LC-PRD-080640-11",
-    "model": "LC-PRD-080640-11",
+    "id": "LC-PRD-080640-00M",
+    "sourceId": "LC-PRD-080640-00M",
+    "model": "LC-PRD-080640-00M",
     "series": "LOCK_CHIP",
     "category": "紋章鎖",
-    "name": "BXG-70-11 迪卡",
-    "image": ""
+    "name": "CX-00 迪卡",
+    "image": "./images/LC-PRD-080640-00M.png"
+  },
+  {
+    "id": "LC-PRD-080640-00RM",
+    "sourceId": "LC-PRD-080640-00RM",
+    "model": "LC-PRD-080640-00RM",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-00 迪卡",
+    "image": "./images/LC-PRD-080640-00RM.png"
+  },
+  {
+    "id": "LC-PRD-080640-00RRM",
+    "sourceId": "LC-PRD-080640-00RRM",
+    "model": "LC-PRD-080640-00RRM",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-00 迪卡",
+    "image": "./images/LC-PRD-080640-00RRM.png"
+  },
+  {
+    "id": "LC-PRD-080640-02",
+    "sourceId": "LC-PRD-080640-02",
+    "model": "LC-PRD-080640-02",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-70 迪卡",
+    "image": "./images/LC-PRD-080640-02.png"
+  },
+  {
+    "id": "LC-PRD-080640-03",
+    "sourceId": "LC-PRD-080640-03",
+    "model": "LC-PRD-080640-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-70 迪卡",
+    "image": "./images/LC-PRD-080640-03.png"
   },
   {
     "id": "LC-PRD-084174-05",
