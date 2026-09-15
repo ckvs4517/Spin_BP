@@ -660,7 +660,7 @@
     "sourceId": "SR-PRD-073734-01",
     "model": "BX-53-01",
     "series": "BX",
-    "name": "騎士重盾 3-80N 版本2.0",
+    "name": "空力天馬 3-70A 金屬塗層:藍/青",
     "image": ""
   },
   {
@@ -676,7 +676,7 @@
     "sourceId": "SR-PRD-073734-03",
     "model": "BX-53-03",
     "series": "BX",
-    "name": "空力天馬 3-70A 金屬塗層:藍/青",
+    "name": "騎士重盾 3-80N 版本2.0",
     "image": ""
   },
   {
@@ -1574,6 +1574,15 @@
     "category": "紋章鎖",
     "name": "CX-11 帝王",
     "image": "./images/LC-PRD-098775-01R.png"
+  },
+  {
+    "id": "LC-PRD-099021-00",
+    "sourceId": "LC-PRD-099021-00",
+    "model": "LC-PRD-099021-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXC-21 基德",
+    "image": ""
   },
   {
     "id": "LC-PRD-930495-00",
