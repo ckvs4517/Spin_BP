@@ -653,7 +653,7 @@
     "model": "BX-52",
     "series": "BX",
     "name": "光輝龍騎士 6-60LC",
-    "image": ""
+    "image": "./images/SR-PRD-085553-00.png"
   },
   {
     "id": "SR-PRD-073734-01",
@@ -661,7 +661,7 @@
     "model": "BX-53-01",
     "series": "BX",
     "name": "空力天馬 3-70A 金屬塗層:藍/青",
-    "image": ""
+    "image": "./images/SR-PRD-073734-01.png"
   },
   {
     "id": "SR-PRD-073734-02",
@@ -669,7 +669,7 @@
     "model": "BX-53-02",
     "series": "BX",
     "name": "魔導幻箭 4-80B 版本2.0",
-    "image": ""
+    "image": "./images/SR-PRD-073734-02.png"
   },
   {
     "id": "SR-PRD-073734-03",
@@ -677,7 +677,7 @@
     "model": "BX-53-03",
     "series": "BX",
     "name": "騎士重盾 3-80N 版本2.0",
-    "image": ""
+    "image": "./images/SR-PRD-073734-03.png"
   },
   {
     "id": "SR-PRD-939672-00",
