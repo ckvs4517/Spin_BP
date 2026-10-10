@@ -680,6 +680,14 @@
     "image": "./images/SR-PRD-073734-03.png"
   },
   {
+    "id": "SR-PRD-080763-00",
+    "sourceId": "SR-PRD-080763-00",
+    "model": "BX-54",
+    "series": "BX",
+    "name": "巨神壓制 0-70LP",
+    "image": ""
+  },
+  {
     "id": "SR-PRD-939672-00",
     "sourceId": "SR-PRD-939672-00",
     "model": "BXA-01",
