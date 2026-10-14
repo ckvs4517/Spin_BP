@@ -808,6 +808,14 @@
     "image": "./images/SR-PRD-085683-03R.png"
   },
   {
+    "id": "SR-PRD-056225-00R",
+    "sourceId": "SR-PRD-056225-00R",
+    "model": "CX-00",
+    "series": "CX",
+    "name": "KIDHUNTK4-70TK Metallic Coat: White",
+    "image": "./images/SR-PRD-056225-00R.png"
+  },
+  {
     "id": "SR-PRD-939597-00",
     "sourceId": "SR-PRD-939597-00",
     "model": "CX-01",
@@ -1152,6 +1160,54 @@
     "image": "./images/SR-PRD-080626-03.png"
   },
   {
+    "id": "SR-PRD-077596-01",
+    "sourceId": "SR-PRD-077596-01",
+    "model": "CX-20-01",
+    "series": "CX",
+    "name": "鳳凰神威 WHM-65MT 金屬塗層:火紅",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077596-02",
+    "sourceId": "SR-PRD-077596-02",
+    "model": "CX-20-02",
+    "series": "CX",
+    "name": "鮫鯊狂鱗 1-70K",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077596-03",
+    "sourceId": "SR-PRD-077596-03",
+    "model": "CX-20-03",
+    "series": "CX",
+    "name": "魔導神杖 8-80LR 金屬塗層:藍",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077596-04",
+    "sourceId": "SR-PRD-077596-04",
+    "model": "CX-20-04",
+    "series": "CX",
+    "name": "惡魔紅鐮 版本2.0",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077596-05",
+    "sourceId": "SR-PRD-077596-05",
+    "model": "CX-20-05",
+    "series": "CX",
+    "name": "豪華改造組 C LO",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077596-06",
+    "sourceId": "SR-PRD-077596-06",
+    "model": "CX-20-06",
+    "series": "CX",
+    "name": "豪華改造組 C HN",
+    "image": ""
+  },
+  {
     "id": "LC-EVE-088899-00",
     "sourceId": "LC-EVE-088899-00",
     "model": "LC-EVE-088899-00",
@@ -1197,6 +1253,24 @@
     "image": "./images/LC-EVE-982524-03.png"
   },
   {
+    "id": "LC-PRD-056225-00",
+    "sourceId": "LC-PRD-056225-00",
+    "model": "LC-PRD-056225-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXC-21 基德",
+    "image": "./images/LC-PRD-056225-00.png"
+  },
+  {
+    "id": "LC-PRD-056225-00R",
+    "sourceId": "LC-PRD-056225-00R",
+    "model": "LC-PRD-056225-00R",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-00 KID",
+    "image": "./images/LC-PRD-056225-00R.png"
+  },
+  {
     "id": "LC-PRD-072447-00",
     "sourceId": "LC-PRD-072447-00",
     "model": "LC-PRD-072447-00",
@@ -1240,6 +1314,15 @@
     "category": "紋章鎖",
     "name": "BXH-23-01 龍神",
     "image": "./images/LC-PRD-077398-00.png"
+  },
+  {
+    "id": "LC-PRD-077596-01",
+    "sourceId": "LC-PRD-077596-01",
+    "model": "LC-PRD-077596-01",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "CX-20-01 鳳凰",
+    "image": ""
   },
   {
     "id": "LC-PRD-080572-00",
@@ -1582,15 +1665,6 @@
     "category": "紋章鎖",
     "name": "CX-11 帝王",
     "image": "./images/LC-PRD-098775-01R.png"
-  },
-  {
-    "id": "LC-PRD-099021-00",
-    "sourceId": "LC-PRD-099021-00",
-    "model": "LC-PRD-099021-00",
-    "series": "LOCK_CHIP",
-    "category": "紋章鎖",
-    "name": "BXC-21 基德",
-    "image": ""
   },
   {
     "id": "LC-PRD-930495-00",
