@@ -1253,6 +1253,15 @@
     "image": "./images/LC-EVE-982524-03.png"
   },
   {
+    "id": "LC-PRD-056102-00",
+    "sourceId": "LC-PRD-056102-00",
+    "model": "LC-PRD-056102-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-65 戰神",
+    "image": ""
+  },
+  {
     "id": "LC-PRD-056225-00",
     "sourceId": "LC-PRD-056225-00",
     "model": "LC-PRD-056225-00",
