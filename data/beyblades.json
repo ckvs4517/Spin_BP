@@ -685,7 +685,7 @@
     "model": "BX-54",
     "series": "BX",
     "name": "巨神壓制 0-70LP",
-    "image": ""
+    "image": "./images/SR-PRD-080763-00.png"
   },
   {
     "id": "SR-PRD-939672-00",
@@ -1165,7 +1165,7 @@
     "model": "CX-20-01",
     "series": "CX",
     "name": "鳳凰神威 WHM-65MT 金屬塗層:火紅",
-    "image": ""
+    "image": "./images/SR-PRD-077596-01.png"
   },
   {
     "id": "SR-PRD-077596-02",
@@ -1173,7 +1173,7 @@
     "model": "CX-20-02",
     "series": "CX",
     "name": "鮫鯊狂鱗 1-70LR",
-    "image": ""
+    "image": "./images/SR-PRD-077596-02.png"
   },
   {
     "id": "SR-PRD-077596-03",
@@ -1181,7 +1181,7 @@
     "model": "CX-20-03",
     "series": "CX",
     "name": "魔導神杖 8-80K 金屬塗層:藍",
-    "image": ""
+    "image": "./images/SR-PRD-077596-03.png"
   },
   {
     "id": "SR-PRD-077596-04",
@@ -1189,7 +1189,7 @@
     "model": "CX-20-04",
     "series": "CX",
     "name": "惡魔紅鐮 版本2.0",
-    "image": ""
+    "image": "./images/SR-PRD-077596-04.png"
   },
   {
     "id": "SR-PRD-077596-05",
@@ -1197,7 +1197,7 @@
     "model": "CX-20-05",
     "series": "CX",
     "name": "豪華改造組 C LO",
-    "image": ""
+    "image": "./images/SR-PRD-077596-05.png"
   },
   {
     "id": "SR-PRD-077596-06",
@@ -1205,7 +1205,7 @@
     "model": "CX-20-06",
     "series": "CX",
     "name": "豪華改造組 C HN",
-    "image": ""
+    "image": "./images/SR-PRD-077596-06.png"
   },
   {
     "id": "LC-EVE-088899-00",
@@ -1258,8 +1258,8 @@
     "model": "LC-PRD-056102-00",
     "series": "LOCK_CHIP",
     "category": "紋章鎖",
-    "name": "BXG-65 戰神",
-    "image": ""
+    "name": "BXG-65> 戰神",
+    "image": "./images/LC-PRD-056102-00.png"
   },
   {
     "id": "LC-PRD-056225-00",
@@ -1331,7 +1331,7 @@
     "series": "LOCK_CHIP",
     "category": "紋章鎖",
     "name": "CX-20-01 鳳凰",
-    "image": ""
+    "image": "./images/LC-PRD-077596-01.png"
   },
   {
     "id": "LC-PRD-080572-00",
