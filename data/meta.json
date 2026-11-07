@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-06T01:31:45.497Z",
+  "generatedAt": "2026-11-07T00:54:17.746Z",
   "source": "https://beyblade.phstudy.org/data/main.json",
-  "sourceCount": 210,
-  "count": 278,
+  "sourceCount": 211,
+  "count": 279,
   "mirrorDuplicatesRemoved": -68,
-  "imageDownloads": 7,
+  "imageDownloads": 1,
   "imageMisses": 9,
   "dedupePolicy": "Preserve distinct color/product variants; collapse only explicit mirrored source IDs such as trailing R/RR aliases."
 }

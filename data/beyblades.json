@@ -684,7 +684,7 @@
     "sourceId": "SR-PRD-080763-00",
     "model": "BX-54",
     "series": "BX",
-    "name": "巨神壓制 0-70LP",
+    "name": "凱旋極神0-70LP",
     "image": "./images/SR-PRD-080763-00.png"
   },
   {
@@ -1160,11 +1160,43 @@
     "image": "./images/SR-PRD-080626-03.png"
   },
   {
+    "id": "SR-PRD-077596-04",
+    "sourceId": "SR-PRD-077596-04",
+    "model": "CX-20",
+    "series": "CX",
+    "name": "CX-20",
+    "image": "./images/SR-PRD-077596-04.png"
+  },
+  {
+    "id": "SR-PRD-077596-05",
+    "sourceId": "SR-PRD-077596-05",
+    "model": "CX-20",
+    "series": "CX",
+    "name": "CX-20",
+    "image": "./images/SR-PRD-077596-05.png"
+  },
+  {
+    "id": "SR-PRD-077596-06",
+    "sourceId": "SR-PRD-077596-06",
+    "model": "CX-20",
+    "series": "CX",
+    "name": "CX-20",
+    "image": "./images/SR-PRD-077596-06.png"
+  },
+  {
+    "id": "SR-PRD-077596-07",
+    "sourceId": "SR-PRD-077596-07",
+    "model": "CX-20",
+    "series": "CX",
+    "name": "CX-20",
+    "image": "./images/SR-PRD-077596-07.png"
+  },
+  {
     "id": "SR-PRD-077596-01",
     "sourceId": "SR-PRD-077596-01",
     "model": "CX-20-01",
     "series": "CX",
-    "name": "鳳凰神威 WHM-65MT 金屬塗層:火紅",
+    "name": "鳳凰原力WHM-65MT 金屬塗層:紅",
     "image": "./images/SR-PRD-077596-01.png"
   },
   {
@@ -1172,7 +1204,7 @@
     "sourceId": "SR-PRD-077596-02",
     "model": "CX-20-02",
     "series": "CX",
-    "name": "鮫鯊狂鱗 1-70LR",
+    "name": "鮫鯊狂鱗1-70LR",
     "image": "./images/SR-PRD-077596-02.png"
   },
   {
@@ -1180,32 +1212,8 @@
     "sourceId": "SR-PRD-077596-03",
     "model": "CX-20-03",
     "series": "CX",
-    "name": "魔導神杖 8-80K 金屬塗層:藍",
+    "name": "魔導神杖8-80HN 金屬塗層:藍",
     "image": "./images/SR-PRD-077596-03.png"
-  },
-  {
-    "id": "SR-PRD-077596-04",
-    "sourceId": "SR-PRD-077596-04",
-    "model": "CX-20-04",
-    "series": "CX",
-    "name": "惡魔紅鐮 版本2.0",
-    "image": "./images/SR-PRD-077596-04.png"
-  },
-  {
-    "id": "SR-PRD-077596-05",
-    "sourceId": "SR-PRD-077596-05",
-    "model": "CX-20-05",
-    "series": "CX",
-    "name": "豪華改造組 C LO",
-    "image": "./images/SR-PRD-077596-05.png"
-  },
-  {
-    "id": "SR-PRD-077596-06",
-    "sourceId": "SR-PRD-077596-06",
-    "model": "CX-20-06",
-    "series": "CX",
-    "name": "豪華改造組 C HN",
-    "image": "./images/SR-PRD-077596-06.png"
   },
   {
     "id": "LC-EVE-088899-00",
