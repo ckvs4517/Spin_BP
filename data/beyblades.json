@@ -688,6 +688,54 @@
     "image": "./images/SR-PRD-080763-00.png"
   },
   {
+    "id": "SR-PRD-077602-01",
+    "sourceId": "SR-PRD-077602-01",
+    "model": "BX-55-01",
+    "series": "BX",
+    "name": "荷魯斯粉碎 3-85MO",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077602-02",
+    "sourceId": "SR-PRD-077602-02",
+    "model": "BX-55-02",
+    "series": "BX",
+    "name": "荷魯斯粉碎 1-60BS",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077602-03",
+    "sourceId": "SR-PRD-077602-03",
+    "model": "BX-55-03",
+    "series": "BX",
+    "name": "雄獅獠牙 T9-65HT",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077602-04",
+    "sourceId": "SR-PRD-077602-04",
+    "model": "BX-55-04",
+    "series": "BX",
+    "name": "極狐爆擊 R6-70A",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077602-05",
+    "sourceId": "SR-PRD-077602-05",
+    "model": "BX-55-05",
+    "series": "BX",
+    "name": "三角強襲 4-60DS",
+    "image": ""
+  },
+  {
+    "id": "SR-PRD-077602-06",
+    "sourceId": "SR-PRD-077602-06",
+    "model": "BX-55-06",
+    "series": "BX",
+    "name": "時鐘幻象 4-55MO",
+    "image": ""
+  },
+  {
     "id": "SR-PRD-939672-00",
     "sourceId": "SR-PRD-939672-00",
     "model": "BXA-01",
@@ -1340,6 +1388,24 @@
     "category": "紋章鎖",
     "name": "CX-20-01 鳳凰",
     "image": "./images/LC-PRD-077596-01.png"
+  },
+  {
+    "id": "LC-PRD-077602-03",
+    "sourceId": "LC-PRD-077602-03",
+    "model": "LC-PRD-077602-03",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BX-55-03 雄獅",
+    "image": ""
+  },
+  {
+    "id": "LC-PRD-077602-04",
+    "sourceId": "LC-PRD-077602-04",
+    "model": "LC-PRD-077602-04",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BX-55-04 極狐",
+    "image": ""
   },
   {
     "id": "LC-PRD-080572-00",
@@ -2311,5 +2377,13 @@
     "series": "UX",
     "name": "飛龍凌空8-80B",
     "image": "./images/SR-PRD-085546-03.png"
+  },
+  {
+    "id": "SR-PRD-073741-00",
+    "sourceId": "SR-PRD-073741-00",
+    "model": "UX-22",
+    "series": "UX",
+    "name": "消逝路西法 WW",
+    "image": ""
   }
 ]
