@@ -1966,6 +1966,15 @@
     "image": "./images/LC-PRD-982432-03.png"
   },
   {
+    "id": "LC-PRD-990012-00",
+    "sourceId": "LC-PRD-990012-00",
+    "model": "LC-PRD-990012-00",
+    "series": "LOCK_CHIP",
+    "category": "紋章鎖",
+    "name": "BXG-64 龍王",
+    "image": ""
+  },
+  {
     "id": "LC-PRD-993872-00",
     "sourceId": "LC-PRD-993872-00",
     "model": "LC-PRD-993872-00",
